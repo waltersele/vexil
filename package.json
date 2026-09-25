@@ -1,0 +1,9 @@
+{
+  "name": "vexil-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node src/build.mjs",
+    "start": "npx --yes serve public -p 4173"
+  }
+}
