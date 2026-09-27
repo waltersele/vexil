@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    overscroll-behavior: none;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  [id] {
+    scroll-margin-top: 6rem;
+  }
+}
+
+details.faq summary::-webkit-details-marker {
+  display: none;
+}
+#mobile-menu:not(.open) {
+  display: none;
+}
+.mega-panel {
+  display: none;
+}
+.mega-wrap:hover .mega-panel,
+.mega-wrap:focus-within .mega-panel,
+.mega-wrap.is-open .mega-panel {
+  display: block;
+}
+.prose-legal p + p {
+  margin-top: 1rem;
+}
+.prose-legal h2 {
+  margin: 2rem 0 0.75rem;
+}

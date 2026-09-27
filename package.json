@@ -3,7 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node src/build.mjs",
+    "build": "node src/build.mjs && npx tailwindcss -i src/styles.css -o public/assets/app.css --minify",
     "start": "npx --yes serve public -p 4173"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.4",
+    "tailwindcss": "^3.4.17"
   }
 }

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://waltersele.github.io/vexil/sitemap.xml
