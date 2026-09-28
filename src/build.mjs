@@ -202,7 +202,7 @@ ${icon(s.icon, "w-[22px] h-[22px] text-primary-container mt-0.5 shrink-0")}
 </div>
 <div class="grid grid-cols-3 gap-1">${megaItems}</div>
 <div class="mt-space-md pt-space-md border-t border-surface-container flex items-center justify-between">
-<p class="font-body-sm text-body-sm text-on-surface-variant">¿Eres arquitecto, interiorista o constructora?</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">¿Eres estudio, constructora o rotulista?</p>
 <a class="font-label-md text-label-md uppercase tracking-wider text-primary-container hover:underline" href="${pro}">Página profesionales</a>
 </div>
 </div>
@@ -239,8 +239,8 @@ function footer(depth) {
 <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-lg pb-space-xl">
 <div class="flex flex-col gap-space-sm">
-<img alt="Vexil" class="h-7 w-auto" src="${asset(depth, "logo.png")}" width="120" height="28"/>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Rótulos, fachadas, vinilos y señalética para negocios. Taller en El Campello, trabajamos en toda el área de Alicante.</p>
+<img alt="Vexil" class="h-7 w-auto max-w-full self-start object-contain object-left" src="${asset(depth, "logo.png")}" width="101" height="28"/>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Rotulación, fachadas, interiores y señalética. Diseñado y fabricado en El Campello, montado en toda el área de Alicante.</p>
 <p class="font-body-sm text-body-sm text-on-surface">${NAP}</p>
 <p class="font-body-sm text-body-sm text-on-surface-variant">${AREA}</p>
 </div>
@@ -418,8 +418,8 @@ ${t.faqs?.length ? `<div class="space-y-space-sm">${faqItems(t.faqs, depth)}</di
 <div class="p-space-lg flex-1">
 <span class="font-label-technical text-label-technical uppercase tracking-widest text-primary-container">${s.tech}</span>
 <h3 class="font-headline-lg text-headline-lg text-on-surface mt-2 mb-space-sm">${s.title}</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">${s.text}</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant">${s.a}: ${s.av} · ${s.b}: ${s.bv}</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">${resolveLinks(s.text, depth)}</p>
+${Array.isArray(s.specs) && s.specs.length ? `<ul class="font-body-sm text-body-sm text-on-surface-variant space-y-1">${s.specs.map((x) => `<li>${x}</li>`).join("")}</ul>` : ""}
 </div>
 </article>`
     )
@@ -638,7 +638,7 @@ ${header(0, "home")}
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${cards}</div>
 <div class="mt-10 text-center">
-<a class="inline-flex px-space-lg py-3 bg-inverse-surface text-inverse-on-surface font-label-md text-label-md uppercase tracking-wider" href="${rel(0, "profesionales/")}">¿Eres arquitecto, interiorista o constructora? Página profesionales</a>
+<a class="inline-flex px-space-lg py-3 bg-inverse-surface text-inverse-on-surface font-label-md text-label-md uppercase tracking-wider" href="${rel(0, "profesionales/")}">¿Eres estudio, constructora o rotulista? Así trabajamos →</a>
 </div>
 </div>
 </section>

@@ -1,14 +1,24 @@
 const paths = {
+  // Nav services — formas reconocibles
   apartment: '<path d="M4 21V7l8-4 8 4v14"/><path d="M9 21v-6h6v6"/><path d="M9 10h.01M15 10h.01M9 14h.01M15 14h.01"/>',
-  signpost: '<path d="M12 3v18"/><path d="M9 3h10l-2 3 2 3H9"/><path d="M15 13H5l2 3-2 3h10"/>',
+  // Letras corpóreas: letra A
+  letter_a: '<path d="M6 19 12 4l6 15"/><path d="M8.5 13h7"/><path d="M10 19h4"/>',
   print: '<path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/>',
   local_shipping: '<path d="M5 18H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h11v12"/><path d="M14 8h4l4 4v5a1 1 0 0 1-1 1h-2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>',
   chair: '<path d="M6 11V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v5"/><path d="M5 11h14v2H5z"/><path d="M7 13v6M17 13v6M5 19h14"/>',
   wb_sunny: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
-  precision_manufacturing: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 6.2l2.1 2.1M17.7 15.7l2.1 2.1M2 12h3M19 12h3M4.2 17.8l2.1-2.1M17.7 8.3l2.1-2.1"/>',
+  // Corte: fresadora CNC / láser / plotter (mesa + pórtico + husillo)
+  content_cut: '<path d="M3 20h18"/><path d="M5 20V8h14v12"/><path d="M5 10h14"/><path d="M12 10v6"/><path d="M10.5 16h3"/><circle cx="12" cy="18" r="1.25"/>',
   view_quilt: '<rect x="3" y="4" width="18" height="16" rx="1"/><path d="M9 4v16M9 12h12"/>',
   light: '<path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 1 4 12.6V17H8v-2.4A7 7 0 0 1 12 2z"/>',
-  alt_route: '<circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 18.5C10 14 14 12 16 7.5"/><path d="M8 8h4v4"/>',
+  // Señalética: placa con flecha
+  plaque: '<rect x="3" y="6" width="18" height="12" rx="1"/><path d="M7 12h6M15 10l3 2-3 2"/>',
+  // Poste con carteles (orientación / misma marca)
+  signpost: '<path d="M12 3v18"/><path d="M12 6h7l-1.5 2.5L19 11H12"/><path d="M12 13H6l1.5 2.5L6 18h6"/>',
+  // Misma máquina que content_cut (taller / CNC)
+  precision_manufacturing: '<path d="M3 20h18"/><path d="M5 20V8h14v12"/><path d="M5 10h14"/><path d="M12 10v6"/><path d="M10.5 16h3"/><circle cx="12" cy="18" r="1.25"/>',
+  // Recorrido / orientación → misma lectura que placa
+  alt_route: '<rect x="3" y="6" width="18" height="12" rx="1"/><path d="M7 12h6M15 10l3 2-3 2"/>',
   expand_more: '<path d="m6 9 6 6 6-6"/>',
   menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
   call: '<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.2-1.1a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/>',
