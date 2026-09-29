@@ -112,7 +112,7 @@ export const navServices = [
     "name": "Iluminación decorativa",
     "short": "LED para locales",
     "icon": "light",
-    "summary": "Luz para destacar un producto y dar ambiente a tu local.",
+    "summary": "Luz de ambiente y LED píxel programable para dar vida a tu local.",
     "image": "servicio-iluminacion-decorativa.jpg",
     "alt": "Iluminación decorativa en el interior de un restaurante"
   },
@@ -1525,10 +1525,10 @@ export const services = {
     "slug": "iluminacion-decorativa",
     "breadcrumb": "Iluminación decorativa",
     "title": "Iluminación decorativa LED en Alicante | Vexil",
-    "description": "Tiras, perfiles LED y paneles retroiluminados para comercios, oficinas y hostelería en Alicante. Iluminación integrada en tu espacio.",
+    "description": "Iluminación decorativa y LED píxel programable en Alicante: tiras, perfiles y secuencias de luz para dar personalidad a tu local. Consulta tu proyecto con Vexil.",
     "eyebrow": "Iluminación LED para locales",
     "h1": "Iluminación decorativa LED para locales en Alicante",
-    "lead": "La luz cambia cómo se percibe un espacio. Instalamos tiras, perfiles LED y elementos retroiluminados para dar protagonismo a una barra, destacar un producto o crear un ambiente acogedor en tu local.",
+    "lead": "La luz cambia cómo se percibe un espacio. Instalamos tiras, perfiles LED y elementos retroiluminados para destacar un producto o crear un ambiente acogedor. Con el LED píxel programable, también podemos dar movimiento a la luz y crear secuencias de color para tu local.",
     "pills": [
       {
         "icon": "light",
@@ -1546,9 +1546,9 @@ export const services = {
         "sub": "Tiendas, bares, oficinas"
       },
       {
-        "icon": "architecture",
-        "title": "Con el rótulo",
-        "sub": "Una sola imagen"
+        "icon": "bolt",
+        "title": "LED píxel",
+        "sub": "Color y movimiento"
       }
     ],
     "ctaPrimary": "Pedir presupuesto",
@@ -1586,7 +1586,7 @@ export const services = {
       }
     ],
     "solutionsH2": "Aplicaciones de iluminación decorativa",
-    "solutionsLead": "Perfiles, tiras LED y superficies retroiluminadas, adaptados al espacio. Para iluminar tu nombre o tu logotipo, consulta <a data-rel=\"servicios/rotulos/\">rótulos luminosos y neón LED</a>.",
+    "solutionsLead": "Perfiles, tiras LED, superficies retroiluminadas y LED píxel programable, adaptados al espacio y al ambiente que buscas. Para iluminar tu nombre o tu logotipo, consulta <a data-rel=\"servicios/rotulos/\">rótulos luminosos y neón LED</a>.",
     "solutions": [
       {
         "tech": "Perfil LED",
@@ -1597,6 +1597,17 @@ export const services = {
           "Corte a longitud"
         ],
         "cap": "Tira LED"
+      },
+      {
+        "tech": "LED píxel",
+        "title": "LED píxel programable",
+        "text": "Haz que la luz forme parte de la experiencia de tu local. El control de los puntos de luz permite crear cambios de color, recorridos y secuencias con movimiento. Diseñamos la composición y definimos contigo los efectos para barras, techos, escaparates y espacios de ocio.",
+        "specs": [
+          "Colores y secuencias a medida",
+          "Efectos de movimiento",
+          "Control adaptado a la instalación"
+        ],
+        "cap": "Luz en movimiento"
       },
       {
         "tech": "Acento",
@@ -1646,10 +1657,14 @@ export const services = {
       {
         "q": "¿Necesito instalación eléctrica especial?",
         "a": "Depende de las piezas y del montaje. Antes de presupuestar revisamos la alimentación disponible y las necesidades de conexión. Si hace falta una actuación eléctrica adicional, se concreta en el proyecto."
+      },
+      {
+        "q": "¿Qué es el LED píxel programable?",
+        "a": "Es una iluminación que permite controlar puntos de luz de forma independiente, según el sistema elegido. Así se pueden crear recorridos de color, transiciones y secuencias animadas, además de una iluminación fija. Definimos los efectos y el sistema de control en función del proyecto."
       }
     ],
     "contactH2": "¿Qué rincón quieres poner en valor?",
-    "contactLead": "Muéstranos la barra, los estantes o la recepción y cuéntanos el ambiente que buscas. Revisaremos las medidas y las necesidades de instalación.",
+    "contactLead": "Muéstranos la barra, el techo, el escaparate o la recepción y cuéntanos el ambiente que buscas. Si quieres LED píxel programable, envíanos también una referencia del efecto de luz que tienes en mente. Revisaremos las medidas y las necesidades de instalación.",
     "related": [
       {
         "href": "servicios/rotulos/",
@@ -2647,7 +2662,7 @@ export const homeCatalog = [
     "name": "Iluminación decorativa",
     "short": "LED para locales",
     "icon": "light",
-    "summary": "Luz para destacar un producto y dar ambiente a tu local.",
+    "summary": "Luz de ambiente y LED píxel programable para dar vida a tu local.",
     "image": "servicio-iluminacion-decorativa.jpg",
     "alt": "Iluminación decorativa en el interior de un restaurante"
   },
