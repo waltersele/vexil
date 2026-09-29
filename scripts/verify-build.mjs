@@ -24,7 +24,7 @@ for(const file of await walk(root)){
  for(const match of html.matchAll(/<img\b[^>]*>/g)){if(!match[0].includes('alt='))errors.push(`${file}: image has no alt`);}
 }
 const home=await readFile(join(root,'index.html'),'utf8');
-if(!home.includes('<h1 class="brand-title">VEXIL</h1>'))errors.push('Home must lead with VEXIL');
+if(!home.includes('<h1>Rotulación e iluminación a medida para tu negocio</h1>'))errors.push('Home must have a descriptive H1');
 if(home.includes('Creada con IA')||home.includes('creados con IA'))errors.push('Stale AI image caption');
 // Exercise the built WhatsApp handler without making any network request.
 const script=[...home.matchAll(/<script>([\s\S]*?)<\/script>/g)].at(-1)?.[1];

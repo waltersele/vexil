@@ -139,10 +139,10 @@ export const redirects = [
 ];
 
 export const home = {
-  "title": "Vexil | Rotulación en Alicante y El Campello",
-  "description": "Rótulos, fachadas, vinilos y rotulación de vehículos en Alicante. Taller en El Campello. Diseño, fabricación e instalación. Pide presupuesto.",
+  "title": "Rotulación e iluminación en Alicante | Vexil",
+  "description": "Rótulos, vinilos, señalética e iluminación LED a medida. Diseño, fabricación e instalación para negocios en Alicante. Taller propio en El Campello.",
   "eyebrow": "Diseño · Fabricación · Instalación",
-  "h1": "VEXIL",
+  "h1": "Rotulación e iluminación a medida para tu negocio",
   "lead": "Diseñamos, fabricamos e instalamos rótulos, vinilos, señalética e iluminación LED. Desde una fachada hasta el interior de tu local, damos forma a la imagen de tu marca.",
   "ctaPrimary": "Cuéntanos tu idea",
   "ctaSecondary": "Explora los servicios",
@@ -150,10 +150,10 @@ export const home = {
   "heroImg": "servicio-fachadas.jpg",
   "heroAlt": "Fachada de un comercio con rótulo en banderola",
   "servicesEyebrow": "Qué necesitas para tu negocio",
-  "servicesH2": "Una solución para cada espacio.",
+  "servicesH2": "Servicios de rotulación, impresión e iluminación",
   "servicesLead": "Desde el rótulo de una nueva apertura hasta los vinilos de tu furgoneta. Elige lo que necesitas y descubre las opciones, los materiales y cómo podemos ayudarte.",
   "whyEyebrow": "Así trabajamos",
-  "whyH2": "De la primera idea al último detalle.",
+  "whyH2": "Del diseño a la instalación: cómo trabajamos",
   "whyLead": "No necesitas llegar con todo decidido. Cuéntanos qué quieres comunicar y dónde: revisamos el espacio, te orientamos con los materiales y preparamos una propuesta con el alcance del trabajo.",
   "whyImg": "servicio-corte.jpg",
   "whyImgAlt": "Detalle de un equipo láser en funcionamiento",
@@ -280,7 +280,7 @@ export const services = {
     "heroImg": "servicio-fachadas.jpg",
     "heroAlt": "Fachada de un comercio con rótulo en banderola",
     "whyEyebrow": "Beneficios",
-    "whyH2": "Una fachada que habla bien de tu negocio",
+    "whyH2": "Renovación de fachadas para comercios y locales",
     "whyLead": "Puede que estés abriendo un local o que el que ya tienes necesite un cambio. Estudiamos el frente como un conjunto: qué se ve desde la calle, dónde colocar tu nombre y cómo integrar los distintos elementos.",
     "benefits": [
       {
@@ -308,7 +308,7 @@ export const services = {
         "tag": "Un solo criterio"
       }
     ],
-    "solutionsH2": "Qué podemos hacer en tu fachada",
+    "solutionsH2": "Revestimientos, rótulos y vinilos de escaparate",
     "solutionsLead": "Combinamos revestimiento, letras y vinilos según el local. También <a data-rel=\"servicios/rotulos/\">letras corpóreas</a>, <a data-rel=\"servicios/laminas-solares/\">láminas solares en escaparates y cristaleras</a> y <a data-rel=\"servicios/impresion-digital/\">vinilos de escaparate</a>.",
     "solutions": [
       {
@@ -436,7 +436,7 @@ export const services = {
     "heroImg": "servicio-rotulos.jpg",
     "heroAlt": "Detalle de un rótulo luminoso en un escaparate",
     "whyEyebrow": "Por qué",
-    "whyH2": "El rótulo adecuado para tu nombre y tu espacio",
+    "whyH2": "Diseño, fabricación e instalación de rótulos",
     "whyLead": "No todos los negocios necesitan el mismo rótulo. El tamaño de la fachada, los colores del entorno y tu horario ayudan a decidir si convienen letras en relieve, una banderola, un luminoso o una pieza sin luz.",
     "benefits": [
       {
@@ -464,7 +464,7 @@ export const services = {
         "tag": "Propuesta"
       }
     ],
-    "typesH2Intro": "Tipos de rótulo",
+    "typesH2Intro": "Letras corpóreas, rótulos luminosos y neón LED",
     "typesLead": "Corpóreos, neón LED, luminosos, sin iluminación y reparación del que ya tienes.",
     "types": [
       {
@@ -603,7 +603,8 @@ export const services = {
     "waMessage": "Hola, os escribo por letras corpóreas y rótulos.",
     "imageIllustrative": false,
     "imageSource": "https://www.pexels.com/photo/illuminated-storefront-sign-at-night-30096221/",
-    "imageProvider": "Pexels"
+    "imageProvider": "Pexels",
+    "solutionsH2": "Letras corpóreas, rótulos luminosos y neón LED"
   },
   "impresion-digital": {
     "slug": "impresion-digital",
@@ -641,7 +642,7 @@ export const services = {
     "heroImg": "servicio-impresion-digital.jpg",
     "heroAlt": "Impresora de gran formato en un espacio de trabajo",
     "whyEyebrow": "Material",
-    "whyH2": "Tu diseño, preparado para verse a su tamaño real",
+    "whyH2": "Cómo preparamos tu impresión de gran formato",
     "whyLead": "Antes de imprimir, importa saber dónde irá la gráfica y cuánto tiempo necesitas utilizarla. Te orientamos con el material y revisamos si tu archivo tiene calidad suficiente para el tamaño final.",
     "benefits": [
       {
@@ -663,7 +664,7 @@ export const services = {
         "tag": "Montaje"
       }
     ],
-    "solutionsH2": "Vinilos decorativos y murales a medida",
+    "solutionsH2": "Vinilos, lonas, murales y carteles a medida",
     "solutionsLead": "Imprimimos vinilos decorativos y murales para negocios y viviendas, a la medida de la pared. Elegimos el vinilo según la superficie y, si lo quieres, lo colocamos. ¿Es para un proyecto de interiorismo? <a data-rel=\"servicios/interiorismo-comercial/\">Mira cómo trabajamos con estudios</a>.",
     "solutions": [
       {
@@ -814,7 +815,7 @@ export const services = {
     "heroImg": "servicio-vehiculos.jpg",
     "heroAlt": "Furgoneta blanca con rotulación parcial en su lateral",
     "whyEyebrow": "Personalización",
-    "whyH2": "Que se entienda quién eres y cómo contactar contigo",
+    "whyH2": "Diseño de vinilos para furgonetas de empresa",
     "whyLead": "Seleccionamos la información importante y la adaptamos a puertas y laterales. El espacio, las juntas y las formas del vehículo cuentan: buscamos una composición legible, sin recargar la carrocería.",
     "benefits": [
       {
@@ -842,7 +843,7 @@ export const services = {
         "tag": "Cuidado"
       }
     ],
-    "solutionsH2": "Qué podemos rotular en tu furgoneta",
+    "solutionsH2": "Logotipos, datos de contacto y gráfica comercial",
     "solutionsLead": "Personalización parcial con logotipos, textos y elementos gráficos. No realizamos forrado completo ni cambio de color.",
     "solutions": [
       {
@@ -941,35 +942,35 @@ export const services = {
     "heroImg": "servicio-interiorismo-comercial.jpg",
     "heroAlt": "Oficina con elementos gráficos en sus paredes",
     "whyEyebrow": "Cómo trabajamos",
-    "whyH2": "Tu marca también se vive dentro",
+    "whyH2": "Una imagen coherente en todo el interior de tu negocio",
     "whyLead": "Te ayudamos a trasladar tu identidad al espacio con piezas gráficas que encajen entre sí. Trabajamos con negocios y con estudios de interiorismo, a partir de una idea, de planos o de un diseño ya definido.",
     "benefits": [
       {
         "icon": "print",
-        "title": "Murales y revestimientos gráficos",
-        "text": "Impresión a medida de la pared, en vinilo o papel mural, colocada por nosotros.",
+        "title": "Una imagen reconocible",
+        "text": "Adaptamos colores, tipografías y composición para que las distintas piezas se reconozcan como parte de tu marca.",
         "tag": "Murales"
       },
       {
         "icon": "window",
-        "title": "Vinilo al ácido para mamparas y cristaleras",
-        "text": "Bandas, tramas, logotipos y privacidad para salas, despachos y consultas. Dejan pasar la luz y reducen la visión desde fuera.",
+        "title": "Privacidad donde la necesitas",
+        "text": "Definimos qué zonas del cristal conviene cubrir y cuáles mantener despejadas según el uso de cada espacio.",
         "tag": "Cristal"
       },
       {
         "icon": "letter_a",
-        "title": "Letras y logos corpóreos de interior",
-        "text": "Recepciones y paredes de marca, con o sin luz, en PVC, metacrilato, composite o madera.",
+        "title": "Escala y lectura adecuadas",
+        "text": "Ajustamos el tamaño y la ubicación de letras y logotipos a la distancia desde la que se verán.",
         "tag": "Relieve"
       },
       {
         "icon": "plaque",
-        "title": "Señalética e iluminación",
-        "text": "Placas, directorios y luz decorativa alineados con el resto del espacio.",
+        "title": "Un conjunto coordinado",
+        "text": "Planteamos la gráfica, la señalética y la iluminación para que encajen con el proyecto de interior.",
         "tag": "Conjunto"
       }
     ],
-    "solutionsH2": "Qué hacemos en interiores",
+    "solutionsH2": "Murales, vinilos para cristales y letras de recepción",
     "solutionsLead": "Podemos intervenir en una pared, una mampara o el conjunto gráfico del local. También puedes combinarlo con <a data-rel=\"servicios/senaletica/\">señalética</a> e <a data-rel=\"servicios/iluminacion-decorativa/\">iluminación decorativa</a>.",
     "solutions": [
       {
@@ -1018,7 +1019,7 @@ export const services = {
       }
     ],
     "spacesH2": "Oficinas, retail, clínicas, hostelería y hoteles",
-    "faqH2": "Preguntas frecuentes de interiorismo comercial",
+    "faqH2": "Preguntas frecuentes sobre rotulación de interiores",
     "faqs": [
       {
         "q": "¿Puedo pediros solo unas letras o un mural?",
@@ -1107,7 +1108,7 @@ export const services = {
     "heroImg": "servicio-laminas-solares.jpg",
     "heroAlt": "Espacio de oficina con grandes superficies acristaladas",
     "whyEyebrow": "Sobre el cristal que ya tienes",
-    "whyH2": "Más confort, con la lámina adecuada para tu cristal",
+    "whyH2": "Cómo elegir una lámina para tu cristalera",
     "whyLead": "Calor, deslumbramiento e intimidad son necesidades distintas. Nos cuentas cuál quieres resolver y revisamos la orientación y el tipo de vidrio para proponerte una opción que equilibre protección y entrada de luz.",
     "benefits": [
       {
@@ -1135,7 +1136,7 @@ export const services = {
         "tag": "Obra"
       }
     ],
-    "typesH2Intro": "Tipos de lámina",
+    "typesH2Intro": "Láminas de control solar y privacidad",
     "typesLead": "Control solar, privacidad o ambas en la misma fachada.",
     "types": [
       {
@@ -1224,7 +1225,8 @@ export const services = {
     "waMessage": "Hola, os escribo por láminas solares.",
     "imageIllustrative": false,
     "imageSource": "https://www.pexels.com/photo/stylish-interior-of-modern-office-with-glass-walls-3801167/",
-    "imageProvider": "Pexels"
+    "imageProvider": "Pexels",
+    "solutionsH2": "Láminas de control solar y privacidad"
   },
   "corte": {
     "slug": "corte",
@@ -1262,13 +1264,13 @@ export const services = {
     "heroImg": "servicio-corte.jpg",
     "heroAlt": "Detalle de un equipo láser en funcionamiento",
     "whyEyebrow": "Dos máquinas",
-    "whyH2": "Piezas que encajan en tu proyecto",
+    "whyH2": "Fabricación de piezas a medida desde tu archivo",
     "whyLead": "Puedes necesitar una sola letra o varias piezas iguales. Revisamos el diseño, las medidas, el material y el uso previsto para elegir el proceso de fabricación. Si partes de un boceto, te ayudamos a prepararlo.",
     "benefits": [
       {
         "icon": "flare",
-        "title": "Corte láser de metacrilato",
-        "text": "Corte y grabado para logos, placas y piezas con canto limpio.",
+        "title": "Material y acabado adecuados",
+        "text": "Revisamos el material, el grosor y el acabado que necesita la pieza antes de elegir el proceso de fabricación.",
         "tag": "Láser"
       },
       {
@@ -1290,7 +1292,7 @@ export const services = {
         "tag": "Archivo"
       }
     ],
-    "solutionsH2": "Qué cortamos y fresamos",
+    "solutionsH2": "Corte láser de metacrilato y fresado CNC",
     "solutionsLead": "Metacrilato al láser. Composite, PVC y madera al CNC.",
     "solutions": [
       {
@@ -1412,7 +1414,7 @@ export const services = {
     "heroImg": "servicio-stands.jpg",
     "heroAlt": "Espacio expositivo de una feria con paneles y mobiliario",
     "whyEyebrow": "Visibilidad en feria",
-    "whyH2": "Tu mensaje, visible desde el pasillo",
+    "whyH2": "Gráfica para presentar tu marca en ferias y eventos",
     "whyLead": "Pensamos en cómo se verá cada pieza en el espacio y en las fotografías del evento. Puedes encargarnos la gráfica del conjunto o un elemento concreto. La fecha, las medidas y las condiciones del recinto nos ayudan a definir el trabajo.",
     "benefits": [
       {
@@ -1440,7 +1442,7 @@ export const services = {
         "tag": "Evento"
       }
     ],
-    "solutionsH2": "Elementos de stand que fabricamos",
+    "solutionsH2": "Photocalls, tótems y gráfica para stands",
     "solutionsLead": "Puedes pedir el conjunto o solo el photocall.",
     "solutions": [
       {
@@ -1524,7 +1526,7 @@ export const services = {
   "iluminacion-decorativa": {
     "slug": "iluminacion-decorativa",
     "breadcrumb": "Iluminación decorativa",
-    "title": "Iluminación decorativa LED en Alicante | Vexil",
+    "title": "Iluminación LED y píxel programable en Alicante | Vexil",
     "description": "Iluminación decorativa y LED píxel programable en Alicante: tiras, perfiles y secuencias de luz para dar personalidad a tu local. Consulta tu proyecto con Vexil.",
     "eyebrow": "Iluminación LED para locales",
     "h1": "Iluminación decorativa LED para locales en Alicante",
@@ -1557,7 +1559,7 @@ export const services = {
     "heroImg": "servicio-iluminacion-decorativa.jpg",
     "heroAlt": "Iluminación decorativa en el interior de un restaurante",
     "whyEyebrow": "Luz de ambiente",
-    "whyH2": "Luz que acompaña al diseño de tu local",
+    "whyH2": "Iluminación integrada en el diseño de tu local",
     "whyLead": "Valoramos qué quieres iluminar y cómo se utilizará el espacio. La ubicación, el tono de la luz y su integración en muebles o paredes ayudan a conseguir un resultado cuidado, también cuando la instalación queda a la vista.",
     "benefits": [
       {
@@ -1585,7 +1587,7 @@ export const services = {
         "tag": "A medida"
       }
     ],
-    "solutionsH2": "Aplicaciones de iluminación decorativa",
+    "solutionsH2": "Tiras LED, retroiluminación y LED píxel programable",
     "solutionsLead": "Perfiles, tiras LED, superficies retroiluminadas y LED píxel programable, adaptados al espacio y al ambiente que buscas. Para iluminar tu nombre o tu logotipo, consulta <a data-rel=\"servicios/rotulos/\">rótulos luminosos y neón LED</a>.",
     "solutions": [
       {
@@ -1716,7 +1718,7 @@ export const services = {
     "heroImg": "servicio-senaletica.jpg",
     "heroAlt": "Directorio de departamentos en un edificio de oficinas",
     "whyEyebrow": "También es marca",
-    "whyH2": "Información clara en el lugar adecuado",
+    "whyH2": "Señalización para orientar e identificar espacios",
     "whyLead": "Ordenamos los mensajes y cuidamos su lectura. Podemos preparar una placa individual o un conjunto de señalética para oficinas, clínicas, locales y edificios, con materiales y acabados coherentes.",
     "benefits": [
       {
@@ -1744,7 +1746,7 @@ export const services = {
         "tag": "Conjunto"
       }
     ],
-    "solutionsH2": "Sistemas de señalética",
+    "solutionsH2": "Placas, directorios y señales para edificios",
     "solutionsLead": "Del pictograma suelto al directorio de edificio.",
     "solutions": [
       {
