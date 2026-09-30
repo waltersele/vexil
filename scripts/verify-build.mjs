@@ -5,7 +5,7 @@ const root=resolve('public');let checks=0;const errors=[];
 async function walk(dir){const out=[];for(const f of await readdir(dir,{withFileTypes:true})){if(f.isDirectory())out.push(...await walk(join(dir,f.name)));else if(f.name.endsWith('.html'))out.push(join(dir,f.name));}return out;}
 for(const file of await walk(root)){
  // Archived visual example and legacy redirect stubs aren't generated commercial pages.
- if(file.includes('/ejemplo/')||file.includes('/interiores/')||file.includes('/lamina-solar/'))continue;
+ if(/[\\/](ejemplo|interiores|lamina-solar)[\\/]/.test(file))continue;
  const html=await readFile(file,'utf8');checks++;
  if((html.match(/<h1[\s>]/g)||[]).length!==1)errors.push(`${file}: expected one H1`);
  for(const match of html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)){
@@ -28,11 +28,11 @@ if(!home.includes('<h1>Rotulación e iluminación a medida para tu negocio</h1>'
 if(home.includes('Creada con IA')||home.includes('creados con IA'))errors.push('Stale AI image caption');
 // Exercise the built WhatsApp handler without making any network request.
 const script=[...home.matchAll(/<script>([\s\S]*?)<\/script>/g)].at(-1)?.[1];
-let submit;const status={textContent:''};const form={addEventListener:(type,fn)=>{if(type==='submit')submit=fn},querySelector:s=>s==='[role="status"]'?status:{}};
+let submit;const status={textContent:''};const form={addEventListener:(type,fn)=>{if(type==='submit')submit=fn},querySelector:s=>s==='[role="status"]'?status:s==='button[type="submit"]'?{disabled:false,textContent:'Continuar en WhatsApp'}:null};
 const fakeDocument={getElementById:()=>null,addEventListener:()=>{},querySelectorAll:s=>s==='form[data-vexil-form]'?[form]:[]};
-const fakeWindow={location:{href:''}};
+const fakeWindow={location:{href:''},enableAnalytics:undefined};
 const entries=[['nombre','Prueba'],['localidad','El Campello'],['servicio','Necesito asesoramiento'],['mensaje','Un rótulo con letra ñ & color magenta'],['servicio_pagina','Inicio']];
-vm.runInNewContext(script,{document:fakeDocument,window:fakeWindow,FormData:class{forEach(fn){entries.forEach(([k,v])=>fn(v,k))}},encodeURIComponent});
+vm.runInNewContext(script,{document:fakeDocument,window:fakeWindow,navigator:{},FormData:class{forEach(fn){entries.forEach(([k,v])=>fn(v,k))}},encodeURIComponent});
 await submit({preventDefault(){}});const result=new URL(fakeWindow.location.href);
 if(result.hostname!=='wa.me')errors.push('Wrong contact destination');
 const message=result.searchParams.get('text');if(!message.includes('\nNombre: Prueba\nLocalidad: El Campello'))errors.push('WhatsApp should contain labelled fields on separate lines');

@@ -42,7 +42,7 @@ export const navServices = [
     "icon": "apartment",
     "summary": "Haz que tu local se reconozca desde la calle.",
     "image": "servicio-fachadas.jpg",
-    "alt": "Fachada de un comercio con rótulo en banderola"
+    "alt": "Fachada de Le Mans Auto Service con rotulación integral"
   },
   {
     "slug": "rotulos",
@@ -51,7 +51,7 @@ export const navServices = [
     "icon": "letter_a",
     "summary": "Letras con volumen, luminosos y neón LED a medida.",
     "image": "servicio-rotulos.jpg",
-    "alt": "Detalle de un rótulo luminoso en un escaparate"
+    "alt": "Rótulo luminoso de Nuestro Pequeño Mundo en fachada"
   },
   {
     "slug": "impresion-digital",
@@ -60,7 +60,7 @@ export const navServices = [
     "icon": "print",
     "summary": "Vinilos, lonas y murales para comunicar a lo grande.",
     "image": "servicio-impresion-digital.jpg",
-    "alt": "Impresora de gran formato en un espacio de trabajo"
+    "alt": "Vinilo impreso Mercat Municipal de Mutxamel"
   },
   {
     "slug": "vehiculos",
@@ -69,7 +69,7 @@ export const navServices = [
     "icon": "local_shipping",
     "summary": "Tu marca y tus datos de contacto, también en ruta.",
     "image": "servicio-vehiculos.jpg",
-    "alt": "Furgoneta blanca con rotulación parcial en su lateral"
+    "alt": "Furgoneta La Ibense con rotulación integral"
   },
   {
     "slug": "interiorismo-comercial",
@@ -78,7 +78,7 @@ export const navServices = [
     "icon": "chair",
     "summary": "Murales, mamparas y letras que dan identidad al interior.",
     "image": "servicio-interiorismo-comercial.jpg",
-    "alt": "Oficina con elementos gráficos en sus paredes"
+    "alt": "Letras corpóreas Dra. Caride Medicina Estética en recepción"
   },
   {
     "slug": "laminas-solares",
@@ -87,7 +87,7 @@ export const navServices = [
     "icon": "wb_sunny",
     "summary": "Soluciones para el sol, los reflejos y la privacidad.",
     "image": "servicio-laminas-solares.jpg",
-    "alt": "Espacio de oficina con grandes superficies acristaladas"
+    "alt": "Fachada de oficinas con láminas solares en cristalera"
   },
   {
     "slug": "corte",
@@ -96,7 +96,7 @@ export const navServices = [
     "icon": "content_cut",
     "summary": "Letras, placas y piezas fabricadas a partir de tu diseño.",
     "image": "servicio-corte.jpg",
-    "alt": "Detalle de un equipo láser en funcionamiento"
+    "alt": "Monolito con letras corpóreas Cauchos Karey"
   },
   {
     "slug": "stands",
@@ -105,7 +105,7 @@ export const navServices = [
     "icon": "view_quilt",
     "summary": "Photocalls, tótems y gráfica para tu próximo evento.",
     "image": "servicio-stands.jpg",
-    "alt": "Espacio expositivo de una feria con paneles y mobiliario"
+    "alt": "Pared modular con gráfica de gran formato para evento"
   },
   {
     "slug": "iluminacion-decorativa",
@@ -114,7 +114,7 @@ export const navServices = [
     "icon": "light",
     "summary": "Luz de ambiente y LED píxel programable para dar vida a tu local.",
     "image": "servicio-iluminacion-decorativa.jpg",
-    "alt": "Iluminación decorativa en el interior de un restaurante"
+    "alt": "Panel BYBO con retroiluminación LED decorativa"
   },
   {
     "slug": "senaletica",
@@ -123,7 +123,7 @@ export const navServices = [
     "icon": "plaque",
     "summary": "Placas y directorios para encontrar cada espacio sin dudas.",
     "image": "servicio-senaletica.jpg",
-    "alt": "Directorio de departamentos en un edificio de oficinas"
+    "alt": "Señal de parking Visitas en centro logístico"
   }
 ];
 
@@ -148,7 +148,18 @@ export const home = {
   "ctaSecondary": "Explora los servicios",
   "trust": "Taller propio en El Campello · Servicio en Alicante y provincia",
   "heroImg": "servicio-fachadas.jpg",
-  "heroAlt": "Fachada de un comercio con rótulo en banderola",
+  "heroAlt": "Fachada de Le Mans Auto Service con rotulación integral",
+  "transform": {
+    "eyebrow": "Del taller a la obra",
+    "h2": "De la fabricación al resultado",
+    "lead": "Fabricamos las piezas en el taller y las instalamos. Aquí, de la letra corpórea en mesa al mural terminado de Cauchos Karey.",
+    "beforeLabel": "En taller",
+    "beforeImg": "transform-antes.jpg",
+    "beforeAlt": "Detalle de letra corpórea fabricada en el taller",
+    "afterLabel": "Instalado",
+    "afterImg": "transform-despues.jpg",
+    "afterAlt": "Letras corpóreas Cauchos Karey We're Premium Foam Makers en oficina"
+  },
   "servicesEyebrow": "Qué necesitas para tu negocio",
   "servicesH2": "Servicios de rotulación, impresión e iluminación",
   "servicesLead": "Desde el rótulo de una nueva apertura hasta los vinilos de tu furgoneta. Elige lo que necesitas y descubre las opciones, los materiales y cómo podemos ayudarte.",
@@ -156,7 +167,7 @@ export const home = {
   "whyH2": "Del diseño a la instalación: cómo trabajamos",
   "whyLead": "No necesitas llegar con todo decidido. Cuéntanos qué quieres comunicar y dónde: revisamos el espacio, te orientamos con los materiales y preparamos una propuesta con el alcance del trabajo.",
   "whyImg": "servicio-corte.jpg",
-  "whyImgAlt": "Detalle de un equipo láser en funcionamiento",
+  "whyImgAlt": "Monolito con letras corpóreas Cauchos Karey",
   "whyCta": "Conoce el taller",
   "whyCtaHref": "nosotros/",
   "benefits": [
@@ -237,10 +248,9 @@ export const home = {
       "anchor": "rotulación para estudios y constructoras"
     }
   ],
-  "waMessage": "Hola, os escribo para pedir presupuesto de rotulación.",
-  "imageSource": "https://www.pexels.com/photo/signage-in-the-store-front-with-white-windows-and-door-9307677/",
-  "imageProvider": "Pexels",
-  "imageIllustrative": false
+  "waMessage": "Hola, os escribo para pedir presupuesto de rotulación."
+
+
 };
 
 export const services = {
@@ -278,7 +288,113 @@ export const services = {
     "ctaSecondary": "Ver qué incluye",
     "trust": "Diseño, fabricación e instalación de fachadas.",
     "heroImg": "servicio-fachadas.jpg",
-    "heroAlt": "Fachada de un comercio con rótulo en banderola",
+    "heroAlt": "Fachada de Le Mans Auto Service con rotulación integral",
+    "worksEyebrow": "Trabajos",
+    "worksH2": "Fachadas y locales que hemos rotulado",
+    "worksLead": "Algunos frentes comerciales con rótulo, paneles y escaparate.",
+    "works": [
+          {
+                "img": "trabajo-fachadas-14.jpg",
+                "alt": "Fachada de nave con rótulo Karey foam solutions",
+                "caption": "Karey · nave"
+          },
+          {
+                "img": "trabajo-fachadas-01.jpg",
+                "alt": "Fachada Arfis con letras corpóreas y banderola",
+                "caption": "Arfis · letras corpóreas y banderola"
+          },
+          {
+                "img": "trabajo-fachadas-02.jpg",
+                "alt": "Fachada N.uñas con letras corpóreas y vinilos",
+                "caption": "N.uñas · letras corpóreas"
+          },
+          {
+                "img": "trabajo-fachadas-03.jpg",
+                "alt": "Fachada La Jijonenca con letras corpóreas",
+                "caption": "La Jijonenca · letras corpóreas"
+          },
+          {
+                "img": "trabajo-fachadas-04.jpg",
+                "alt": "Fachada Bryan Stepwise con letras corpóreas",
+                "caption": "Bryan Stepwise"
+          },
+          {
+                "img": "trabajo-fachadas-05.jpg",
+                "alt": "Fachada BYBO de noche con letras y banderola luminosa",
+                "caption": "BYBO · noche"
+          },
+          {
+                "img": "trabajo-fachadas-06.jpg",
+                "alt": "Fachada MULA Motor con rótulo y panel de servicios",
+                "caption": "MULA Motor"
+          },
+          {
+                "img": "trabajo-fachadas-07.jpg",
+                "alt": "Fachada La Carnicería de Ramón con letras corpóreas",
+                "caption": "La Carnicería de Ramón"
+          },
+          {
+                "img": "trabajo-fachadas-08.jpg",
+                "alt": "Fachada Firmand con rótulo de agencia",
+                "caption": "Firmand"
+          },
+          {
+                "img": "trabajo-fachadas-09.jpg",
+                "alt": "Fachada Carnes La Mancha con paneles y rótulos",
+                "caption": "Carnes La Mancha"
+          },
+          {
+                "img": "trabajo-fachadas-10.jpg",
+                "alt": "Fachada Kikora con vinilos y rótulo",
+                "caption": "Kikora"
+          },
+          {
+                "img": "trabajo-fachadas-11.jpg",
+                "alt": "Fachada Arco Iris parque infantil",
+                "caption": "Arco Iris"
+          },
+          {
+                "img": "trabajo-fachadas-12.jpg",
+                "alt": "Fachada Shui con rótulos y vinilo",
+                "caption": "Shui"
+          },
+          {
+                "img": "trabajo-fachadas-13.jpg",
+                "alt": "Fachada JT Global Training con rótulo luminoso",
+                "caption": "JT Global Training"
+          },
+          {
+                "img": "trabajo-fachadas-15.jpg",
+                "alt": "Puesto Carnes Campoy en Mercat Municipal de Mutxamel",
+                "caption": "Carnes Campoy · Mutxamel"
+          },
+          {
+                "img": "trabajo-fachadas-16.jpg",
+                "alt": "Fachada Relojería Aracil con letras y banderolas",
+                "caption": "Relojería Aracil"
+          },
+          {
+                "img": "trabajo-fachadas-17.jpg",
+                "alt": "Fachada Talleres Alvatena chapa y pintura",
+                "caption": "Talleres Alvatena"
+          },
+          {
+                "img": "trabajo-fachadas-18.jpg",
+                "alt": "Fachada BYBO Studios con letras corpóreas y vinilo",
+                "caption": "BYBO Studios"
+          }
+    ],
+    "transform": {
+      "eyebrow": "Antes y después",
+      "h2": "Del taller al resultado",
+      "lead": "Desliza para comparar la letra corpórea en el taller con el mural de Cauchos Karey ya instalado.",
+      "beforeLabel": "En taller",
+      "beforeImg": "transform-antes.jpg",
+      "beforeAlt": "Detalle de letra corpórea fabricada en el taller",
+      "afterLabel": "Terminado",
+      "afterImg": "transform-despues.jpg",
+      "afterAlt": "Letras corpóreas Cauchos Karey We're Premium Foam Makers en oficina"
+    },
     "whyEyebrow": "Beneficios",
     "whyH2": "Renovación de fachadas para comercios y locales",
     "whyLead": "Puede que estés abriendo un local o que el que ya tienes necesite un cambio. Estudiamos el frente como un conjunto: qué se ve desde la calle, dónde colocar tu nombre y cómo integrar los distintos elementos.",
@@ -399,10 +515,9 @@ export const services = {
         "anchor": "rotulación para franquicias"
       }
     ],
-    "waMessage": "Hola, os escribo por rotulación de fachadas.",
-    "imageIllustrative": false,
-    "imageSource": "https://www.pexels.com/photo/signage-in-the-store-front-with-white-windows-and-door-9307677/",
-    "imageProvider": "Pexels"
+    "waMessage": "Hola, os escribo por rotulación de fachadas."
+
+
   },
   "rotulos": {
     "slug": "rotulos",
@@ -434,7 +549,77 @@ export const services = {
     "ctaSecondary": "Ver tipos de rótulo",
     "trust": "Diseño, fabricación e instalación",
     "heroImg": "servicio-rotulos.jpg",
-    "heroAlt": "Detalle de un rótulo luminoso en un escaparate",
+    "heroAlt": "Rótulo luminoso de Nuestro Pequeño Mundo en fachada",
+    "worksEyebrow": "Trabajos",
+    "worksH2": "Rótulos y letras corpóreas",
+    "worksLead": "Corpóreos, luminosos y piezas fabricadas en taller.",
+    "works": [
+          {
+                "img": "trabajo-rotulos-10.jpg",
+                "alt": "Rótulo gran formato Karey foam solutions en nave",
+                "caption": "Karey foam solutions"
+          },
+          {
+                "img": "trabajo-rotulos-01.jpg",
+                "alt": "Monolito Cauchos Karey con letras corpóreas",
+                "caption": "Monolito Cauchos Karey"
+          },
+          {
+                "img": "trabajo-rotulos-02.jpg",
+                "alt": "Letras corpóreas Vituco en interior",
+                "caption": "Vituco · letras corpóreas"
+          },
+          {
+                "img": "trabajo-rotulos-03.jpg",
+                "alt": "Letras corpóreas BYBO en fachada",
+                "caption": "BYBO · corpóreas"
+          },
+          {
+                "img": "trabajo-rotulos-04.jpg",
+                "alt": "Detalle de letra corpórea fabricada en taller",
+                "caption": "Detalle de fabricación"
+          },
+          {
+                "img": "trabajo-rotulos-05.jpg",
+                "alt": "Letras corpóreas Dra. Caride Medicina Estética",
+                "caption": "Dra. Caride"
+          },
+          {
+                "img": "trabajo-rotulos-06.jpg",
+                "alt": "Letras corpóreas La Jijonenca en fachada",
+                "caption": "La Jijonenca"
+          },
+          {
+                "img": "trabajo-rotulos-08.jpg",
+                "alt": "Letras corpóreas y banderola Arfis",
+                "caption": "Arfis"
+          },
+          {
+                "img": "trabajo-rotulos-09.jpg",
+                "alt": "Valla gran formato Karey foam solutions y SeaDek",
+                "caption": "Karey · valla SeaDek"
+          },
+          {
+                "img": "trabajo-rotulos-11.jpg",
+                "alt": "Letras corpóreas y banderolas Relojería Aracil",
+                "caption": "Relojería Aracil"
+          },
+          {
+                "img": "trabajo-rotulos-12.jpg",
+                "alt": "Letras corpóreas Fernando Baeza en oficina",
+                "caption": "Fernando Baeza"
+          },
+          {
+                "img": "trabajo-rotulos-13.jpg",
+                "alt": "Letras corpóreas BYBO y banderola circular",
+                "caption": "BYBO Studios"
+          },
+          {
+                "img": "trabajo-rotulos-14.jpg",
+                "alt": "Letras corpóreas Beyond your body",
+                "caption": "Beyond your body"
+          }
+    ],
     "whyEyebrow": "Por qué",
     "whyH2": "Diseño, fabricación e instalación de rótulos",
     "whyLead": "No todos los negocios necesitan el mismo rótulo. El tamaño de la fachada, los colores del entorno y tu horario ayudan a decidir si convienen letras en relieve, una banderola, un luminoso o una pieza sin luz.",
@@ -601,9 +786,8 @@ export const services = {
       }
     ],
     "waMessage": "Hola, os escribo por letras corpóreas y rótulos.",
-    "imageIllustrative": false,
-    "imageSource": "https://www.pexels.com/photo/illuminated-storefront-sign-at-night-30096221/",
-    "imageProvider": "Pexels",
+
+
     "solutionsH2": "Letras corpóreas, rótulos luminosos y neón LED"
   },
   "impresion-digital": {
@@ -640,7 +824,82 @@ export const services = {
     "ctaSecondary": "Ver materiales",
     "trust": "Impresión de gran formato. Colocación si la necesitas.",
     "heroImg": "servicio-impresion-digital.jpg",
-    "heroAlt": "Impresora de gran formato en un espacio de trabajo",
+    "heroAlt": "Vinilo impreso Mercat Municipal de Mutxamel",
+    "worksEyebrow": "Trabajos",
+    "worksH2": "Impresión y vinilos de gran formato",
+    "worksLead": "Escaparates, murales de pared completa, paneles y adhesivos.",
+    "works": [
+          {
+                "img": "trabajo-impresion-10.jpg",
+                "alt": "Valla gran formato Karey foam solutions y SeaDek",
+                "caption": "Karey · valla SeaDek"
+          },
+          {
+                "img": "trabajo-impresion-02.jpg",
+                "alt": "Vinilo impreso Mercat Municipal de Mutxamel",
+                "caption": "Mercat Municipal de Mutxamel"
+          },
+          {
+                "img": "trabajo-impresion-05.jpg",
+                "alt": "Paredes impresas Karting Alacant con normas y tarifas",
+                "caption": "Karting Alacant · paredes impresas"
+          },
+          {
+                "img": "trabajo-impresion-01.jpg",
+                "alt": "Escaparate impreso Tapiceros Hnos. Simón",
+                "caption": "Tapiceros Hnos. Simón"
+          },
+          {
+                "img": "trabajo-impresion-03.jpg",
+                "alt": "Paneles industriales Powerturbines",
+                "caption": "Powerturbines"
+          },
+          {
+                "img": "trabajo-stands-01.jpg",
+                "alt": "Mural de gran formato SeaDek y ocevan",
+                "caption": "SeaDek · mural de gran formato"
+          },
+          {
+                "img": "trabajo-impresion-06.jpg",
+                "alt": "Cartel rígido Clínicas UME",
+                "caption": "Clínicas UME"
+          },
+          {
+                "img": "trabajo-impresion-07.jpg",
+                "alt": "Pegatinas Tierras de Baeza",
+                "caption": "Adhesivos Tierras de Baeza"
+          },
+          {
+                "img": "trabajo-impresion-08.jpg",
+                "alt": "Panel impreso Antonio Muñoz Más",
+                "caption": "Antonio Muñoz Más"
+          },
+          {
+                "img": "trabajo-impresion-04.jpg",
+                "alt": "Adhesivos Desierto de Monegros",
+                "caption": "Desierto de Monegros"
+          },
+          {
+                "img": "trabajo-impresion-09.jpg",
+                "alt": "Cartel Hhos. Madrid de financiación sin intereses",
+                "caption": "Hhos. Madrid · cartel"
+          },
+          {
+                "img": "trabajo-impresion-11.jpg",
+                "alt": "Rótulo y vinilo Carnes Campoy en mercado",
+                "caption": "Carnes Campoy"
+          },
+          {
+                "img": "trabajo-impresion-12.jpg",
+                "alt": "Vinilo Popeyes Louisiana Kitchen en taller",
+                "caption": "Popeyes"
+          },
+          {
+                "img": "trabajo-impresion-13.jpg",
+                "alt": "Valla gran formato Hhos. Madrid en fachada",
+                "caption": "Hhos. Madrid · valla"
+          }
+    ],
     "whyEyebrow": "Material",
     "whyH2": "Cómo preparamos tu impresión de gran formato",
     "whyLead": "Antes de imprimir, importa saber dónde irá la gráfica y cuánto tiempo necesitas utilizarla. Te orientamos con el material y revisamos si tu archivo tiene calidad suficiente para el tamaño final.",
@@ -774,10 +1033,9 @@ export const services = {
         "anchor": "carteles de obra"
       }
     ],
-    "waMessage": "Hola, os escribo por lonas e impresión de gran formato.",
-    "imageIllustrative": false,
-    "imageSource": "https://unsplash.com/photos/a-large-format-printer-with-paper-and-artwork-k1WVgtr2zDA",
-    "imageProvider": "Unsplash"
+    "waMessage": "Hola, os escribo por lonas e impresión de gran formato."
+
+
   },
   "vehiculos": {
     "slug": "vehiculos",
@@ -813,7 +1071,102 @@ export const services = {
     "ctaSecondary": "Ver qué personalizamos",
     "trust": "Diseño y colocación de vinilo · Rotulación parcial · Taller en El Campello",
     "heroImg": "servicio-vehiculos.jpg",
-    "heroAlt": "Furgoneta blanca con rotulación parcial en su lateral",
+    "heroAlt": "Furgoneta La Ibense con rotulación integral",
+    "worksEyebrow": "Trabajos",
+    "worksH2": "Furgonetas, flotas y vehículos rotulados",
+    "worksLead": "La portada es una furgoneta; aquí van más furgones, un tráiler y otros vehículos.",
+    "works": [
+          {
+                "img": "trabajo-vehiculos-01.jpg",
+                "alt": "Furgoneta Anja Home rotulada",
+                "caption": "Anja Home · furgoneta"
+          },
+          {
+                "img": "trabajo-vehiculos-02.jpg",
+                "alt": "Furgoneta Carmovil Jungheinrich",
+                "caption": "Carmovil / Jungheinrich"
+          },
+          {
+                "img": "trabajo-vehiculos-04.jpg",
+                "alt": "Furgoneta Crazy Events",
+                "caption": "Crazy Events"
+          },
+          {
+                "img": "trabajo-vehiculos-05.jpg",
+                "alt": "Pickup ASENDA con rotulación parcial",
+                "caption": "ASENDA"
+          },
+          {
+                "img": "trabajo-vehiculos-03.jpg",
+                "alt": "Tráiler SORT con rotulación integral",
+                "caption": "SORT · tráiler"
+          },
+          {
+                "img": "trabajo-vehiculos-06.jpg",
+                "alt": "Smart Domani Cars rotulada",
+                "caption": "Domani Cars"
+          },
+          {
+                "img": "trabajo-vehiculos-07.jpg",
+                "alt": "Kart Karting Alacant con vinilos",
+                "caption": "Karting Alacant"
+          },
+          {
+                "img": "trabajo-vehiculos-08.jpg",
+                "alt": "Embarcación Boats & Sun rotulada",
+                "caption": "Boats & Sun"
+          },
+          {
+                "img": "trabajo-vehiculos-09.jpg",
+                "alt": "Vehículo Audeca rotulado",
+                "caption": "Audeca"
+          },
+          {
+                "img": "trabajo-vehiculos-10.jpg",
+                "alt": "Camión Hermanos Madrid con rotulación integral",
+                "caption": "Hermanos Madrid"
+          },
+          {
+                "img": "trabajo-vehiculos-11.jpg",
+                "alt": "Volkswagen T-Roc Cauchos Karey rotulado",
+                "caption": "Cauchos Karey · T-Roc"
+          },
+          {
+                "img": "trabajo-vehiculos-12.jpg",
+                "alt": "Vehículo de intervención rápida Salvamento Alicante",
+                "caption": "Salvamento Alicante"
+          },
+          {
+                "img": "trabajo-vehiculos-13.jpg",
+                "alt": "Furgoneta Audeca parques y jardines Ayuntamiento de Petrer",
+                "caption": "Audeca · Petrer"
+          },
+          {
+                "img": "trabajo-vehiculos-14.jpg",
+                "alt": "Furgoneta Karting Alacant rotulada",
+                "caption": "Karting Alacant · furgón"
+          },
+          {
+                "img": "trabajo-vehiculos-15.jpg",
+                "alt": "Furgón Masajes Alas Blancas cabina móvil",
+                "caption": "Masajes Alas Blancas"
+          },
+          {
+                "img": "trabajo-vehiculos-16.jpg",
+                "alt": "Furgoneta Agostfred Clima rotulada",
+                "caption": "Agostfred Clima"
+          },
+          {
+                "img": "trabajo-vehiculos-17.jpg",
+                "alt": "BMW Z4 SORT Super Oil Racing Technology",
+                "caption": "SORT · Z4"
+          },
+          {
+                "img": "trabajo-vehiculos-18.jpg",
+                "alt": "Camión TCD maxi Hijos de Maxi rotulado",
+                "caption": "TCD maxi"
+          }
+    ],
     "whyEyebrow": "Personalización",
     "whyH2": "Diseño de vinilos para furgonetas de empresa",
     "whyLead": "Seleccionamos la información importante y la adaptamos a puertas y laterales. El espacio, las juntas y las formas del vehículo cuentan: buscamos una composición legible, sin recargar la carrocería.",
@@ -901,10 +1254,9 @@ export const services = {
         "anchor": "impresión de vinilo"
       }
     ],
-    "waMessage": "Hola, quiero consultar la rotulación de una furgoneta de empresa.",
-    "imageIllustrative": false,
-    "imageSource": "https://www.pexels.com/photo/a-white-van-parked-on-road-near-a-white-wall-12471177/",
-    "imageProvider": "Pexels"
+    "waMessage": "Hola, quiero consultar la rotulación de una furgoneta de empresa."
+
+
   },
   "interiorismo-comercial": {
     "slug": "interiorismo-comercial",
@@ -940,7 +1292,67 @@ export const services = {
     "ctaSecondary": "Ver qué hacemos",
     "trust": "Para negocios y para estudios de interiorismo.",
     "heroImg": "servicio-interiorismo-comercial.jpg",
-    "heroAlt": "Oficina con elementos gráficos en sus paredes",
+    "heroAlt": "Letras corpóreas Dra. Caride Medicina Estética en recepción",
+    "worksEyebrow": "Trabajos",
+    "worksH2": "Interiores con identidad de marca",
+    "worksLead": "Murales, vinilos de pared, letras corpóreas y cristales de recepción.",
+    "works": [
+          {
+                "img": "trabajo-interiorismo-01.jpg",
+                "alt": "Recepción ALCER Alicante con letras corpóreas sobre vinilo ácido",
+                "caption": "ALCER Alicante · recepción"
+          },
+          {
+                "img": "trabajo-interiorismo-06.jpg",
+                "alt": "Oficina ALCER con vinilos de pared y lámina de privacidad",
+                "caption": "ALCER · oficina"
+          },
+          {
+                "img": "trabajo-interiorismo-05.jpg",
+                "alt": "Interior Karting Alacant con vinilos de gran formato",
+                "caption": "Karting Alacant"
+          },
+          {
+                "img": "trabajo-interiorismo-03.jpg",
+                "alt": "Interior La Ibense con murales y vinilos de marca",
+                "caption": "La Ibense · murales"
+          },
+          {
+                "img": "trabajo-interiorismo-04.jpg",
+                "alt": "Cristales Cauchos Karey con vinilo de marca",
+                "caption": "Cauchos Karey · cristales"
+          },
+          {
+                "img": "trabajo-interiorismo-07.jpg",
+                "alt": "Recepción BYBO con panel retroiluminado",
+                "caption": "BYBO · recepción"
+          },
+          {
+                "img": "trabajo-interiorismo-08.jpg",
+                "alt": "Vinilo de pared Artesanía",
+                "caption": "Artesanía"
+          },
+          {
+                "img": "trabajo-interiorismo-09.jpg",
+                "alt": "Rótulo interior Antonio Muñoz Más",
+                "caption": "Antonio Muñoz Más"
+          },
+          {
+                "img": "trabajo-interiorismo-10.jpg",
+                "alt": "Vinilo de marca Karey en mamparas de oficina",
+                "caption": "Karey · oficinas"
+          },
+          {
+                "img": "trabajo-interiorismo-11.jpg",
+                "alt": "Rótulo interior Fernando Baeza asesor inmobiliario",
+                "caption": "Fernando Baeza"
+          },
+          {
+                "img": "trabajo-interiorismo-12.jpg",
+                "alt": "Letras corpóreas Beyond your body en pared",
+                "caption": "BYBO · Beyond your body"
+          }
+    ],
     "whyEyebrow": "Cómo trabajamos",
     "whyH2": "Una imagen coherente en todo el interior de tu negocio",
     "whyLead": "Te ayudamos a trasladar tu identidad al espacio con piezas gráficas que encajen entre sí. Trabajamos con negocios y con estudios de interiorismo, a partir de una idea, de planos o de un diseño ya definido.",
@@ -1066,10 +1478,9 @@ export const services = {
         "anchor": "materiales y acabados"
       }
     ],
-    "waMessage": "Hola, os escribo por interiorismo comercial / letras o mural de interior.",
-    "imageIllustrative": false,
-    "imageSource": "https://www.pexels.com/photo/tables-and-chairs-in-the-office-9300768/",
-    "imageProvider": "Pexels"
+    "waMessage": "Hola, os escribo por interiorismo comercial / letras o mural de interior."
+
+
   },
   "laminas-solares": {
     "slug": "laminas-solares",
@@ -1106,7 +1517,52 @@ export const services = {
     "ctaSecondary": "Ver tipos de lámina",
     "trust": "Colocación en oficinas, comercios, viviendas y proyectos de obra.",
     "heroImg": "servicio-laminas-solares.jpg",
-    "heroAlt": "Espacio de oficina con grandes superficies acristaladas",
+    "heroAlt": "Fachada de oficinas con láminas solares en cristalera",
+    "worksEyebrow": "Trabajos",
+    "worksH2": "Láminas solares y vinilo ácido",
+    "worksLead": "La imagen principal es de referencia para control solar en edificios. Abajo, instalaciones propias de vinilo ácido y privacidad.",
+    "works": [
+          {
+                "img": "trabajo-laminas-01.jpg",
+                "alt": "Vinilo ácido en escaparate J.M. Garcia",
+                "caption": "J.M. Garcia · vinilo ácido"
+          },
+          {
+                "img": "trabajo-laminas-02.jpg",
+                "alt": "Vinilo ácido y rotulación Sheila Sanchez",
+                "caption": "Sheila Sanchez · privacidad"
+          },
+          {
+                "img": "trabajo-laminas-03.jpg",
+                "alt": "Mamparas de oficina con vinilo ácido",
+                "caption": "Oficina · vinilo ácido"
+          },
+          {
+                "img": "trabajo-laminas-04.jpg",
+                "alt": "Puerta con vinilo ácido SeaDek",
+                "caption": "SeaDek · vinilo ácido"
+          },
+          {
+                "img": "trabajo-laminas-05.jpg",
+                "alt": "Vinilo decorativo tipo ácido en cristalera",
+                "caption": "Cristalera · vinilo decorativo"
+          },
+          {
+                "img": "trabajo-laminas-06.jpg",
+                "alt": "Puerta con vinilo ácido",
+                "caption": "Privacidad en oficina"
+          },
+          {
+                "img": "trabajo-laminas-07.jpg",
+                "alt": "Mamparas de oficina con vinilo ácido de privacidad",
+                "caption": "Oficina · vinilo ácido"
+          },
+          {
+                "img": "trabajo-laminas-08.jpg",
+                "alt": "Mamparas Karey foam solutions con vinilo ácido",
+                "caption": "Karey · sala de reuniones"
+          }
+    ],
     "whyEyebrow": "Sobre el cristal que ya tienes",
     "whyH2": "Cómo elegir una lámina para tu cristalera",
     "whyLead": "Calor, deslumbramiento e intimidad son necesidades distintas. Nos cuentas cuál quieres resolver y revisamos la orientación y el tipo de vidrio para proponerte una opción que equilibre protección y entrada de luz.",
@@ -1223,9 +1679,8 @@ export const services = {
       }
     ],
     "waMessage": "Hola, os escribo por láminas solares.",
-    "imageIllustrative": false,
-    "imageSource": "https://www.pexels.com/photo/stylish-interior-of-modern-office-with-glass-walls-3801167/",
-    "imageProvider": "Pexels",
+
+
     "solutionsH2": "Láminas de control solar y privacidad"
   },
   "corte": {
@@ -1262,7 +1717,47 @@ export const services = {
     "ctaSecondary": "Ver qué cortamos",
     "trust": "La misma maquinaria con la que fabricamos letras y placas.",
     "heroImg": "servicio-corte.jpg",
-    "heroAlt": "Detalle de un equipo láser en funcionamiento",
+    "heroAlt": "Monolito con letras corpóreas Cauchos Karey",
+    "worksEyebrow": "Trabajos",
+    "worksH2": "Letras corpóreas y piezas de corte",
+    "worksLead": "Piezas fabricadas con corte láser o CNC: letras, monolitos y detalles de taller.",
+    "works": [
+          {
+                "img": "trabajo-corte-01.jpg",
+                "alt": "Letras corpóreas We're Premium Foam Makers",
+                "caption": "Cauchos Karey · corpóreas interiores"
+          },
+          {
+                "img": "trabajo-corte-02.jpg",
+                "alt": "Detalle de letra corpórea en taller",
+                "caption": "Detalle de corte"
+          },
+          {
+                "img": "trabajo-corte-03.jpg",
+                "alt": "Letras corpóreas Vituco",
+                "caption": "Vituco"
+          },
+          {
+                "img": "trabajo-corte-04.jpg",
+                "alt": "Letras corpóreas Arfis en fachada",
+                "caption": "Arfis · corpóreas"
+          },
+          {
+                "img": "trabajo-corte-05.jpg",
+                "alt": "Letras corpóreas ALCER Alicante sobre cristal",
+                "caption": "ALCER Alicante"
+          },
+          {
+                "img": "trabajo-corte-06.jpg",
+                "alt": "Letras corpóreas Bryan Stepwise",
+                "caption": "Bryan Stepwise"
+          },
+          {
+                "img": "trabajo-corte-07.jpg",
+                "alt": "Letras corpóreas N.uñas",
+                "caption": "N.uñas"
+          }
+    ],
     "whyEyebrow": "Dos máquinas",
     "whyH2": "Fabricación de piezas a medida desde tu archivo",
     "whyLead": "Puedes necesitar una sola letra o varias piezas iguales. Revisamos el diseño, las medidas, el material y el uso previsto para elegir el proceso de fabricación. Si partes de un boceto, te ayudamos a prepararlo.",
@@ -1373,10 +1868,9 @@ export const services = {
         "anchor": "placas de metacrilato"
       }
     ],
-    "waMessage": "Hola, os escribo por corte láser y CNC a medida.",
-    "imageIllustrative": false,
-    "imageSource": "https://www.pexels.com/photo/laser-light-on-a-cutting-equipment-7254467/",
-    "imageProvider": "Pexels"
+    "waMessage": "Hola, os escribo por corte láser y CNC a medida."
+
+
   },
   "stands": {
     "slug": "stands",
@@ -1412,7 +1906,32 @@ export const services = {
     "ctaSecondary": "Ver elementos",
     "trust": "Diseño y producción de elementos gráficos para ferias y eventos.",
     "heroImg": "servicio-stands.jpg",
-    "heroAlt": "Espacio expositivo de una feria con paneles y mobiliario",
+    "heroAlt": "Pared modular con gráfica de gran formato para evento",
+    "worksEyebrow": "Trabajos",
+    "worksH2": "Stands, eventos y gráfica expositiva",
+    "worksLead": "Paredes modulares, displays y piezas para eventos.",
+    "works": [
+          {
+                "img": "trabajo-stands-03.jpg",
+                "alt": "Bidones rotulados Beefeater y Ballantine's",
+                "caption": "Evento · bidones rotulados"
+          },
+          {
+                "img": "trabajo-stands-02.jpg",
+                "alt": "Totem display Babolat",
+                "caption": "Babolat · display"
+          },
+          {
+                "img": "trabajo-impresion-02.jpg",
+                "alt": "Vinilo Mercat Municipal de Mutxamel",
+                "caption": "Mercat Municipal de Mutxamel"
+          },
+          {
+                "img": "trabajo-stands-04.jpg",
+                "alt": "Vinilo Mercat Municipal de Mutxamel en evento",
+                "caption": "Mercat Municipal de Mutxamel · evento"
+          }
+    ],
     "whyEyebrow": "Visibilidad en feria",
     "whyH2": "Gráfica para presentar tu marca en ferias y eventos",
     "whyLead": "Pensamos en cómo se verá cada pieza en el espacio y en las fotografías del evento. Puedes encargarnos la gráfica del conjunto o un elemento concreto. La fecha, las medidas y las condiciones del recinto nos ayudan a definir el trabajo.",
@@ -1518,10 +2037,9 @@ export const services = {
         "anchor": "neón LED"
       }
     ],
-    "waMessage": "Hola, os escribo por stands para ferias.",
-    "imageIllustrative": false,
-    "imageSource": "https://www.pexels.com/photo/modern-booth-design-with-scandinavian-furniture-31311141/",
-    "imageProvider": "Pexels"
+    "waMessage": "Hola, os escribo por stands para ferias."
+
+
   },
   "iluminacion-decorativa": {
     "slug": "iluminacion-decorativa",
@@ -1557,7 +2075,37 @@ export const services = {
     "ctaSecondary": "Ver aplicaciones",
     "trust": "Iluminación de ambiente y de acento para locales y oficinas.",
     "heroImg": "servicio-iluminacion-decorativa.jpg",
-    "heroAlt": "Iluminación decorativa en el interior de un restaurante",
+    "heroAlt": "Panel BYBO con retroiluminación LED decorativa",
+    "worksEyebrow": "Trabajos",
+    "worksH2": "Iluminación y superficies con luz",
+    "worksLead": "Retroiluminación, rótulos luminosos y LED decorativo.",
+    "works": [
+          {
+                "img": "trabajo-iluminacion-01.jpg",
+                "alt": "Rótulo luminoso Nuestro Pequeño Mundo",
+                "caption": "Nuestro Pequeño Mundo · luminoso"
+          },
+          {
+                "img": "trabajo-iluminacion-02.jpg",
+                "alt": "Letras Vituco iluminadas en interior",
+                "caption": "Vituco"
+          },
+          {
+                "img": "trabajo-iluminacion-03.jpg",
+                "alt": "Fachada BYBO con iluminación de noche",
+                "caption": "BYBO · noche"
+          },
+          {
+                "img": "trabajo-iluminacion-04.jpg",
+                "alt": "Tiras LED decorativas en techo",
+                "caption": "Tiras LED · referencia"
+          },
+          {
+                "img": "trabajo-iluminacion-05.jpg",
+                "alt": "Panel BYBO con retroiluminación LED",
+                "caption": "BYBO · LED"
+          }
+    ],
     "whyEyebrow": "Luz de ambiente",
     "whyH2": "Iluminación integrada en el diseño de tu local",
     "whyLead": "Valoramos qué quieres iluminar y cómo se utilizará el espacio. La ubicación, el tono de la luz y su integración en muebles o paredes ayudan a conseguir un resultado cuidado, también cuando la instalación queda a la vista.",
@@ -1677,10 +2225,9 @@ export const services = {
         "anchor": "proyectos de interiores"
       }
     ],
-    "waMessage": "Hola, os escribo por iluminación decorativa LED.",
-    "imageIllustrative": false,
-    "imageSource": "https://www.pexels.com/photo/interior-of-a-restaurant-11236818/",
-    "imageProvider": "Pexels"
+    "waMessage": "Hola, os escribo por iluminación decorativa LED."
+
+
   },
   "senaletica": {
     "slug": "senaletica",
@@ -1716,7 +2263,27 @@ export const services = {
     "ctaSecondary": "Ver sistemas",
     "trust": "Placas y orientación con la misma imagen que el resto del local.",
     "heroImg": "servicio-senaletica.jpg",
-    "heroAlt": "Directorio de departamentos en un edificio de oficinas",
+    "heroAlt": "Señal de parking Visitas en centro logístico",
+    "worksEyebrow": "Trabajos",
+    "worksH2": "Señalética y placas",
+    "worksLead": "Dirección, identificación y orientación.",
+    "works": [
+          {
+                "img": "trabajo-senaletica-01.jpg",
+                "alt": "Placa de calle Francisco Cebrián",
+                "caption": "Placa de calle"
+          },
+          {
+                "img": "trabajo-senaletica-02.jpg",
+                "alt": "Señalética Tourist Info Mutxamel",
+                "caption": "Tourist Info Mutxamel"
+          },
+          {
+                "img": "trabajo-senaletica-04.jpg",
+                "alt": "Placa metálica G. Castelló 19 Local 8",
+                "caption": "G. Castelló 19 · Local 8"
+          }
+    ],
     "whyEyebrow": "También es marca",
     "whyH2": "Señalización para orientar e identificar espacios",
     "whyLead": "Ordenamos los mensajes y cuidamos su lectura. Podemos preparar una placa individual o un conjunto de señalética para oficinas, clínicas, locales y edificios, con materiales y acabados coherentes.",
@@ -1839,10 +2406,9 @@ export const services = {
         "anchor": "señalética para obra nueva"
       }
     ],
-    "waMessage": "Hola, os escribo por señalética y placas de metacrilato.",
-    "imageIllustrative": false,
-    "imageSource": "https://www.pexels.com/photo/administration-corporate-services-reinsurance-legal-labeled-board-189476/",
-    "imageProvider": "Pexels"
+    "waMessage": "Hola, os escribo por señalética y placas de metacrilato."
+
+
   }
 };
 
@@ -1882,7 +2448,7 @@ export const extraPages = {
     "ctaSecondary": "Ver familias",
     "trust": "Trabajamos con estos acabados. Si necesitas la ficha del fabricante, te la enviamos.",
     "heroImg": "servicio-corte.jpg",
-    "heroAlt": "Detalle de un equipo láser en funcionamiento",
+    "heroAlt": "Monolito con letras corpóreas Cauchos Karey",
     "whyEyebrow": "Muestrario",
     "whyH2": "Familias de material",
     "whyLead": "Una referencia rápida. Desde aquí puedes ir al servicio donde se usa cada familia.",
@@ -1999,10 +2565,9 @@ export const extraPages = {
         "anchor": "láminas de control solar"
       }
     ],
-    "waMessage": "Hola, os escribo por materiales y acabados.",
-    "imageIllustrative": false,
-    "imageSource": "https://www.pexels.com/photo/laser-light-on-a-cutting-equipment-7254467/",
-    "imageProvider": "Pexels"
+    "waMessage": "Hola, os escribo por materiales y acabados."
+
+
   },
   "franquicias": {
     "slug": "franquicias",
@@ -2039,7 +2604,7 @@ export const extraPages = {
     "ctaSecondary": "Ver qué aplicamos",
     "trust": "Misma imagen en cada local.",
     "heroImg": "servicio-fachadas.jpg",
-    "heroAlt": "Fachada de un comercio con rótulo en banderola",
+    "heroAlt": "Fachada de Le Mans Auto Service con rotulación integral",
     "whyEyebrow": "Por qué un solo taller",
     "whyH2": "Misma imagen en cada local",
     "whyLead": "Adaptamos cada pieza a la fachada y las medidas de cada local sin salirnos del manual.",
@@ -2134,10 +2699,9 @@ export const extraPages = {
         "anchor": "rotulación de fachadas"
       }
     ],
-    "waMessage": "Hola, os escribo por rotulación para franquicias.",
-    "imageIllustrative": false,
-    "imageSource": "https://www.pexels.com/photo/signage-in-the-store-front-with-white-windows-and-door-9307677/",
-    "imageProvider": "Pexels"
+    "waMessage": "Hola, os escribo por rotulación para franquicias."
+
+
   },
   "obra-nueva": {
     "slug": "obra-nueva",
@@ -2174,7 +2738,7 @@ export const extraPages = {
     "ctaSecondary": "Ver partidas",
     "trust": "Cartel de obra y señalética de entrega.",
     "heroImg": "servicio-senaletica.jpg",
-    "heroAlt": "Directorio de departamentos en un edificio de oficinas",
+    "heroAlt": "Señal de parking Visitas en centro logístico",
     "whyEyebrow": "De la obra a las llaves",
     "whyH2": "Dos momentos de rotulación en una promoción",
     "whyLead": "El contenido obligatorio del cartel lo aporta la promotora; nosotros lo diseñamos, lo producimos y lo colocamos.",
@@ -2243,10 +2807,9 @@ export const extraPages = {
         "anchor": "señalética"
       }
     ],
-    "waMessage": "Hola, os escribo por carteles de obra y señalética de promoción.",
-    "imageIllustrative": false,
-    "imageSource": "https://www.pexels.com/photo/administration-corporate-services-reinsurance-legal-labeled-board-189476/",
-    "imageProvider": "Pexels"
+    "waMessage": "Hola, os escribo por carteles de obra y señalética de promoción."
+
+
   }
 };
 
@@ -2280,7 +2843,7 @@ export const profesionales = {
   "ctaSecondary": "Ver para quién trabajamos",
   "trust": "Fabricación e instalación para estudios y constructoras",
   "heroImg": "servicio-interiorismo-comercial.jpg",
-  "heroAlt": "Oficina con elementos gráficos en sus paredes",
+  "heroAlt": "Letras corpóreas Dra. Caride Medicina Estética en recepción",
   "whyEyebrow": "Para quién",
   "whyH2": "Un taller que entiende cómo se coordina una obra",
   "whyLead": "Puedes contar con nosotros para una partida concreta o para el conjunto de elementos de rotulación. Partimos de tus planos, alzados o referencias y concretamos el alcance antes de fabricar.",
@@ -2408,10 +2971,9 @@ export const profesionales = {
       "anchor": "obra nueva"
     }
   ],
-  "waMessage": "Hola, os escribo desde un estudio o constructora para consultar un proyecto.",
-  "imageIllustrative": false,
-  "imageSource": "https://www.pexels.com/photo/tables-and-chairs-in-the-office-9300768/",
-  "imageProvider": "Pexels"
+  "waMessage": "Hola, os escribo desde un estudio o constructora para consultar un proyecto."
+
+
 };
 
 export const nosotros = {
@@ -2444,7 +3006,7 @@ export const nosotros = {
   "ctaSecondary": "Ver con qué trabajamos",
   "trust": "Diseño, taller e instalación",
   "heroImg": "servicio-corte.jpg",
-  "heroAlt": "Detalle de un equipo láser en funcionamiento",
+  "heroAlt": "Monolito con letras corpóreas Cauchos Karey",
   "whyEyebrow": "Quiénes somos",
   "whyH2": "Cercanía para decidir. Taller para hacerlo.",
   "whyLead": "Nos gusta empezar por lo concreto: qué necesitas, dónde irá colocado y cómo quieres que se vea. Te explicamos las opciones y acordamos contigo el diseño y el alcance antes de pasar a producción.",
@@ -2547,10 +3109,9 @@ export const nosotros = {
       "anchor": "rótulos para negocios"
     }
   ],
-  "waMessage": "Hola, os escribo para conocer el taller y pedir presupuesto.",
-  "imageIllustrative": false,
-  "imageSource": "https://www.pexels.com/photo/laser-light-on-a-cutting-equipment-7254467/",
-  "imageProvider": "Pexels"
+  "waMessage": "Hola, os escribo para conocer el taller y pedir presupuesto."
+
+
 };
 
 export const legalPages = {
@@ -2594,7 +3155,7 @@ export const homeCatalog = [
     "icon": "apartment",
     "summary": "Haz que tu local se reconozca desde la calle.",
     "image": "servicio-fachadas.jpg",
-    "alt": "Fachada de un comercio con rótulo en banderola"
+    "alt": "Fachada de Le Mans Auto Service con rotulación integral"
   },
   {
     "slug": "rotulos",
@@ -2603,7 +3164,7 @@ export const homeCatalog = [
     "icon": "letter_a",
     "summary": "Letras con volumen, luminosos y neón LED a medida.",
     "image": "servicio-rotulos.jpg",
-    "alt": "Detalle de un rótulo luminoso en un escaparate"
+    "alt": "Rótulo luminoso de Nuestro Pequeño Mundo en fachada"
   },
   {
     "slug": "impresion-digital",
@@ -2612,7 +3173,7 @@ export const homeCatalog = [
     "icon": "print",
     "summary": "Vinilos, lonas y murales para comunicar a lo grande.",
     "image": "servicio-impresion-digital.jpg",
-    "alt": "Impresora de gran formato en un espacio de trabajo"
+    "alt": "Vinilo impreso Mercat Municipal de Mutxamel"
   },
   {
     "slug": "vehiculos",
@@ -2621,7 +3182,7 @@ export const homeCatalog = [
     "icon": "local_shipping",
     "summary": "Tu marca y tus datos de contacto, también en ruta.",
     "image": "servicio-vehiculos.jpg",
-    "alt": "Furgoneta blanca con rotulación parcial en su lateral"
+    "alt": "Furgoneta La Ibense con rotulación integral"
   },
   {
     "slug": "interiorismo-comercial",
@@ -2630,7 +3191,7 @@ export const homeCatalog = [
     "icon": "chair",
     "summary": "Murales, mamparas y letras que dan identidad al interior.",
     "image": "servicio-interiorismo-comercial.jpg",
-    "alt": "Oficina con elementos gráficos en sus paredes"
+    "alt": "Letras corpóreas Dra. Caride Medicina Estética en recepción"
   },
   {
     "slug": "laminas-solares",
@@ -2639,7 +3200,7 @@ export const homeCatalog = [
     "icon": "wb_sunny",
     "summary": "Soluciones para el sol, los reflejos y la privacidad.",
     "image": "servicio-laminas-solares.jpg",
-    "alt": "Espacio de oficina con grandes superficies acristaladas"
+    "alt": "Fachada de oficinas con láminas solares en cristalera"
   },
   {
     "slug": "corte",
@@ -2648,7 +3209,7 @@ export const homeCatalog = [
     "icon": "content_cut",
     "summary": "Letras, placas y piezas fabricadas a partir de tu diseño.",
     "image": "servicio-corte.jpg",
-    "alt": "Detalle de un equipo láser en funcionamiento"
+    "alt": "Monolito con letras corpóreas Cauchos Karey"
   },
   {
     "slug": "stands",
@@ -2657,7 +3218,7 @@ export const homeCatalog = [
     "icon": "view_quilt",
     "summary": "Photocalls, tótems y gráfica para tu próximo evento.",
     "image": "servicio-stands.jpg",
-    "alt": "Espacio expositivo de una feria con paneles y mobiliario"
+    "alt": "Pared modular con gráfica de gran formato para evento"
   },
   {
     "slug": "iluminacion-decorativa",
@@ -2666,7 +3227,7 @@ export const homeCatalog = [
     "icon": "light",
     "summary": "Luz de ambiente y LED píxel programable para dar vida a tu local.",
     "image": "servicio-iluminacion-decorativa.jpg",
-    "alt": "Iluminación decorativa en el interior de un restaurante"
+    "alt": "Panel BYBO con retroiluminación LED decorativa"
   },
   {
     "slug": "senaletica",
@@ -2675,6 +3236,6 @@ export const homeCatalog = [
     "icon": "plaque",
     "summary": "Placas y directorios para encontrar cada espacio sin dudas.",
     "image": "servicio-senaletica.jpg",
-    "alt": "Directorio de departamentos en un edificio de oficinas"
+    "alt": "Señal de parking Visitas en centro logístico"
   }
 ];

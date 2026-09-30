@@ -1,24 +1,24 @@
-# Fotografías de referencia
+# Fotografías
 
-Selección revisada el 29 de septiembre de 2026. Se utilizan fotografías de Pexels y Unsplash, no imágenes generadas con IA. Son referencias visuales de los servicios, no proyectos ni maquinaria de Vexil. Las marcas que aparecen no implican relación comercial ni respaldo.
+Actualizado el 30 de septiembre de 2026. En la web no se muestran créditos de banco de imágenes.
 
-Licencias: https://www.pexels.com/license/ y https://unsplash.com/license . Ambas permiten uso comercial sujeto a sus condiciones. Conservar este registro si se sustituyen los archivos.
+## Héroes (portada de cada servicio)
 
-| Archivo | Procedencia | Fotografía |
+| Archivo | Origen | Contenido |
 |---|---|---|
-| servicio-fachadas.jpg / .webp | Pexels | [Fachada de un comercio con rótulo en banderola](https://www.pexels.com/photo/signage-in-the-store-front-with-white-windows-and-door-9307677/) |
-| servicio-rotulos.jpg / .webp | Pexels | [Detalle de un rótulo luminoso en un escaparate](https://www.pexels.com/photo/illuminated-storefront-sign-at-night-30096221/) |
-| servicio-impresion-digital.jpg / .webp | Unsplash | [Impresora de gran formato en un espacio de trabajo](https://unsplash.com/photos/a-large-format-printer-with-paper-and-artwork-k1WVgtr2zDA) |
-| servicio-vehiculos.jpg / .webp | Pexels | [Furgoneta blanca con rotulación parcial en su lateral](https://www.pexels.com/photo/a-white-van-parked-on-road-near-a-white-wall-12471177/) |
-| servicio-interiorismo-comercial.jpg / .webp | Pexels | [Oficina con elementos gráficos en sus paredes](https://www.pexels.com/photo/tables-and-chairs-in-the-office-9300768/) |
-| servicio-laminas-solares.jpg / .webp | Pexels | [Espacio de oficina con grandes superficies acristaladas](https://www.pexels.com/photo/stylish-interior-of-modern-office-with-glass-walls-3801167/) |
-| servicio-corte.jpg / .webp | Pexels | [Detalle de un equipo láser en funcionamiento](https://www.pexels.com/photo/laser-light-on-a-cutting-equipment-7254467/) |
-| servicio-stands.jpg / .webp | Pexels | [Espacio expositivo de una feria con paneles y mobiliario](https://www.pexels.com/photo/modern-booth-design-with-scandinavian-furniture-31311141/) |
-| servicio-iluminacion-decorativa.jpg / .webp | Pexels | [Iluminación decorativa en el interior de un restaurante](https://www.pexels.com/photo/interior-of-a-restaurant-11236818/) |
-| servicio-senaletica.jpg / .webp | Pexels | [Directorio de departamentos en un edificio de oficinas](https://www.pexels.com/photo/administration-corporate-services-reinsurance-legal-labeled-board-189476/) |
+| servicio-fachadas | propio | Carnes La Mancha |
+| servicio-rotulos | propio | Nuestro Pequeño Mundo (luminoso) |
+| servicio-impresion-digital | propio | Tapiceros Hnos. Simón |
+| servicio-vehiculos | propio | Furgoneta La Ibense |
+| servicio-interiorismo-comercial | propio | Interior La Ibense |
+| servicio-laminas-solares | stock Pexels 21609805 | Fachada con lámina / cristal tintado |
+| servicio-corte | propio | Monolito Cauchos Karey (corpóreas) |
+| servicio-stands | propio | Pared modular SeaDek / ocevan |
+| servicio-iluminacion-decorativa | propio | Panel BYBO retroiluminado |
+| servicio-senaletica | propio | Señal Parking Visitas |
 
-La foto de impresión es de Thingsneverchange en Unsplash. Las páginas de origen contienen la autoría de cada foto.
+## Galerías (`trabajo-*.jpg`)
 
-Las imágenes de láminas solares y stands muestran el contexto de aplicación, no acreditan una instalación de lámina ni un stand fabricado por Vexil. La fotografía de corte muestra un equipo láser de referencia, no certifica marca ni capacidad del taller.
+Cada página de servicio incluye una sección **Trabajos** con fotos propias del mismo tipo (y, en láminas, vinilo ácido; en iluminación, una referencia de tiras LED).
 
-Para sustituir una foto por un trabajo propio: actualizar heroImg, heroAlt, imageSource e imageProvider en src/content.mjs y la tarjeta de homeCatalog/navServices correspondiente. Evitar afirmar que las fotos de terceros son trabajos propios. Ejecutar npm run build.
+Regenerar: `node scripts/refresh-service-photos.mjs` y luego `npm run build`.

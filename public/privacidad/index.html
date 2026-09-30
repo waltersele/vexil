@@ -194,13 +194,81 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu?.class
 function track(name){if(window.gtag)gtag('event',name);}
 document.querySelectorAll('[data-track="tel"]').forEach(function(el){el.addEventListener('click',function(){track('click_telefono');});});
 document.querySelectorAll('[data-track="wa"]').forEach(function(el){el.addEventListener('click',function(){track('click_whatsapp');});});
+document.querySelectorAll('[data-ba-slider]').forEach(function(root){
+var before=root.querySelector('[data-ba-before]'), range=root.querySelector('[data-ba-range]'), handle=root.querySelector('[data-ba-handle]');
+function syncSize(){root.style.setProperty('--ba-root-w', root.offsetWidth+'px');}
+function setPos(v){var p=Math.max(0,Math.min(100,Number(v)));if(before)before.style.width=p+'%';if(handle)handle.style.left=p+'%';if(range&&range.value!==String(Math.round(p)))range.value=String(Math.round(p));}
+syncSize();
+if(range){range.addEventListener('input',function(){setPos(range.value);});setPos(range.value||50);}
+window.addEventListener('resize',syncSize);
+root.addEventListener('pointerdown',function(e){if(e.target===range)return;root.setPointerCapture(e.pointerId);var rect=root.getBoundingClientRect();setPos(((e.clientX-rect.left)/rect.width)*100);});
+root.addEventListener('pointermove',function(e){if(!root.hasPointerCapture(e.pointerId))return;var rect=root.getBoundingClientRect();setPos(((e.clientX-rect.left)/rect.width)*100);});
+root.addEventListener('pointerup',function(e){if(root.hasPointerCapture(e.pointerId))root.releasePointerCapture(e.pointerId);});
+});
+(function(){
+var els=document.querySelectorAll('.color-reveal');
+if(!els.length)return;
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(el){el.classList.add('is-color');});return;}
+if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('is-color');});return;}
+var io=new IntersectionObserver(function(entries){
+entries.forEach(function(entry){
+if(entry.isIntersecting){entry.target.classList.add('is-color');}
+else{entry.target.classList.remove('is-color');}
+});
+},{threshold:0.35,rootMargin:'0px 0px -8% 0px'});
+els.forEach(function(el){io.observe(el);});
+})();
 document.querySelectorAll('form[data-vexil-form]').forEach(function(form){
+var drop=form.querySelector('[data-file-drop]'),input=form.querySelector('input[type="file"]'),list=form.querySelector('[data-file-list]'),hint=form.querySelector('[data-file-hint]');
+var picked=[];
+var maxFiles=5,maxEach=5*1024*1024,accept=/\.(jpe?g|png|webp|gif|heic|heif|pdf|svg|ai|eps|dxf|zip)$/i;
+function syncInput(){if(!input||typeof DataTransfer==='undefined')return;var dt=new DataTransfer();picked.forEach(function(f){dt.items.add(f);});input.files=dt.files;}
+function renderFiles(){
+if(!list)return;
+list.innerHTML=picked.map(function(f,i){return '<li><span>'+f.name.replace(/[<>&]/g,'')+' · '+(f.size/1024/1024<0.1?(Math.round(f.size/1024)+' KB'):(f.size/1024/1024).toFixed(1)+' MB')+'</span><button type="button" data-remove="'+i+'" aria-label="Quitar '+f.name.replace(/["<>&]/g,'')+'">Quitar</button></li>';}).join('');
+if(hint)hint.textContent=picked.length?picked.length+(picked.length===1?' archivo listo':' archivos listos')+'.':'Arrastra aquí o elige fotos, planos o logotipo (hasta 5, 5 MB c/u).';
+syncInput();
+}
+function addFiles(fileList){
+Array.from(fileList||[]).forEach(function(f){
+if(picked.length>=maxFiles)return;
+if(f.size>maxEach){if(hint)hint.textContent='"'+f.name+'" supera 5 MB.';return;}
+if(f.name&&!accept.test(f.name)&&!(f.type||'').startsWith('image/')){if(hint)hint.textContent='Formato no admitido: '+f.name;return;}
+if(picked.some(function(p){return p.name===f.name&&p.size===f.size;}))return;
+picked.push(f);
+});
+renderFiles();
+}
+if(drop&&input){
+drop.addEventListener('click',function(e){if(e.target.closest('[data-remove]'))return;input.click();});
+drop.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();input.click();}});
+['dragenter','dragover'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.add('is-dragover');});});
+['dragleave','drop'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.remove('is-dragover');});});
+drop.addEventListener('drop',function(e){addFiles(e.dataTransfer&&e.dataTransfer.files);});
+input.addEventListener('change',function(){addFiles(input.files);});
+list&&list.addEventListener('click',function(e){var btn=e.target.closest('[data-remove]');if(!btn)return;picked.splice(Number(btn.getAttribute('data-remove')),1);renderFiles();});
+}
 form.addEventListener('submit',async function(e){
-e.preventDefault();var fd=new FormData(form),button=form.querySelector('button[type="submit"]'),status=form.querySelector('[role="status"]');
+e.preventDefault();syncInput();var fd=new FormData(form),button=form.querySelector('button[type="submit"]'),status=form.querySelector('[role="status"]');
+picked.forEach(function(f){fd.append('attachment',f,f.name);});
 var labels={nombre:'Nombre',email:'Email',telefono:'Teléfono',localidad:'Localidad',servicio:'Servicio',mensaje:'Consulta'},lines=[];
 fd.forEach(function(v,k){if(labels[k]&&String(v).trim())lines.push(labels[k]+': '+String(v).trim());});
+if(picked.length)lines.push('Archivos a adjuntar: '+picked.map(function(f){return f.name;}).join(', '));
 var msg="Hola, os escribo para pedir presupuesto de rotulación."+'\n\n'+lines.join('\n');
-status.textContent='Se abrirá WhatsApp con tu consulta preparada. Allí podrás adjuntar fotos y pulsar enviar.';
+try{
+if(picked.length&&navigator.canShare){
+var shareData={text:msg,title:'Consulta Vexil',files:picked};
+if(navigator.canShare(shareData)){
+status.textContent='Elige WhatsApp para enviar la consulta con tus fotos.';
+button.disabled=true;
+await navigator.share(shareData);
+track('abrir_consulta_whatsapp');
+button.disabled=false;button.textContent='Continuar en WhatsApp';
+return;
+}
+}
+}catch(err){if(err&&err.name==='AbortError'){button.disabled=false;button.textContent='Continuar en WhatsApp';status.textContent='';return;}button.disabled=false;button.textContent='Continuar en WhatsApp';}
+status.textContent=picked.length?'Se abrirá WhatsApp con tu consulta. Adjunta ahí las fotos que has elegido y pulsa enviar.':'Se abrirá WhatsApp con tu consulta preparada. Allí podrás adjuntar fotos y pulsar enviar.';
 track('abrir_consulta_whatsapp');window.location.href='https://wa.me/34616048109?text='+encodeURIComponent(msg);
 });});
 

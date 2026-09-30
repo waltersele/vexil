@@ -117,7 +117,7 @@ function picture(depth, file, alt, { eager = false, cls = "w-full h-full object-
   return `<picture><source type="image/webp" srcset="${asset(depth, `${base}.webp`)}"/><img class="${cls}" alt="${alt.replaceAll('"','&quot;')}" src="${asset(depth,file)}" width="${w}" height="${h}" decoding="async" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'}/></picture>`;
 }
 function illustrativeImage(depth,page,eager=false) {
-  return `<figure class="service-figure"><div class="service-photo">${picture(depth,page.heroImg,page.heroAlt,{eager})}</div><figcaption>Fotografía de referencia · <a href="${page.imageSource}" target="_blank" rel="noopener noreferrer">${page.imageProvider}</a></figcaption></figure>`;
+  return `<figure class="service-figure"><div class="service-photo">${picture(depth,page.heroImg,page.heroAlt,{eager})}</div></figure>`;
 }
 
 function head({ title, description, path, depth, faqs = [], crumbs = [], localBusiness = false, ogImage = "og.jpg" }) {
@@ -290,15 +290,83 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu?.class
 function track(name){if(window.gtag)gtag('event',name);}
 document.querySelectorAll('[data-track="tel"]').forEach(function(el){el.addEventListener('click',function(){track('click_telefono');});});
 document.querySelectorAll('[data-track="wa"]').forEach(function(el){el.addEventListener('click',function(){track('click_whatsapp');});});
+document.querySelectorAll('[data-ba-slider]').forEach(function(root){
+var before=root.querySelector('[data-ba-before]'), range=root.querySelector('[data-ba-range]'), handle=root.querySelector('[data-ba-handle]');
+function syncSize(){root.style.setProperty('--ba-root-w', root.offsetWidth+'px');}
+function setPos(v){var p=Math.max(0,Math.min(100,Number(v)));if(before)before.style.width=p+'%';if(handle)handle.style.left=p+'%';if(range&&range.value!==String(Math.round(p)))range.value=String(Math.round(p));}
+syncSize();
+if(range){range.addEventListener('input',function(){setPos(range.value);});setPos(range.value||50);}
+window.addEventListener('resize',syncSize);
+root.addEventListener('pointerdown',function(e){if(e.target===range)return;root.setPointerCapture(e.pointerId);var rect=root.getBoundingClientRect();setPos(((e.clientX-rect.left)/rect.width)*100);});
+root.addEventListener('pointermove',function(e){if(!root.hasPointerCapture(e.pointerId))return;var rect=root.getBoundingClientRect();setPos(((e.clientX-rect.left)/rect.width)*100);});
+root.addEventListener('pointerup',function(e){if(root.hasPointerCapture(e.pointerId))root.releasePointerCapture(e.pointerId);});
+});
+(function(){
+var els=document.querySelectorAll('.color-reveal');
+if(!els.length)return;
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(el){el.classList.add('is-color');});return;}
+if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('is-color');});return;}
+var io=new IntersectionObserver(function(entries){
+entries.forEach(function(entry){
+if(entry.isIntersecting){entry.target.classList.add('is-color');}
+else{entry.target.classList.remove('is-color');}
+});
+},{threshold:0.35,rootMargin:'0px 0px -8% 0px'});
+els.forEach(function(el){io.observe(el);});
+})();
 document.querySelectorAll('form[data-vexil-form]').forEach(function(form){
+var drop=form.querySelector('[data-file-drop]'),input=form.querySelector('input[type="file"]'),list=form.querySelector('[data-file-list]'),hint=form.querySelector('[data-file-hint]');
+var picked=[];
+var maxFiles=5,maxEach=5*1024*1024,accept=/\\.(jpe?g|png|webp|gif|heic|heif|pdf|svg|ai|eps|dxf|zip)$/i;
+function syncInput(){if(!input||typeof DataTransfer==='undefined')return;var dt=new DataTransfer();picked.forEach(function(f){dt.items.add(f);});input.files=dt.files;}
+function renderFiles(){
+if(!list)return;
+list.innerHTML=picked.map(function(f,i){return '<li><span>'+f.name.replace(/[<>&]/g,'')+' · '+(f.size/1024/1024<0.1?(Math.round(f.size/1024)+' KB'):(f.size/1024/1024).toFixed(1)+' MB')+'</span><button type="button" data-remove="'+i+'" aria-label="Quitar '+f.name.replace(/["<>&]/g,'')+'">Quitar</button></li>';}).join('');
+if(hint)hint.textContent=picked.length?picked.length+(picked.length===1?' archivo listo':' archivos listos')+'.':'Arrastra aquí o elige fotos, planos o logotipo (hasta 5, 5 MB c/u).';
+syncInput();
+}
+function addFiles(fileList){
+Array.from(fileList||[]).forEach(function(f){
+if(picked.length>=maxFiles)return;
+if(f.size>maxEach){if(hint)hint.textContent='"'+f.name+'" supera 5 MB.';return;}
+if(f.name&&!accept.test(f.name)&&!(f.type||'').startsWith('image/')){if(hint)hint.textContent='Formato no admitido: '+f.name;return;}
+if(picked.some(function(p){return p.name===f.name&&p.size===f.size;}))return;
+picked.push(f);
+});
+renderFiles();
+}
+if(drop&&input){
+drop.addEventListener('click',function(e){if(e.target.closest('[data-remove]'))return;input.click();});
+drop.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();input.click();}});
+['dragenter','dragover'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.add('is-dragover');});});
+['dragleave','drop'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.remove('is-dragover');});});
+drop.addEventListener('drop',function(e){addFiles(e.dataTransfer&&e.dataTransfer.files);});
+input.addEventListener('change',function(){addFiles(input.files);});
+list&&list.addEventListener('click',function(e){var btn=e.target.closest('[data-remove]');if(!btn)return;picked.splice(Number(btn.getAttribute('data-remove')),1);renderFiles();});
+}
 form.addEventListener('submit',async function(e){
-e.preventDefault();var fd=new FormData(form),button=form.querySelector('button[type="submit"]'),status=form.querySelector('[role="status"]');
+e.preventDefault();syncInput();var fd=new FormData(form),button=form.querySelector('button[type="submit"]'),status=form.querySelector('[role="status"]');
+picked.forEach(function(f){fd.append('attachment',f,f.name);});
 ${key ? `button.disabled=true;button.textContent='Enviando…';status.textContent='Estamos enviando tu consulta.';
 try{fd.append('access_key',${JSON.stringify(key)});var response=await fetch('https://api.web3forms.com/submit',{method:'POST',body:fd});var result=await response.json();if(!response.ok||!result.success)throw new Error('No confirmado');track('envio_formulario');window.location.href=${JSON.stringify(thanks)};}
 catch(error){status.textContent='No hemos podido enviar la consulta. Tus datos siguen aquí. Inténtalo de nuevo o escríbenos por email o WhatsApp.';button.disabled=false;button.textContent='Enviar consulta';}` : `var labels={nombre:'Nombre',email:'Email',telefono:'Teléfono',localidad:'Localidad',servicio:'Servicio',mensaje:'Consulta'},lines=[];
 fd.forEach(function(v,k){if(labels[k]&&String(v).trim())lines.push(labels[k]+': '+String(v).trim());});
+if(picked.length)lines.push('Archivos a adjuntar: '+picked.map(function(f){return f.name;}).join(', '));
 var msg=${JSON.stringify(page.waMessage||home.waMessage)}+'\\n\\n'+lines.join('\\n');
-status.textContent='Se abrirá WhatsApp con tu consulta preparada. Allí podrás adjuntar fotos y pulsar enviar.';
+try{
+if(picked.length&&navigator.canShare){
+var shareData={text:msg,title:'Consulta Vexil',files:picked};
+if(navigator.canShare(shareData)){
+status.textContent='Elige WhatsApp para enviar la consulta con tus fotos.';
+button.disabled=true;
+await navigator.share(shareData);
+track('abrir_consulta_whatsapp');
+button.disabled=false;button.textContent='Continuar en WhatsApp';
+return;
+}
+}
+}catch(err){if(err&&err.name==='AbortError'){button.disabled=false;button.textContent='Continuar en WhatsApp';status.textContent='';return;}button.disabled=false;button.textContent='Continuar en WhatsApp';}
+status.textContent=picked.length?'Se abrirá WhatsApp con tu consulta. Adjunta ahí las fotos que has elegido y pulsa enviar.':'Se abrirá WhatsApp con tu consulta preparada. Allí podrás adjuntar fotos y pulsar enviar.';
 track('abrir_consulta_whatsapp');window.location.href='https://wa.me/${contact.whatsappNumber}?text='+encodeURIComponent(msg);`}
 });});
 ${site.gaId ? `var banner=document.getElementById('cookie-banner');try{if(!localStorage.getItem('vexil-cookies'))banner.hidden=false;}catch(e){banner.hidden=false;}
@@ -408,6 +476,61 @@ function spaces(depth, page) {
 </div></section>`;
 }
 
+function works(depth, page) {
+  if (!page.works?.length) return "";
+  return `<section class="content-section works-section" id="trabajos"><div class="page-width">
+ <div class="section-intro"><div><span class="eyebrow">${page.worksEyebrow || "Trabajos"}</span><h2 class="section-title">${page.worksH2 || "Trabajos de este servicio"}</h2></div>
+ <p class="section-lead">${page.worksLead || "Algunos proyectos recientes de este tipo."}</p></div>
+ <div class="works-grid">${page.works
+   .map(
+     (w) => `<figure class="work-card color-reveal">
+ <div class="work-photo">${picture(depth, w.img, w.alt, { w: 1200, h: 900 })}</div>
+ ${w.caption ? `<figcaption>${w.caption}</figcaption>` : ""}
+ </figure>`
+   )
+   .join("")}</div></div></section>`;
+}
+
+function transform(depth, page, { slider = false } = {}) {
+  const t = page.transform;
+  if (!t?.beforeImg || !t?.afterImg) return "";
+  if (slider) {
+    const beforeSrc = asset(depth, t.beforeImg);
+    const afterSrc = asset(depth, t.afterImg);
+    const beforeWebp = asset(depth, t.beforeImg.replace(/\.(jpe?g|png)$/i, ".webp"));
+    const afterWebp = asset(depth, t.afterImg.replace(/\.(jpe?g|png)$/i, ".webp"));
+    return `<section class="content-section transform-section" id="antes-despues"><div class="page-width">
+ <div class="section-intro"><div><span class="eyebrow">${t.eyebrow || "Antes y después"}</span><h2 class="section-title">${t.h2}</h2></div>
+ <p class="section-lead">${t.lead || "Desliza para comparar."}</p></div>
+ <div class="ba-slider" data-ba-slider>
+  <div class="ba-layer ba-after">
+   <picture><source type="image/webp" srcset="${afterWebp}"/><img src="${afterSrc}" alt="${(t.afterAlt || "").replaceAll('"','&quot;')}" width="1200" height="900" decoding="async" loading="lazy"/></picture>
+   <span class="ba-chip ba-chip-after">${t.afterLabel || "Después"}</span>
+  </div>
+  <div class="ba-layer ba-before" data-ba-before>
+   <picture><source type="image/webp" srcset="${beforeWebp}"/><img src="${beforeSrc}" alt="${(t.beforeAlt || "").replaceAll('"','&quot;')}" width="1200" height="900" decoding="async" loading="lazy"/></picture>
+   <span class="ba-chip ba-chip-before">${t.beforeLabel || "Antes"}</span>
+  </div>
+  <input class="ba-range" data-ba-range type="range" min="0" max="100" value="50" aria-label="Comparar antes y después"/>
+  <div class="ba-handle" data-ba-handle aria-hidden="true"><span></span></div>
+ </div></div></section>`;
+  }
+  return `<section class="content-section transform-section" id="proceso-visual"><div class="page-width">
+ <div class="section-intro"><div><span class="eyebrow">${t.eyebrow || "Proceso"}</span><h2 class="section-title">${t.h2}</h2></div>
+ <p class="section-lead">${t.lead || ""}</p></div>
+ <div class="transform-grid">
+  <figure class="transform-card">
+   <span class="transform-label">${t.beforeLabel || "Antes"}</span>
+   <div class="transform-photo">${picture(depth, t.beforeImg, t.beforeAlt || "", { w: 1200, h: 900 })}</div>
+  </figure>
+  <div class="transform-arrow" aria-hidden="true">→</div>
+  <figure class="transform-card">
+   <span class="transform-label">${t.afterLabel || "Después"}</span>
+   <div class="transform-photo">${picture(depth, t.afterImg, t.afterAlt || "", { w: 1200, h: 900 })}</div>
+  </figure>
+ </div></div></section>`;
+}
+
 function nextStep() {
  return `<section class="advice-strip"><div class="page-width"><p>${nextStepText}</p><a class="text-link" href="#contacto">Hablemos de tu idea <span aria-hidden="true">↗</span></a></div></section>`;
 }
@@ -452,16 +575,25 @@ function contactSection(depth,page){
  return `<section class="contact-section" id="contacto"><div class="page-width contact-grid"><div>
  <span class="eyebrow">Presupuesto sin compromiso</span><h2 class="section-title">${page.contactH2}</h2><p class="contact-lead">${page.contactLead}</p>
  <div class="contact-methods"><a class="contact-phone" href="tel:${TEL}" data-track="tel">${PHONE}</a><a href="${waUrl(page.waMessage||home.waMessage)}" data-track="wa">Escribir por WhatsApp ↗</a><a href="mailto:${MAIL}">${MAIL}</a></div>
- <p class="contact-address">${NAP}</p><p class="contact-note">Para enviarnos fotos, planos o tu logotipo, utiliza WhatsApp o email.</p>
+ <p class="contact-address">${NAP}</p><p class="contact-note">También puedes escribirnos a ${MAIL} o por WhatsApp al ${PHONE}.</p>
  </div><div class="contact-form-wrap"><h3>${direct?'Solicita tu presupuesto':'Prepara tu consulta por WhatsApp'}</h3>
- <p>${direct?'Dinos qué necesitas y cómo podemos contactar contigo.':'Rellena lo que sepas. Se abrirá WhatsApp con el mensaje preparado para que puedas enviarlo.'}</p>
+ <p>${direct?'Dinos qué necesitas, adjunta fotos si las tienes y cómo podemos contactar contigo.':'Rellena lo que sepas y adjunta fotos si las tienes. Se abrirá WhatsApp con el mensaje preparado.'}</p>
  <form data-vexil-form><input type="hidden" name="servicio_pagina" value="${page.breadcrumb||page.h1}"/>
  <div class="form-row"><div><label for="nombre">Tu nombre <span aria-hidden="true">*</span></label><input id="nombre" name="nombre" required autocomplete="name" maxlength="100"/></div>
  <div><label for="localidad">Localidad</label><input id="localidad" name="localidad" autocomplete="address-level2" maxlength="120" placeholder="¿Dónde es el proyecto?"/></div></div>
- <div class="form-row"><div><label for="email">Email${direct?' *':' (opcional)'}</label><input id="email" name="email" type="email" ${direct?'required':''} autocomplete="email" maxlength="200"/></div>
- <div><label for="telefono">Teléfono (opcional)</label><input id="telefono" name="telefono" type="tel" autocomplete="tel" maxlength="30"/></div></div>
+ ${direct?`<div class="form-row"><div><label for="email">Email <span aria-hidden="true">*</span></label><input id="email" name="email" type="email" required autocomplete="email" maxlength="200"/></div>
+ <div><label for="telefono">Teléfono (opcional)</label><input id="telefono" name="telefono" type="tel" autocomplete="tel" maxlength="30"/></div></div>`
+ :`<label for="email">Email (opcional)</label><input id="email" name="email" type="email" autocomplete="email" maxlength="200" placeholder="Por si quieres que te enviemos el presupuesto por correo"/>`}
  <label for="servicio">¿Qué necesitas?</label><select id="servicio" name="servicio"><option value="Necesito asesoramiento"${!services[page.slug]?' selected':''}>No lo tengo claro todavía</option>${options}</select>
  <label for="mensaje">Cuéntanos tu idea <span aria-hidden="true">*</span></label><textarea id="mensaje" name="mensaje" required maxlength="2500" rows="4" placeholder="Qué quieres hacer, medidas aproximadas y cualquier detalle que nos ayude."></textarea>
+ <div class="file-field"><span class="file-label" id="fotos-label">Fotos, planos o logotipo</span>
+ <div class="file-drop" data-file-drop tabindex="0" role="button" aria-labelledby="fotos-label">
+ <input id="fotos" type="file" accept="image/*,.pdf,.svg,.ai,.eps,.dxf,.zip" multiple hidden/>
+ <span class="file-drop-title">Arrastra aquí tus fotos</span>
+ <span class="file-drop-hint" data-file-hint>O pulsa para elegirlas. Hasta 5 archivos, 5 MB cada uno.</span>
+ </div>
+ <ul class="file-list" data-file-list></ul>
+ </div>
  <p class="form-required">* Campos obligatorios</p><button class="button button-primary" type="submit">${direct?'Enviar consulta':'Continuar en WhatsApp'} <span aria-hidden="true">↗</span></button>
  <p class="form-privacy">Usaremos tus datos para atender esta consulta. Lee la <a href="${rel(depth,'privacidad/')}">política de privacidad</a>.</p><p class="form-status" role="status" aria-live="polite"></p>
  <noscript><p>Para contactar, <a href="${waUrl(page.waMessage||home.waMessage)}">abre WhatsApp</a> o escribe a <a href="mailto:${MAIL}">${MAIL}</a>.</p></noscript>
@@ -485,6 +617,8 @@ ${header(depth, page.slug)}
 ${hero(depth, page)}
 ${benefits(page, depth)}
 ${solutions(depth, page)}
+${works(depth, page)}
+${transform(depth, page, { slider: true })}
 ${spaces(depth, page)}
 ${nextStep()}
 ${faqs(page, depth)}
@@ -495,12 +629,13 @@ ${closeHtml(depth, page)}`;
 }
 
 function homePage(){
- const cards=homeCatalog.map((n,i)=>`<a class="service-card" href="${serviceHref(0,n.slug)}"><div class="card-photo">${picture(0,n.image,n.alt)}</div><div class="card-copy"><span class="card-index">${String(i+1).padStart(2,'0')}</span><h3>${n.name}</h3><p>${n.summary}</p><span class="card-link">Ver servicio <span aria-hidden="true">↗</span></span></div></a>`).join('');
+ const cards=homeCatalog.map((n,i)=>`<a class="service-card color-reveal" href="${serviceHref(0,n.slug)}"><div class="card-photo">${picture(0,n.image,n.alt)}</div><div class="card-copy"><span class="card-index">${String(i+1).padStart(2,'0')}</span><h3>${n.name}</h3><p>${n.summary}</p><span class="card-link">Ver servicio <span aria-hidden="true">↗</span></span></div></a>`).join('');
  return `${head({title:home.title,description:home.description,path:'/',depth:0,faqs:home.faqs,localBusiness:true})}
  <body class="bg-surface font-body-md text-on-surface antialiased">${header(0,'home')}<main id="contenido" class="pt-20">
  <section class="home-hero"><div class="page-width hero-grid"><div class="hero-copy"><span class="eyebrow">${home.eyebrow}</span><h1>${home.h1}</h1><p class="hero-lead">${home.lead}</p><div class="hero-actions"><a class="button button-primary" href="#contacto">${home.ctaPrimary} <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#servicios">${home.ctaSecondary}</a></div><p class="hero-trust">${home.trust}</p></div>${illustrativeImage(0,home,true)}</div></section>
  <div class="promise-strip"><div class="page-width"><span>Rótulos que se reconocen.</span><span>Mensajes que se entienden.</span><span>Trato directo con el taller.</span></div></div>
- <section class="content-section" id="servicios"><div class="page-width"><div class="section-intro"><div><span class="eyebrow">${home.servicesEyebrow}</span><h2 class="section-title">${home.servicesH2}</h2></div><p class="section-lead">${home.servicesLead}</p></div><div class="services-grid">${cards}</div><p class="image-disclosure">Fotografías de referencia de los servicios. No corresponden a trabajos realizados por Vexil.</p></div></section>
+ <section class="content-section" id="servicios"><div class="page-width"><div class="section-intro"><div><span class="eyebrow">${home.servicesEyebrow}</span><h2 class="section-title">${home.servicesH2}</h2></div><p class="section-lead">${home.servicesLead}</p></div><div class="services-grid">${cards}</div></div></section>
+ ${transform(0, home)}
  <section class="process-section" id="como-trabajamos"><div class="page-width"><div class="section-intro"><div><span class="eyebrow">${home.whyEyebrow}</span><h2 class="section-title">${home.whyH2}</h2></div><p class="section-lead">${home.whyLead}</p></div><ol class="process-grid">${home.benefits.map((b,i)=>`<li><span class="process-number">0${i+1}</span><h3>${b.title}</h3><p>${b.text}</p></li>`).join('')}</ol><a class="text-link" href="nosotros/">Conoce Vexil <span aria-hidden="true">↗</span></a></div></section>
  <section class="professional-strip"><div class="page-width"><div><span class="eyebrow">Arquitectura, interiorismo y construcción</span><h2>Rotulación para proyectos de arquitectura e interiorismo</h2><p>Fabricamos e instalamos las piezas de rotulación de tu proyecto, desde planos y con el alcance que necesites.</p></div><a class="button button-outline" href="profesionales/">Trabajemos juntos <span aria-hidden="true">↗</span></a></div></section>
  ${faqs(home,0)}${contactSection(0,{...home,slug:'home',breadcrumb:'Inicio'})}</main>${closeHtml(0,home)}`;
@@ -606,7 +741,11 @@ async function optimizeImages() {
   for (const file of files) {
     const src = join(assetsDir, file);
     const base = file.replace(/\.(jpe?g|png)$/i, "");
-    await sharp(src).resize({ width: 1600, withoutEnlargement: true }).webp({ quality: 78 }).toFile(join(assetsDir, `${base}.webp`));
+    try {
+      await sharp(src).resize({ width: 1600, withoutEnlargement: true }).webp({ quality: 78 }).toFile(join(assetsDir, `${base}.webp`));
+    } catch {
+      console.warn(`No se pudo reescribir ${base}.webp (archivo en uso). Se mantiene el existente.`);
+    }
   }
   const ogSrc = join(assetsDir, "servicio-fachadas.jpg");
   const ogJpg = join(assetsDir, "og.jpg");
