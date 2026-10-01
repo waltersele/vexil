@@ -904,6 +904,7 @@ ${sitemapUrls()
 `;
 await writeFile(join(pub, "sitemap.xml"), sitemap, "utf8");
 await writeFile(join(pub, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${absUrl("/sitemap.xml")}\n`, "utf8");
+await copyFile(join(root, "src/htaccess"), join(pub, ".htaccess"));
 
 await optimizeImages();
 console.log("Built pages, sitemap, robots and optimized images");

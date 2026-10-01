@@ -1,0 +1,22 @@
+# Vexil - Apache / LiteSpeed
+Options -Indexes
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# www to apex
+RewriteCond %{HTTP_HOST} ^www\.vexil\.es$ [NC]
+RewriteRule ^ https://vexil.es%{REQUEST_URI} [L,R=301]
+
+# Legacy service paths
+RewriteRule ^servicios/lamina-solar/?$ /servicios/laminas-solares/ [L,R=301]
+RewriteRule ^servicios/interiores/?$ /servicios/interiorismo-comercial/ [L,R=301]
+
+# Strip index.html from URLs
+RewriteCond %{THE_REQUEST} \s/+(.+/)?index\.html[\s?] [NC]
+RewriteRule ^(.+/)?index\.html$ /$1 [L,R=301]
+
+ErrorDocument 404 /404.html
