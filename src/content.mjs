@@ -3,7 +3,7 @@
 
 export const site = {
   "name": "Vexil",
-  "origin": "https://waltersele.github.io/vexil",
+  "origin": "https://vexil.es",
   "formAccessKey": "",
   "gaId": ""
 };
@@ -20,6 +20,8 @@ export const contact = {
   "streetAddress": "Avda Pla de Messell, 1, Nave D2",
   "postalCode": "03560",
   "nif": "48564088W",
+  "priceRange": "€€",
+  "sameAs": [],
   "areaServed": [
     "El Campello",
     "Alicante",

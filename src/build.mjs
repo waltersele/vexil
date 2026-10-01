@@ -80,11 +80,13 @@ function localBusinessJsonLd() {
   return `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": absUrl("/#localbusiness"),
     name: contact.name,
-    image: absUrl("assets/og.jpg"),
-    url: absUrl(""),
+    image: [absUrl("assets/og.jpg"), absUrl("assets/isotipo.png")],
+    url: absUrl("/"),
     telephone: TEL,
     email: MAIL,
+    priceRange: contact.priceRange || "€€",
     address: {
       "@type": "PostalAddress",
       addressLocality: contact.addressLocality,
@@ -94,8 +96,14 @@ function localBusinessJsonLd() {
       ...(contact.postalCode ? { postalCode: contact.postalCode } : {}),
     },
     areaServed: contact.areaServed.map((name) => ({ "@type": "City", name })),
-    logo: absUrl("assets/logo.png"),
+    logo: absUrl("assets/isotipo.png"),
+    ...(contact.sameAs?.length ? { sameAs: contact.sameAs } : {}),
   })}</script>`;
+}
+
+function shareImageName(page) {
+  if (page?.slug) return `og-${page.slug}.jpg`;
+  return "og.jpg";
 }
 
 function breadcrumbJsonLd(crumbs) {
@@ -132,17 +140,29 @@ try{if(localStorage.getItem('vexil-cookies')==='1')enableAnalytics();}catch(e){}
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#e6007e"/>
 <title>${title}</title>
 <meta name="description" content="${description}"/>
 ${path === "/gracias/" || path === "/404.html" ? '<meta name="robots" content="noindex,follow"/>' : ""}
 <link rel="canonical" href="${canonical}"/>
+<link rel="alternate" hreflang="es" href="${canonical}"/>
+<link rel="alternate" hreflang="x-default" href="${canonical}"/>
+<meta property="og:site_name" content="${site.name}"/>
 <meta property="og:title" content="${title}"/>
 <meta property="og:description" content="${description}"/>
 <meta property="og:image" content="${og}"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="${title.replaceAll('"','&quot;')}"/>
 <meta property="og:locale" content="es_ES"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="${canonical}"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="${title}"/>
+<meta name="twitter:description" content="${description}"/>
+<meta name="twitter:image" content="${og}"/>
 <link rel="icon" type="image/png" sizes="32x32" href="${asset(depth, "favicon-32.png")}"/>
+<link rel="icon" type="image/png" sizes="192x192" href="${asset(depth, "favicon-192.png")}"/>
 <link rel="apple-touch-icon" sizes="180x180" href="${asset(depth, "apple-touch-icon.png")}"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -186,7 +206,7 @@ ${icon(s.icon, "w-[22px] h-[22px] text-primary-container mt-0.5 shrink-0")}
 <header class="site-header fixed top-0 left-0 w-full z-[60] bg-white shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
 <div class="h-20 max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between">
 <a class="flex items-center shrink-0" href="${homeHref}">
-<img alt="Vexil" class="h-10 md:h-12 w-auto object-contain object-left" src="${asset(depth, "logo.png")}" width="160" height="48"/>
+<img alt="Vexil Rotulación" class="h-10 md:h-12 w-auto object-contain object-left" src="${asset(depth, "logo.png")}" width="174" height="48"/>
 </a>
 <nav aria-label="Navegación principal" class="hidden lg:flex items-center gap-space-lg h-full">
 <div class="mega-wrap static h-full flex items-center">
@@ -239,7 +259,7 @@ function footer(depth) {
 <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-lg pb-space-xl">
 <div class="flex flex-col gap-space-sm">
-<img alt="Vexil" class="h-7 w-auto max-w-full self-start object-contain object-left" src="${asset(depth, "logo.png")}" width="101" height="28"/>
+<img alt="Vexil Rotulación" class="h-7 w-auto max-w-full self-start object-contain object-left" src="${asset(depth, "logo.png")}" width="102" height="28"/>
 <p class="font-body-sm text-body-sm text-on-surface-variant">Rotulación, fachadas, interiores y señalética. Diseñado y fabricado en El Campello, montado en toda el área de Alicante.</p>
 <p class="font-body-sm text-body-sm text-on-surface">${NAP}</p>
 <p class="font-body-sm text-body-sm text-on-surface-variant">${AREA}</p>
@@ -678,7 +698,7 @@ function pageShell(page, depth, path, crumbs, localBusiness = false) {
     faqs: collectFaqs(page),
     crumbs,
     localBusiness,
-    ogImage: page.heroImg,
+    ogImage: shareImageName(page),
   })}
 <body class="bg-surface font-body-md text-on-surface antialiased">
 ${header(depth, page.slug)}
@@ -794,18 +814,22 @@ async function write(path, html) {
 }
 
 function sitemapUrls() {
-  const urls = ["/", "/nosotros/", "/profesionales/", "/materiales/", "/franquicias/", "/obra-nueva/", "/aviso-legal/", "/privacidad/", "/cookies/"];
-  for (const s of navServices) urls.push(`/servicios/${s.slug}/`);
-  return urls;
+  return ["/", "/nosotros/", "/profesionales/", "/materiales/", "/franquicias/", "/obra-nueva/", ...navServices.map((s) => `/servicios/${s.slug}/`)];
 }
 
 async function optimizeImages() {
   await mkdir(assetsDir, { recursive: true });
   await copyFile(join(root, "src/assets/logo.png"), join(assetsDir, "logo.png"));
-  const logo = sharp(join(root, "src/assets/logo.png"));
-  await logo.clone().resize(32, 32, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 1 } }).png().toFile(join(assetsDir, "favicon-32.png"));
-  await logo.clone().resize(180, 180, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 1 } }).png().toFile(join(assetsDir, "apple-touch-icon.png"));
-  const files = (await readdir(assetsDir)).filter((f) => /\.(jpe?g|png)$/i.test(f) && !f.startsWith("favicon") && !f.startsWith("apple") && f !== "logo.png");
+  await copyFile(join(root, "src/assets/logo-white.png"), join(assetsDir, "logo-white.png"));
+  await copyFile(join(root, "src/assets/isotipo.png"), join(assetsDir, "isotipo.png"));
+  const mark = sharp(join(root, "src/assets/isotipo.png"));
+  await mark.clone().resize(32, 32, { fit: "cover" }).png().toFile(join(assetsDir, "favicon-32.png"));
+  await mark.clone().resize(192, 192, { fit: "cover" }).png().toFile(join(assetsDir, "favicon-192.png"));
+  await mark.clone().resize(180, 180, { fit: "cover" }).png().toFile(join(assetsDir, "apple-touch-icon.png"));
+  const skipWebp = new Set(["logo.png", "logo-white.png", "isotipo.png"]);
+  const files = (await readdir(assetsDir)).filter(
+    (f) => /\.(jpe?g|png)$/i.test(f) && !f.startsWith("favicon") && !f.startsWith("apple") && !f.startsWith("og-") && f !== "og.jpg" && !skipWebp.has(f)
+  );
   for (const file of files) {
     const src = join(assetsDir, file);
     const base = file.replace(/\.(jpe?g|png)$/i, "");
@@ -815,14 +839,29 @@ async function optimizeImages() {
       console.warn(`No se pudo reescribir ${base}.webp (archivo en uso). Se mantiene el existente.`);
     }
   }
-  const ogSrc = join(assetsDir, "servicio-fachadas.jpg");
-  const ogJpg = join(assetsDir, "og.jpg");
-  const ogWebp = join(assetsDir, "og.webp");
-  try {
-    await sharp(ogSrc).resize(1200, 630, { fit: "cover" }).jpeg({ quality: 80 }).toFile(ogJpg);
-    await sharp(ogSrc).resize(1200, 630, { fit: "cover" }).webp({ quality: 78 }).toFile(ogWebp);
-  } catch {
-    console.warn("No se pudo reescribir og.jpg/og.webp (archivo en uso). Se mantienen los existentes.");
+
+  async function writeOg(srcFile, destName) {
+    const src = join(assetsDir, srcFile);
+    const destJpg = join(assetsDir, destName);
+    const destWebp = join(assetsDir, destName.replace(/\.jpe?g$/i, ".webp"));
+    try {
+      await sharp(src).resize(1200, 630, { fit: "cover" }).jpeg({ quality: 80 }).toFile(destJpg);
+      await sharp(src).resize(1200, 630, { fit: "cover" }).webp({ quality: 78 }).toFile(destWebp);
+    } catch {
+      console.warn(`No se pudo reescribir ${destName} (archivo en uso). Se mantiene el existente.`);
+    }
+  }
+
+  await writeOg("servicio-fachadas.jpg", "og.jpg");
+  const ogSources = new Map();
+  ogSources.set("home", home.heroImg);
+  for (const page of Object.values(services)) ogSources.set(page.slug, page.heroImg);
+  for (const page of Object.values(extraPages)) if (page.slug) ogSources.set(page.slug, page.heroImg);
+  if (nosotros.slug) ogSources.set(nosotros.slug, nosotros.heroImg);
+  if (profesionales.slug) ogSources.set(profesionales.slug, profesionales.heroImg);
+  for (const [slug, src] of ogSources) {
+    if (!src) continue;
+    await writeOg(src, `og-${slug}.jpg`);
   }
 }
 
@@ -869,10 +908,11 @@ for (const r of redirects) {
   await write(`${r.from}/index.html`, redirectHtml(r.to));
 }
 
+const buildDate = new Date().toISOString().slice(0, 10);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${sitemapUrls()
-  .map((u) => `  <url><loc>${absUrl(u)}</loc></url>`)
+  .map((u) => `  <url><loc>${absUrl(u)}</loc><lastmod>${buildDate}</lastmod></url>`)
   .join("\n")}
 </urlset>
 `;
