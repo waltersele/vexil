@@ -225,22 +225,15 @@
  <span class="eyebrow">Presupuesto sin compromiso</span><h2 class="section-title">¿Cuántos locales tenéis en la zona?</h2><p class="contact-lead">Envíanos el manual de marca y la lista de locales y te preparamos la propuesta.</p>
  <div class="contact-methods"><a class="contact-phone" href="tel:+34616048109" data-track="tel">616 048 109</a><a href="https://wa.me/34616048109?text=Hola%2C%20os%20escribo%20por%20rotulaci%C3%B3n%20para%20franquicias." data-track="wa">Escribir por WhatsApp ↗</a><a href="mailto:proyectos@vexil.es">proyectos@vexil.es</a></div>
  <p class="contact-address">Vexil · Avda Pla de Messell, 1, Nave D2, 03560 El Campello, Alicante</p><p class="contact-note">También puedes escribirnos a proyectos@vexil.es o por WhatsApp al 616 048 109.</p>
- </div><div class="contact-form-wrap"><h3>Prepara tu consulta por WhatsApp</h3>
- <p>Rellena lo que sepas y adjunta fotos si las tienes. Se abrirá WhatsApp con el mensaje preparado.</p>
+ </div> <div class="contact-form-wrap"><h3>Prepara tu consulta por WhatsApp</h3>
+ <p>Rellena lo que sepas. Se abrirá WhatsApp con el mensaje listo; ahí podrás adjuntar fotos, planos o el logotipo.</p>
  <form data-vexil-form><input type="hidden" name="servicio_pagina" value="Franquicias"/>
  <div class="form-row"><div><label for="nombre">Tu nombre <span aria-hidden="true">*</span></label><input id="nombre" name="nombre" required autocomplete="name" maxlength="100"/></div>
  <div><label for="localidad">Localidad</label><input id="localidad" name="localidad" autocomplete="address-level2" maxlength="120" placeholder="¿Dónde es el proyecto?"/></div></div>
  <label for="email">Email (opcional)</label><input id="email" name="email" type="email" autocomplete="email" maxlength="200" placeholder="Por si quieres que te enviemos el presupuesto por correo"/>
  <label for="servicio">¿Qué necesitas?</label><select id="servicio" name="servicio"><option value="Necesito asesoramiento" selected>No lo tengo claro todavía</option><option value="Fachadas comerciales">Fachadas comerciales</option><option value="Letras corpóreas y rótulos">Letras corpóreas y rótulos</option><option value="Impresión digital">Impresión digital</option><option value="Rotulación de furgonetas">Rotulación de furgonetas</option><option value="Rotulación de interiores">Rotulación de interiores</option><option value="Láminas solares">Láminas solares</option><option value="Corte láser y CNC">Corte láser y CNC</option><option value="Stands y eventos">Stands y eventos</option><option value="Iluminación decorativa">Iluminación decorativa</option><option value="Señalética y placas">Señalética y placas</option></select>
  <label for="mensaje">Cuéntanos tu idea <span aria-hidden="true">*</span></label><textarea id="mensaje" name="mensaje" required maxlength="2500" rows="4" placeholder="Qué quieres hacer, medidas aproximadas y cualquier detalle que nos ayude."></textarea>
- <div class="file-field"><span class="file-label" id="fotos-label">Fotos, planos o logotipo</span>
- <div class="file-drop" data-file-drop tabindex="0" role="button" aria-labelledby="fotos-label">
- <input id="fotos" type="file" accept="image/*,.pdf,.svg,.ai,.eps,.dxf,.zip" multiple hidden/>
- <span class="file-drop-title">Arrastra aquí tus fotos</span>
- <span class="file-drop-hint" data-file-hint>O pulsa para elegirlas. Hasta 5 archivos, 5 MB cada uno.</span>
- </div>
- <ul class="file-list" data-file-list></ul>
- </div>
+
  <p class="form-required">* Campos obligatorios</p><button class="button button-primary" type="submit">Continuar en WhatsApp <span aria-hidden="true">↗</span></button>
  <p class="form-privacy">Usaremos tus datos para atender esta consulta. Lee la <a href="../privacidad/">política de privacidad</a>.</p><p class="form-status" role="status" aria-live="polite"></p>
  <noscript><p>Para contactar, <a href="https://wa.me/34616048109?text=Hola%2C%20os%20escribo%20por%20rotulaci%C3%B3n%20para%20franquicias.">abre WhatsApp</a> o escribe a <a href="mailto:proyectos@vexil.es">proyectos@vexil.es</a>.</p></noscript>
@@ -357,22 +350,8 @@ e.preventDefault();syncInput();var fd=new FormData(form),button=form.querySelect
 picked.forEach(function(f){fd.append('attachment',f,f.name);});
 var labels={nombre:'Nombre',email:'Email',telefono:'Teléfono',localidad:'Localidad',servicio:'Servicio',mensaje:'Consulta'},lines=[];
 fd.forEach(function(v,k){if(labels[k]&&String(v).trim())lines.push(labels[k]+': '+String(v).trim());});
-if(picked.length)lines.push('Archivos a adjuntar: '+picked.map(function(f){return f.name;}).join(', '));
 var msg="Hola, os escribo por rotulación para franquicias."+'\n\n'+lines.join('\n');
-try{
-if(picked.length&&navigator.canShare){
-var shareData={text:msg,title:'Consulta Vexil',files:picked};
-if(navigator.canShare(shareData)){
-status.textContent='Elige WhatsApp para enviar la consulta con tus fotos.';
-button.disabled=true;
-await navigator.share(shareData);
-track('abrir_consulta_whatsapp');
-button.disabled=false;button.textContent='Continuar en WhatsApp';
-return;
-}
-}
-}catch(err){if(err&&err.name==='AbortError'){button.disabled=false;button.textContent='Continuar en WhatsApp';status.textContent='';return;}button.disabled=false;button.textContent='Continuar en WhatsApp';}
-status.textContent=picked.length?'Se abrirá WhatsApp con tu consulta. Adjunta ahí las fotos que has elegido y pulsa enviar.':'Se abrirá WhatsApp con tu consulta preparada. Allí podrás adjuntar fotos y pulsar enviar.';
+status.textContent='Se abrirá WhatsApp con tu consulta. Allí podrás adjuntar fotos y pulsar enviar.';
 track('abrir_consulta_whatsapp');window.location.href='https://wa.me/34616048109?text='+encodeURIComponent(msg);
 });});
 

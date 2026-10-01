@@ -371,22 +371,8 @@ ${key ? `button.disabled=true;button.textContent='Enviando…';status.textConten
 try{fd.append('access_key',${JSON.stringify(key)});var response=await fetch('https://api.web3forms.com/submit',{method:'POST',body:fd});var result=await response.json();if(!response.ok||!result.success)throw new Error('No confirmado');track('envio_formulario');window.location.href=${JSON.stringify(thanks)};}
 catch(error){status.textContent='No hemos podido enviar la consulta. Tus datos siguen aquí. Inténtalo de nuevo o escríbenos por email o WhatsApp.';button.disabled=false;button.textContent='Enviar consulta';}` : `var labels={nombre:'Nombre',email:'Email',telefono:'Teléfono',localidad:'Localidad',servicio:'Servicio',mensaje:'Consulta'},lines=[];
 fd.forEach(function(v,k){if(labels[k]&&String(v).trim())lines.push(labels[k]+': '+String(v).trim());});
-if(picked.length)lines.push('Archivos a adjuntar: '+picked.map(function(f){return f.name;}).join(', '));
 var msg=${JSON.stringify(page.waMessage||home.waMessage)}+'\\n\\n'+lines.join('\\n');
-try{
-if(picked.length&&navigator.canShare){
-var shareData={text:msg,title:'Consulta Vexil',files:picked};
-if(navigator.canShare(shareData)){
-status.textContent='Elige WhatsApp para enviar la consulta con tus fotos.';
-button.disabled=true;
-await navigator.share(shareData);
-track('abrir_consulta_whatsapp');
-button.disabled=false;button.textContent='Continuar en WhatsApp';
-return;
-}
-}
-}catch(err){if(err&&err.name==='AbortError'){button.disabled=false;button.textContent='Continuar en WhatsApp';status.textContent='';return;}button.disabled=false;button.textContent='Continuar en WhatsApp';}
-status.textContent=picked.length?'Se abrirá WhatsApp con tu consulta. Adjunta ahí las fotos que has elegido y pulsa enviar.':'Se abrirá WhatsApp con tu consulta preparada. Allí podrás adjuntar fotos y pulsar enviar.';
+status.textContent='Se abrirá WhatsApp con tu consulta. Allí podrás adjuntar fotos y pulsar enviar.';
 track('abrir_consulta_whatsapp');window.location.href='https://wa.me/${contact.whatsappNumber}?text='+encodeURIComponent(msg);`}
 });});
 ${site.gaId ? `var banner=document.getElementById('cookie-banner');try{if(!localStorage.getItem('vexil-cookies'))banner.hidden=false;}catch(e){banner.hidden=false;}
@@ -665,8 +651,8 @@ function contactSection(depth,page){
  <span class="eyebrow">Presupuesto sin compromiso</span><h2 class="section-title">${page.contactH2}</h2><p class="contact-lead">${page.contactLead}</p>
  <div class="contact-methods"><a class="contact-phone" href="tel:${TEL}" data-track="tel">${PHONE}</a><a href="${waUrl(page.waMessage||home.waMessage)}" data-track="wa">Escribir por WhatsApp ↗</a><a href="mailto:${MAIL}">${MAIL}</a></div>
  <p class="contact-address">${NAP}</p><p class="contact-note">También puedes escribirnos a ${MAIL} o por WhatsApp al ${PHONE}.</p>
- </div><div class="contact-form-wrap"><h3>${direct?'Solicita tu presupuesto':'Prepara tu consulta por WhatsApp'}</h3>
- <p>${direct?'Dinos qué necesitas, adjunta fotos si las tienes y cómo podemos contactar contigo.':'Rellena lo que sepas y adjunta fotos si las tienes. Se abrirá WhatsApp con el mensaje preparado.'}</p>
+ </div> <div class="contact-form-wrap"><h3>${direct?'Solicita tu presupuesto':'Prepara tu consulta por WhatsApp'}</h3>
+ <p>${direct?'Dinos qué necesitas, adjunta fotos si las tienes y cómo podemos contactar contigo.':'Rellena lo que sepas. Se abrirá WhatsApp con el mensaje listo; ahí podrás adjuntar fotos, planos o el logotipo.'}</p>
  <form data-vexil-form><input type="hidden" name="servicio_pagina" value="${page.breadcrumb||page.h1}"/>
  <div class="form-row"><div><label for="nombre">Tu nombre <span aria-hidden="true">*</span></label><input id="nombre" name="nombre" required autocomplete="name" maxlength="100"/></div>
  <div><label for="localidad">Localidad</label><input id="localidad" name="localidad" autocomplete="address-level2" maxlength="120" placeholder="¿Dónde es el proyecto?"/></div></div>
@@ -675,14 +661,14 @@ function contactSection(depth,page){
  :`<label for="email">Email (opcional)</label><input id="email" name="email" type="email" autocomplete="email" maxlength="200" placeholder="Por si quieres que te enviemos el presupuesto por correo"/>`}
  <label for="servicio">¿Qué necesitas?</label><select id="servicio" name="servicio"><option value="Necesito asesoramiento"${!services[page.slug]?' selected':''}>No lo tengo claro todavía</option>${options}</select>
  <label for="mensaje">Cuéntanos tu idea <span aria-hidden="true">*</span></label><textarea id="mensaje" name="mensaje" required maxlength="2500" rows="4" placeholder="Qué quieres hacer, medidas aproximadas y cualquier detalle que nos ayude."></textarea>
- <div class="file-field"><span class="file-label" id="fotos-label">Fotos, planos o logotipo</span>
+ ${direct?`<div class="file-field"><span class="file-label" id="fotos-label">Fotos, planos o logotipo</span>
  <div class="file-drop" data-file-drop tabindex="0" role="button" aria-labelledby="fotos-label">
- <input id="fotos" type="file" accept="image/*,.pdf,.svg,.ai,.eps,.dxf,.zip" multiple hidden/>
+ <input id="fotos" name="fotos" type="file" accept="image/*,.pdf,.svg,.ai,.eps,.dxf,.zip" multiple hidden/>
  <span class="file-drop-title">Arrastra aquí tus fotos</span>
  <span class="file-drop-hint" data-file-hint>O pulsa para elegirlas. Hasta 5 archivos, 5 MB cada uno.</span>
  </div>
  <ul class="file-list" data-file-list></ul>
- </div>
+ </div>`:''}
  <p class="form-required">* Campos obligatorios</p><button class="button button-primary" type="submit">${direct?'Enviar consulta':'Continuar en WhatsApp'} <span aria-hidden="true">↗</span></button>
  <p class="form-privacy">Usaremos tus datos para atender esta consulta. Lee la <a href="${rel(depth,'privacidad/')}">política de privacidad</a>.</p><p class="form-status" role="status" aria-live="polite"></p>
  <noscript><p>Para contactar, <a href="${waUrl(page.waMessage||home.waMessage)}">abre WhatsApp</a> o escribe a <a href="mailto:${MAIL}">${MAIL}</a>.</p></noscript>

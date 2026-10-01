@@ -261,22 +261,8 @@ e.preventDefault();syncInput();var fd=new FormData(form),button=form.querySelect
 picked.forEach(function(f){fd.append('attachment',f,f.name);});
 var labels={nombre:'Nombre',email:'Email',telefono:'Teléfono',localidad:'Localidad',servicio:'Servicio',mensaje:'Consulta'},lines=[];
 fd.forEach(function(v,k){if(labels[k]&&String(v).trim())lines.push(labels[k]+': '+String(v).trim());});
-if(picked.length)lines.push('Archivos a adjuntar: '+picked.map(function(f){return f.name;}).join(', '));
 var msg="Hola, os escribo para pedir presupuesto de rotulación."+'\n\n'+lines.join('\n');
-try{
-if(picked.length&&navigator.canShare){
-var shareData={text:msg,title:'Consulta Vexil',files:picked};
-if(navigator.canShare(shareData)){
-status.textContent='Elige WhatsApp para enviar la consulta con tus fotos.';
-button.disabled=true;
-await navigator.share(shareData);
-track('abrir_consulta_whatsapp');
-button.disabled=false;button.textContent='Continuar en WhatsApp';
-return;
-}
-}
-}catch(err){if(err&&err.name==='AbortError'){button.disabled=false;button.textContent='Continuar en WhatsApp';status.textContent='';return;}button.disabled=false;button.textContent='Continuar en WhatsApp';}
-status.textContent=picked.length?'Se abrirá WhatsApp con tu consulta. Adjunta ahí las fotos que has elegido y pulsa enviar.':'Se abrirá WhatsApp con tu consulta preparada. Allí podrás adjuntar fotos y pulsar enviar.';
+status.textContent='Se abrirá WhatsApp con tu consulta. Allí podrás adjuntar fotos y pulsar enviar.';
 track('abrir_consulta_whatsapp');window.location.href='https://wa.me/34616048109?text='+encodeURIComponent(msg);
 });});
 
