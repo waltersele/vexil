@@ -69,7 +69,7 @@ export const navServices = [
     "icon": "local_shipping",
     "summary": "Tu marca y tus datos de contacto, también en ruta.",
     "image": "servicio-vehiculos.jpg",
-    "alt": "Furgoneta La Ibense con rotulación integral"
+    "alt": "Furgoneta Carmovil Jungheinrich rotulada"
   },
   {
     "slug": "interiorismo-comercial",
@@ -199,7 +199,7 @@ export const home = {
   "faqs": [
     {
       "q": "¿Qué servicios de rotulación ofrece Vexil?",
-      "a": "Diseñamos, fabricamos e instalamos rótulos, revestimientos de fachada, vinilos, señalética y gráfica de interior. También ofrecemos rotulación parcial de vehículos, impresión de gran formato, láminas solares, corte láser y CNC, elementos gráficos para eventos e iluminación decorativa."
+      "a": "Diseñamos, fabricamos e instalamos rótulos, revestimientos de fachada, vinilos, señalética y gráfica de interior. También ofrecemos rotulación de vehículos, impresión de gran formato, láminas solares, corte láser y CNC, elementos gráficos para eventos e iluminación decorativa."
     },
     {
       "q": "¿Podéis hacer solo una parte del trabajo?",
@@ -310,8 +310,8 @@ export const services = {
           },
           {
                 "img": "trabajo-fachadas-03.jpg",
-                "alt": "Fachada La Jijonenca con letras corpóreas",
-                "caption": "La Jijonenca · letras corpóreas"
+                "alt": "Fachada La Ibense con letras corpóreas",
+                "caption": "La Ibense · letras corpóreas"
           },
           {
                 "img": "trabajo-fachadas-04.jpg",
@@ -339,11 +339,6 @@ export const services = {
                 "caption": "Firmand"
           },
           {
-                "img": "trabajo-fachadas-09.jpg",
-                "alt": "Fachada Carnes La Mancha con paneles y rótulos",
-                "caption": "Carnes La Mancha"
-          },
-          {
                 "img": "trabajo-fachadas-10.jpg",
                 "alt": "Fachada Kikora con vinilos y rótulo",
                 "caption": "Kikora"
@@ -357,11 +352,6 @@ export const services = {
                 "img": "trabajo-fachadas-12.jpg",
                 "alt": "Fachada Shui con rótulos y vinilo",
                 "caption": "Shui"
-          },
-          {
-                "img": "trabajo-fachadas-13.jpg",
-                "alt": "Fachada JT Global Training con rótulo luminoso",
-                "caption": "JT Global Training"
           },
           {
                 "img": "trabajo-fachadas-15.jpg",
@@ -384,17 +374,26 @@ export const services = {
                 "caption": "BYBO Studios"
           }
     ],
-    "transform": {
-      "eyebrow": "Antes y después",
-      "h2": "Del taller al resultado",
-      "lead": "Desliza para comparar la letra corpórea en el taller con el mural de Cauchos Karey ya instalado.",
-      "beforeLabel": "En taller",
-      "beforeImg": "transform-antes.jpg",
-      "beforeAlt": "Detalle de letra corpórea fabricada en el taller",
-      "afterLabel": "Terminado",
-      "afterImg": "transform-despues.jpg",
-      "afterAlt": "Letras corpóreas Cauchos Karey We're Premium Foam Makers en oficina"
-    },
+    "transforms": [
+      {
+        "caption": "Carnes La Mancha · antes / después",
+        "beforeLabel": "Antes",
+        "beforeImg": "transform-mancha-despues.jpg",
+        "beforeAlt": "Fachada Carnes La Mancha anterior con mural y toldos",
+        "afterLabel": "Después",
+        "afterImg": "transform-mancha-antes.jpg",
+        "afterAlt": "Fachada Carnes La Mancha terminada con rótulo y persianas"
+      },
+      {
+        "caption": "JT Global Training · antes / después",
+        "beforeLabel": "Antes",
+        "beforeImg": "transform-jt-antes.jpg",
+        "beforeAlt": "Local con persiana metálica sin rotular, de noche",
+        "afterLabel": "Después",
+        "afterImg": "transform-jt-despues.jpg",
+        "afterAlt": "Fachada JT Global Training con rótulo y revestimiento negro"
+      }
+    ],
     "whyEyebrow": "Beneficios",
     "whyH2": "Renovación de fachadas para comercios y locales",
     "whyLead": "Puede que estés abriendo un local o que el que ya tienes necesite un cambio. Estudiamos el frente como un conjunto: qué se ve desde la calle, dónde colocar tu nombre y cómo integrar los distintos elementos.",
@@ -586,8 +585,8 @@ export const services = {
           },
           {
                 "img": "trabajo-rotulos-06.jpg",
-                "alt": "Letras corpóreas La Jijonenca en fachada",
-                "caption": "La Jijonenca"
+                "alt": "Letras corpóreas La Ibense en fachada",
+                "caption": "La Ibense"
           },
           {
                 "img": "trabajo-rotulos-08.jpg",
@@ -598,16 +597,6 @@ export const services = {
                 "img": "trabajo-rotulos-09.jpg",
                 "alt": "Valla gran formato Karey foam solutions y SeaDek",
                 "caption": "Karey · valla SeaDek"
-          },
-          {
-                "img": "trabajo-rotulos-11.jpg",
-                "alt": "Letras corpóreas y banderolas Relojería Aracil",
-                "caption": "Relojería Aracil"
-          },
-          {
-                "img": "trabajo-rotulos-12.jpg",
-                "alt": "Letras corpóreas Fernando Baeza en oficina",
-                "caption": "Fernando Baeza"
           },
           {
                 "img": "trabajo-rotulos-13.jpg",
@@ -986,7 +975,7 @@ export const services = {
       },
       {
         "q": "¿Qué tipos de vinilo utilizáis?",
-        "a": "Trabajamos varios: monomérico (una opción económica para uso promocional y de corta o media duración), polimérico (pensado para larga duración), transparente y de alta adherencia para superficies difíciles. Te recomendamos el más adecuado según dónde vaya a ir colocado."
+        "a": "Trabajamos con vinilo polimérico o fundido, según la instalación. Elegimos el más adecuado para cada soporte, uso y duración."
       },
       {
         "q": "¿Los adhesivos se pueden laminar?",
@@ -1058,8 +1047,8 @@ export const services = {
       },
       {
         "icon": "layers",
-        "title": "Vinilo fundido",
-        "sub": "Rotulación por zonas"
+        "title": "Vinilo polimérico o fundido",
+        "sub": "El más adecuado"
       },
       {
         "icon": "handyman",
@@ -1069,32 +1058,27 @@ export const services = {
     ],
     "ctaPrimary": "Pedir presupuesto",
     "ctaSecondary": "Ver qué personalizamos",
-    "trust": "Diseño y colocación de vinilo · Rotulación parcial · Taller en El Campello",
+    "trust": "Diseño y colocación de vinilo · Taller en El Campello",
     "heroImg": "servicio-vehiculos.jpg",
-    "heroAlt": "Furgoneta La Ibense con rotulación integral",
+    "heroAlt": "Furgoneta Carmovil Jungheinrich rotulada",
     "worksEyebrow": "Trabajos",
     "worksH2": "Furgonetas, flotas y vehículos rotulados",
-    "worksLead": "La portada es una furgoneta; aquí van más furgones, un tráiler y otros vehículos.",
+    "worksLead": "La portada es una furgoneta Jungheinrich; aquí van más furgones, un tráiler y otros vehículos.",
     "works": [
-          {
-                "img": "trabajo-vehiculos-01.jpg",
-                "alt": "Furgoneta Anja Home rotulada",
-                "caption": "Anja Home · furgoneta"
-          },
           {
                 "img": "trabajo-vehiculos-02.jpg",
                 "alt": "Furgoneta Carmovil Jungheinrich",
                 "caption": "Carmovil / Jungheinrich"
           },
           {
-                "img": "trabajo-vehiculos-04.jpg",
-                "alt": "Furgoneta Crazy Events",
-                "caption": "Crazy Events"
+                "img": "trabajo-vehiculos-05.jpg",
+                "alt": "Pickup ASENDA Reformas y Multiservicios rotulada",
+                "caption": "ASENDA"
           },
           {
-                "img": "trabajo-vehiculos-05.jpg",
-                "alt": "Pickup ASENDA con rotulación parcial",
-                "caption": "ASENDA"
+                "img": "trabajo-vehiculos-01.jpg",
+                "alt": "Furgoneta Anja Home rotulada",
+                "caption": "Anja Home · furgoneta"
           },
           {
                 "img": "trabajo-vehiculos-03.jpg",
@@ -1179,8 +1163,8 @@ export const services = {
       },
       {
         "icon": "layers",
-        "title": "Vinilo fundido",
-        "text": "Se adapta a las formas del vehículo. La duración depende del sol y del cuidado.",
+        "title": "Vinilo polimérico o fundido",
+        "text": "Elegimos el más adecuado para cada instalación. Se adapta a las formas del vehículo; la duración depende del sol y del cuidado.",
         "tag": "Material"
       },
       {
@@ -1197,7 +1181,7 @@ export const services = {
       }
     ],
     "solutionsH2": "Logotipos, datos de contacto y gráfica comercial",
-    "solutionsLead": "Personalización parcial con logotipos, textos y elementos gráficos. No realizamos forrado completo ni cambio de color.",
+    "solutionsLead": "Personalizamos tu furgoneta con logotipos, textos y elementos gráficos, con el vinilo más adecuado para cada instalación.",
     "solutions": [
       {
         "tech": "Identidad",
@@ -1222,7 +1206,7 @@ export const services = {
         "title": "Gráfica que acompaña a tu marca",
         "text": "Completamos la composición con franjas o formas de vinilo que encajen con tu identidad y las zonas elegidas.",
         "specs": [
-          "Rotulación parcial",
+          "Vinilo polimérico o fundido",
           "Vinilo de corte o impreso"
         ]
       }
@@ -1230,12 +1214,8 @@ export const services = {
     "faqH2": "Preguntas frecuentes de rotulación de vehículos",
     "faqs": [
       {
-        "q": "¿Hacéis forrado completo o cambio de color?",
-        "a": "No. Nos centramos en personalización parcial: franjas, logos y textos."
-      },
-      {
         "q": "¿Qué vinilo utilizáis?",
-        "a": "Vinilo fundido, pensado para adaptarse a las formas del vehículo. Su duración depende de la exposición al sol y de cómo lo cuides."
+        "a": "Vinilo polimérico o fundido, según lo que pida cada instalación. Elegimos el más adecuado para el vehículo, el diseño y la duración que necesitas."
       },
       {
         "q": "¿Puedo llevar mi propio diseño?",
@@ -1247,7 +1227,7 @@ export const services = {
       }
     ],
     "contactH2": "Tu furgoneta, con la imagen de tu empresa",
-    "contactLead": "Envíanos fotos de los laterales y la parte trasera, el modelo del vehículo y tu logotipo. Dinos qué datos quieres incluir. Nos centramos en rotulación parcial, sin wrapping completo ni cambio de color.",
+    "contactLead": "Envíanos fotos de los laterales y la parte trasera, el modelo del vehículo y tu logotipo. Dinos qué datos quieres incluir y te orientamos con el vinilo y el diseño.",
     "related": [
       {
         "href": "servicios/impresion-digital/",
@@ -3182,7 +3162,7 @@ export const homeCatalog = [
     "icon": "local_shipping",
     "summary": "Tu marca y tus datos de contacto, también en ruta.",
     "image": "servicio-vehiculos.jpg",
-    "alt": "Furgoneta La Ibense con rotulación integral"
+    "alt": "Furgoneta Carmovil Jungheinrich rotulada"
   },
   {
     "slug": "interiorismo-comercial",

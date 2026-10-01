@@ -311,7 +311,7 @@ entries.forEach(function(entry){
 if(entry.isIntersecting){entry.target.classList.add('is-color');}
 else{entry.target.classList.remove('is-color');}
 });
-},{threshold:0.35,rootMargin:'0px 0px -8% 0px'});
+},{threshold:0.45,rootMargin:'-18% 0px -28% 0px'});
 els.forEach(function(el){io.observe(el);});
 })();
 document.querySelectorAll('form[data-vexil-form]').forEach(function(form){
@@ -476,30 +476,63 @@ function spaces(depth, page) {
 </div></section>`;
 }
 
+function baSlider(depth, t) {
+  if (!t?.beforeImg || !t?.afterImg) return "";
+  const beforeSrc = asset(depth, t.beforeImg);
+  const afterSrc = asset(depth, t.afterImg);
+  const beforeWebp = asset(depth, t.beforeImg.replace(/\.(jpe?g|png)$/i, ".webp"));
+  const afterWebp = asset(depth, t.afterImg.replace(/\.(jpe?g|png)$/i, ".webp"));
+  const caption = t.caption || t.h2 || "Antes / después";
+  return `<figure class="work-ba-card">
+ <div class="ba-slider" data-ba-slider>
+  <div class="ba-layer ba-after">
+   <picture><source type="image/webp" srcset="${afterWebp}"/><img src="${afterSrc}" alt="${(t.afterAlt || "").replaceAll('"','&quot;')}" width="1200" height="900" decoding="async" loading="lazy"/></picture>
+   <span class="ba-chip ba-chip-after">${t.afterLabel || "Después"}</span>
+  </div>
+  <div class="ba-layer ba-before" data-ba-before>
+   <picture><source type="image/webp" srcset="${beforeWebp}"/><img src="${beforeSrc}" alt="${(t.beforeAlt || "").replaceAll('"','&quot;')}" width="1200" height="900" decoding="async" loading="lazy"/></picture>
+   <span class="ba-chip ba-chip-before">${t.beforeLabel || "Antes"}</span>
+  </div>
+  <input class="ba-range" data-ba-range type="range" min="0" max="100" value="50" aria-label="Comparar antes y después de ${caption.replaceAll('"','&quot;')}"/>
+  <div class="ba-handle" data-ba-handle aria-hidden="true"><span></span></div>
+ </div>
+ <figcaption>${caption}</figcaption>
+ </figure>`;
+}
+
 function works(depth, page) {
-  if (!page.works?.length) return "";
-  return `<section class="content-section works-section" id="trabajos"><div class="page-width">
- <div class="section-intro"><div><span class="eyebrow">${page.worksEyebrow || "Trabajos"}</span><h2 class="section-title">${page.worksH2 || "Trabajos de este servicio"}</h2></div>
- <p class="section-lead">${page.worksLead || "Algunos proyectos recientes de este tipo."}</p></div>
- <div class="works-grid">${page.works
-   .map(
-     (w) => `<figure class="work-card color-reveal">
+  const baList = page.transforms || [];
+  const workList = page.works || [];
+  if (!baList.length && !workList.length) return "";
+  const baGrid = baList.length
+    ? `<div class="works-ba-grid">${baList.map((t) => baSlider(depth, t)).join("")}</div>`
+    : "";
+  const cards = workList.length
+    ? `<div class="works-grid">${workList
+        .map(
+          (w) => `<figure class="work-card color-reveal">
  <div class="work-photo">${picture(depth, w.img, w.alt, { w: 1200, h: 900 })}</div>
  ${w.caption ? `<figcaption>${w.caption}</figcaption>` : ""}
  </figure>`
-   )
-   .join("")}</div></div></section>`;
+        )
+        .join("")}</div>`
+    : "";
+  return `<section class="content-section works-section" id="trabajos"><div class="page-width">
+ <div class="section-intro"><div><span class="eyebrow">${page.worksEyebrow || "Trabajos"}</span><h2 class="section-title">${page.worksH2 || "Trabajos de este servicio"}</h2></div>
+ <p class="section-lead">${page.worksLead || "Algunos proyectos recientes de este tipo."}</p></div>
+ ${baGrid}${cards}</div></section>`;
 }
 
-function transform(depth, page, { slider = false } = {}) {
-  const t = page.transform;
+function transform(depth, page, { slider = false, transform: tOverride = null, sectionId = null } = {}) {
+  const t = tOverride || page.transform;
   if (!t?.beforeImg || !t?.afterImg) return "";
   if (slider) {
     const beforeSrc = asset(depth, t.beforeImg);
     const afterSrc = asset(depth, t.afterImg);
     const beforeWebp = asset(depth, t.beforeImg.replace(/\.(jpe?g|png)$/i, ".webp"));
     const afterWebp = asset(depth, t.afterImg.replace(/\.(jpe?g|png)$/i, ".webp"));
-    return `<section class="content-section transform-section" id="antes-despues"><div class="page-width">
+    const id = sectionId || "antes-despues";
+    return `<section class="content-section transform-section" id="${id}"><div class="page-width">
  <div class="section-intro"><div><span class="eyebrow">${t.eyebrow || "Antes y después"}</span><h2 class="section-title">${t.h2}</h2></div>
  <p class="section-lead">${t.lead || "Desliza para comparar."}</p></div>
  <div class="ba-slider" data-ba-slider>
@@ -515,7 +548,7 @@ function transform(depth, page, { slider = false } = {}) {
   <div class="ba-handle" data-ba-handle aria-hidden="true"><span></span></div>
  </div></div></section>`;
   }
-  return `<section class="content-section transform-section" id="proceso-visual"><div class="page-width">
+  return `<section class="content-section transform-section" id="${sectionId || "proceso-visual"}"><div class="page-width">
  <div class="section-intro"><div><span class="eyebrow">${t.eyebrow || "Proceso"}</span><h2 class="section-title">${t.h2}</h2></div>
  <p class="section-lead">${t.lead || ""}</p></div>
  <div class="transform-grid">
@@ -531,18 +564,54 @@ function transform(depth, page, { slider = false } = {}) {
  </div></div></section>`;
 }
 
+function transforms(depth, page, opts = {}) {
+  if (page.transforms?.length) {
+    return page.transforms
+      .map((t, i) =>
+        transform(depth, page, {
+          ...opts,
+          transform: t,
+          sectionId: i === 0 ? (opts.slider ? "antes-despues" : "proceso-visual") : `antes-despues-${i + 1}`,
+        })
+      )
+      .join("");
+  }
+  return transform(depth, page, opts);
+}
+
 function nextStep() {
  return `<section class="advice-strip"><div class="page-width"><p>${nextStepText}</p><a class="text-link" href="#contacto">Hablemos de tu idea <span aria-hidden="true">↗</span></a></div></section>`;
 }
 
 function related(depth, page) {
   if (!page.related?.length) return "";
-  return `<section class="w-full bg-surface-container-lowest py-space-xl">
-<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-space-md">También te puede interesar</h2>
-<ul class="flex flex-wrap gap-space-md">${page.related
-    .map((r) => `<li><a class="font-body-md text-body-md text-primary-container hover:underline" href="${rel(depth, r.href)}">${r.anchor}</a></li>`)
-    .join("")}</ul>
+  const bySlug = new Map();
+  for (const n of navServices) bySlug.set(n.slug, { image: n.image, alt: n.alt, name: n.name });
+  for (const s of Object.values(services)) {
+    if (s.slug) bySlug.set(s.slug, { image: s.heroImg || bySlug.get(s.slug)?.image, alt: s.heroAlt || bySlug.get(s.slug)?.alt, name: s.breadcrumb || s.h1 });
+  }
+  for (const p of [profesionales, nosotros, ...Object.values(extraPages || {})]) {
+    if (p?.slug) bySlug.set(p.slug, { image: p.heroImg, alt: p.heroAlt || p.breadcrumb || p.h1, name: p.breadcrumb || p.h1 });
+  }
+  const cards = page.related
+    .map((r) => {
+      const slug = String(r.href || "")
+        .replace(/^servicios\//, "")
+        .replace(/\/$/, "");
+      const hit = bySlug.get(slug);
+      const title = r.anchor;
+      const img = r.img || hit?.image;
+      const alt = r.alt || hit?.alt || title;
+      const photo = img
+        ? `<div class="related-photo">${picture(depth, img, alt, { w: 800, h: 600 })}</div>`
+        : `<div class="related-photo related-photo-empty" aria-hidden="true"></div>`;
+      return `<a class="related-card${img ? " color-reveal" : ""}" href="${rel(depth, r.href)}">${photo}<span class="related-copy"><span class="related-title">${title}</span><span class="related-more" aria-hidden="true">Ver →</span></span></a>`;
+    })
+    .join("");
+  return `<section class="content-section related-section"><div class="page-width">
+ <div class="section-intro"><div><span class="eyebrow">Sigue explorando</span><h2 class="section-title">También te puede interesar</h2></div>
+ <p class="section-lead">Otros servicios que suelen ir de la mano con este proyecto.</p></div>
+ <div class="related-grid">${cards}</div>
 </div></section>`;
 }
 
@@ -618,7 +687,6 @@ ${hero(depth, page)}
 ${benefits(page, depth)}
 ${solutions(depth, page)}
 ${works(depth, page)}
-${transform(depth, page, { slider: true })}
 ${spaces(depth, page)}
 ${nextStep()}
 ${faqs(page, depth)}
@@ -635,7 +703,7 @@ function homePage(){
  <section class="home-hero"><div class="page-width hero-grid"><div class="hero-copy"><span class="eyebrow">${home.eyebrow}</span><h1>${home.h1}</h1><p class="hero-lead">${home.lead}</p><div class="hero-actions"><a class="button button-primary" href="#contacto">${home.ctaPrimary} <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#servicios">${home.ctaSecondary}</a></div><p class="hero-trust">${home.trust}</p></div>${illustrativeImage(0,home,true)}</div></section>
  <div class="promise-strip"><div class="page-width"><span>Rótulos que se reconocen.</span><span>Mensajes que se entienden.</span><span>Trato directo con el taller.</span></div></div>
  <section class="content-section" id="servicios"><div class="page-width"><div class="section-intro"><div><span class="eyebrow">${home.servicesEyebrow}</span><h2 class="section-title">${home.servicesH2}</h2></div><p class="section-lead">${home.servicesLead}</p></div><div class="services-grid">${cards}</div></div></section>
- ${transform(0, home)}
+ ${transforms(0, home)}
  <section class="process-section" id="como-trabajamos"><div class="page-width"><div class="section-intro"><div><span class="eyebrow">${home.whyEyebrow}</span><h2 class="section-title">${home.whyH2}</h2></div><p class="section-lead">${home.whyLead}</p></div><ol class="process-grid">${home.benefits.map((b,i)=>`<li><span class="process-number">0${i+1}</span><h3>${b.title}</h3><p>${b.text}</p></li>`).join('')}</ol><a class="text-link" href="nosotros/">Conoce Vexil <span aria-hidden="true">↗</span></a></div></section>
  <section class="professional-strip"><div class="page-width"><div><span class="eyebrow">Arquitectura, interiorismo y construcción</span><h2>Rotulación para proyectos de arquitectura e interiorismo</h2><p>Fabricamos e instalamos las piezas de rotulación de tu proyecto, desde planos y con el alcance que necesites.</p></div><a class="button button-outline" href="profesionales/">Trabajemos juntos <span aria-hidden="true">↗</span></a></div></section>
  ${faqs(home,0)}${contactSection(0,{...home,slug:'home',breadcrumb:'Inicio'})}</main>${closeHtml(0,home)}`;
