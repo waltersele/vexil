@@ -62,7 +62,7 @@ export const navServices = [
     "icon": "print",
     "summary": "Vinilos, lonas y murales para comunicar a lo grande.",
     "image": "servicio-impresion-digital.jpg",
-    "alt": "Vinilo impreso Mercat Municipal de Mutxamel"
+    "alt": "Vinilo impreso Mercado de Babel"
   },
   {
     "slug": "vehiculos",
@@ -357,8 +357,8 @@ export const services = {
           },
           {
                 "img": "trabajo-fachadas-15.jpg",
-                "alt": "Puesto Carnes Campoy en Mercat Municipal de Mutxamel",
-                "caption": "Carnes Campoy · Mutxamel"
+                "alt": "Puesto Carnes Campoy en mercado",
+                "caption": "Carnes Campoy"
           },
           {
                 "img": "trabajo-fachadas-16.jpg",
@@ -366,25 +366,25 @@ export const services = {
                 "caption": "Relojería Aracil"
           },
           {
-                "img": "trabajo-fachadas-17.jpg",
-                "alt": "Fachada Talleres Alvatena chapa y pintura",
-                "caption": "Talleres Alvatena"
-          },
-          {
                 "img": "trabajo-fachadas-18.jpg",
                 "alt": "Fachada BYBO Studios con letras corpóreas y vinilo",
                 "caption": "BYBO Studios"
+          },
+          {
+                "img": "trabajo-fachadas-19.jpg",
+                "alt": "Fachada Domani Cars con rótulo y valla",
+                "caption": "Domani Cars"
           }
     ],
     "transforms": [
       {
         "caption": "Carnes La Mancha · antes / después",
         "beforeLabel": "Antes",
-        "beforeImg": "transform-mancha-despues.jpg",
-        "beforeAlt": "Fachada Carnes La Mancha anterior con mural y toldos",
+        "beforeImg": "transform-mancha-antes.jpg",
+        "beforeAlt": "Fachada Carnes La Mancha anterior con mural de ganado y toldos",
         "afterLabel": "Después",
-        "afterImg": "transform-mancha-antes.jpg",
-        "afterAlt": "Fachada Carnes La Mancha terminada con rótulo y persianas"
+        "afterImg": "transform-mancha-despues.jpg",
+        "afterAlt": "Fachada Carnes La Mancha renovada con rótulo negro y letras rojas"
       },
       {
         "caption": "JT Global Training · antes / después",
@@ -393,7 +393,16 @@ export const services = {
         "beforeAlt": "Local con persiana metálica sin rotular, de noche",
         "afterLabel": "Después",
         "afterImg": "transform-jt-despues.jpg",
-        "afterAlt": "Fachada JT Global Training con rótulo y revestimiento negro"
+        "afterAlt": "Fachada JT Global Training terminada con rótulo, vinilos y revestimiento negro"
+      },
+      {
+        "caption": "Goose · antes / después",
+        "beforeLabel": "Antes",
+        "beforeImg": "transform-goose-antes.jpg",
+        "beforeAlt": "Entrada del local sin rótulo Goose",
+        "afterLabel": "Después",
+        "afterImg": "transform-goose-despues.jpg",
+        "afterAlt": "Entrada Goose centre of languages con rótulo y vinilos"
       }
     ],
     "whyEyebrow": "Beneficios",
@@ -815,7 +824,7 @@ export const services = {
     "ctaSecondary": "Ver materiales",
     "trust": "Impresión de gran formato. Colocación si la necesitas.",
     "heroImg": "servicio-impresion-digital.jpg",
-    "heroAlt": "Vinilo impreso Mercat Municipal de Mutxamel",
+    "heroAlt": "Vinilo impreso Mercado de Babel",
     "worksEyebrow": "Trabajos",
     "worksH2": "Impresión y vinilos de gran formato",
     "worksLead": "Escaparates, murales de pared completa, paneles y adhesivos.",
@@ -827,8 +836,8 @@ export const services = {
           },
           {
                 "img": "trabajo-impresion-02.jpg",
-                "alt": "Vinilo impreso Mercat Municipal de Mutxamel",
-                "caption": "Mercat Municipal de Mutxamel"
+                "alt": "Vinilo impreso Mercado de Babel",
+                "caption": "Mercado de Babel"
           },
           {
                 "img": "trabajo-impresion-05.jpg",
@@ -889,6 +898,16 @@ export const services = {
                 "img": "trabajo-impresion-13.jpg",
                 "alt": "Valla gran formato Hhos. Madrid en fachada",
                 "caption": "Hhos. Madrid · valla"
+          },
+          {
+                "img": "trabajo-impresion-14.jpg",
+                "alt": "Congelador La Ibense con vinilo de marca",
+                "caption": "La Ibense"
+          },
+          {
+                "img": "trabajo-impresion-15.jpg",
+                "alt": "Lona CEAM Tabarca en fachada",
+                "caption": "CEAM Tabarca"
           }
     ],
     "whyEyebrow": "Material",
@@ -1125,7 +1144,7 @@ export const services = {
           {
                 "img": "trabajo-vehiculos-13.jpg",
                 "alt": "Furgoneta Audeca parques y jardines Ayuntamiento de Petrer",
-                "caption": "Audeca · Petrer"
+                "caption": "Audeca"
           },
           {
                 "img": "trabajo-vehiculos-14.jpg",
@@ -1144,13 +1163,33 @@ export const services = {
           },
           {
                 "img": "trabajo-vehiculos-17.jpg",
-                "alt": "BMW Z4 SORT Super Oil Racing Technology",
-                "caption": "SORT · Z4"
+                "alt": "Furgoneta La Ibense rotulada",
+                "caption": "La Ibense"
           },
           {
                 "img": "trabajo-vehiculos-18.jpg",
-                "alt": "Camión TCD maxi Hijos de Maxi rotulado",
-                "caption": "TCD maxi"
+                "alt": "Puertas traseras furgoneta La Ibense",
+                "caption": "La Ibense"
+          },
+          {
+                "img": "trabajo-vehiculos-19.jpg",
+                "alt": "Camión Anedilco congelados rotulado",
+                "caption": "Anedilco"
+          },
+          {
+                "img": "trabajo-vehiculos-20.jpg",
+                "alt": "Furgoneta Pascualón Piscinas rotulada",
+                "caption": "Pascualón Piscinas"
+          },
+          {
+                "img": "trabajo-vehiculos-21.jpg",
+                "alt": "Furgoneta Todo Madera rotulada",
+                "caption": "Todo Madera"
+          },
+          {
+                "img": "trabajo-vehiculos-23.jpg",
+                "alt": "Furgoneta con vinilo Iberdrola colaborador",
+                "caption": "Iberdrola"
           }
     ],
     "whyEyebrow": "Personalización",
@@ -1296,8 +1335,8 @@ export const services = {
           },
           {
                 "img": "trabajo-interiorismo-03.jpg",
-                "alt": "Interior La Ibense con murales y vinilos de marca",
-                "caption": "La Ibense · murales"
+                "alt": "Interior La Ibense con mural de sabores y vinilos de marca",
+                "caption": "La Ibense"
           },
           {
                 "img": "trabajo-interiorismo-04.jpg",
@@ -1333,6 +1372,16 @@ export const services = {
                 "img": "trabajo-interiorismo-12.jpg",
                 "alt": "Letras corpóreas Beyond your body en pared",
                 "caption": "BYBO · Beyond your body"
+          },
+          {
+                "img": "trabajo-interiorismo-13.jpg",
+                "alt": "Showroom HM con expositores y vinilos",
+                "caption": "HM"
+          },
+          {
+                "img": "trabajo-interiorismo-14.jpg",
+                "alt": "Expositor HM Lab y Stock con gráfica de marca",
+                "caption": "HM"
           }
     ],
     "whyEyebrow": "Cómo trabajamos",
@@ -1738,6 +1787,16 @@ export const services = {
                 "img": "trabajo-corte-07.jpg",
                 "alt": "Letras corpóreas N.uñas",
                 "caption": "N.uñas"
+          },
+          {
+                "img": "trabajo-corte-08.jpg",
+                "alt": "Corte de letras BYBO en mesa CNC",
+                "caption": "BYBO"
+          },
+          {
+                "img": "trabajo-corte-09.jpg",
+                "alt": "Placa circular de metacrilato con logotipo",
+                "caption": "Metacrilato"
           }
     ],
     "whyEyebrow": "Dos máquinas",
@@ -1905,13 +1964,13 @@ export const services = {
           },
           {
                 "img": "trabajo-impresion-02.jpg",
-                "alt": "Vinilo Mercat Municipal de Mutxamel",
-                "caption": "Mercat Municipal de Mutxamel"
+                "alt": "Vinilo Mercado de Babel",
+                "caption": "Mercado de Babel"
           },
           {
                 "img": "trabajo-stands-04.jpg",
-                "alt": "Vinilo Mercat Municipal de Mutxamel en evento",
-                "caption": "Mercat Municipal de Mutxamel · evento"
+                "alt": "Vinilo Mercado de Babel en evento",
+                "caption": "Mercado de Babel"
           }
     ],
     "whyEyebrow": "Visibilidad en feria",
@@ -2086,6 +2145,11 @@ export const services = {
                 "img": "trabajo-iluminacion-05.jpg",
                 "alt": "Panel BYBO con retroiluminación LED",
                 "caption": "BYBO · LED"
+          },
+          {
+                "img": "trabajo-iluminacion-06.jpg",
+                "alt": "Perfiles LED lineales en techo y paredes",
+                "caption": "Perfiles LED"
           }
     ],
     "whyEyebrow": "Luz de ambiente",
@@ -2257,14 +2321,30 @@ export const services = {
           },
           {
                 "img": "trabajo-senaletica-02.jpg",
-                "alt": "Señalética Tourist Info Mutxamel",
-                "caption": "Tourist Info Mutxamel"
+                "alt": "Señalética Tourist Info",
+                "caption": "Tourist Info"
           },
           {
                 "img": "trabajo-senaletica-04.jpg",
                 "alt": "Placa metálica G. Castelló 19 Local 8",
                 "caption": "G. Castelló 19 · Local 8"
+          },
+          {
+                "img": "trabajo-senaletica-05.jpg",
+                "alt": "Señalética TRAM estación Marq-Castillo",
+                "caption": "TRAM"
           }
+    ],
+    "transforms": [
+      {
+        "caption": "Mutxamel · antes / después",
+        "beforeLabel": "Antes",
+        "beforeImg": "transform-mutxamel-antes.jpg",
+        "beforeAlt": "Directorio Mutxamel La Vall del Sol deteriorado",
+        "afterLabel": "Después",
+        "afterImg": "transform-mutxamel-despues.jpg",
+        "afterAlt": "Directorio Mutxamel La Vall del Sol renovado"
+      }
     ],
     "whyEyebrow": "También es marca",
     "whyH2": "Señalización para orientar e identificar espacios",
@@ -3155,7 +3235,7 @@ export const homeCatalog = [
     "icon": "print",
     "summary": "Vinilos, lonas y murales para comunicar a lo grande.",
     "image": "servicio-impresion-digital.jpg",
-    "alt": "Vinilo impreso Mercat Municipal de Mutxamel"
+    "alt": "Vinilo impreso Mercado de Babel"
   },
   {
     "slug": "vehiculos",

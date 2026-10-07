@@ -206,7 +206,7 @@ ${icon(s.icon, "w-[22px] h-[22px] text-primary-container mt-0.5 shrink-0")}
 <header class="site-header fixed top-0 left-0 w-full z-[60] bg-white shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
 <div class="h-20 max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between">
 <a class="flex items-center shrink-0" href="${homeHref}">
-<img alt="Vexil Rotulación" class="h-10 md:h-12 w-auto object-contain object-left" src="${asset(depth, "logo.png")}" width="174" height="48"/>
+<img alt="Vexil Rotulación" class="h-10 md:h-12 w-auto object-contain object-left" src="${asset(depth, "logo.png")}" width="160" height="48"/>
 </a>
 <nav aria-label="Navegación principal" class="hidden lg:flex items-center gap-space-lg h-full">
 <div class="mega-wrap static h-full flex items-center">
@@ -259,7 +259,7 @@ function footer(depth) {
 <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-lg pb-space-xl">
 <div class="flex flex-col gap-space-sm">
-<img alt="Vexil Rotulación" class="h-7 w-auto max-w-full self-start object-contain object-left" src="${asset(depth, "logo.png")}" width="102" height="28"/>
+<img alt="Vexil Rotulación" class="h-7 w-auto max-w-full self-start object-contain object-left" src="${asset(depth, "logo.png")}" width="93" height="28"/>
 <p class="font-body-sm text-body-sm text-on-surface-variant">Rotulación, fachadas, interiores y señalética. Diseñado y fabricado en El Campello, montado en toda el área de Alicante.</p>
 <p class="font-body-sm text-body-sm text-on-surface">${NAP}</p>
 <p class="font-body-sm text-body-sm text-on-surface-variant">${AREA}</p>
