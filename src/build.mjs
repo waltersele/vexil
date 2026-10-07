@@ -704,7 +704,7 @@ ${closeHtml(depth, page)}`;
 
 function homePage(){
  const cards=homeCatalog.map((n,i)=>`<a class="service-card color-reveal" href="${serviceHref(0,n.slug)}"><div class="card-photo">${picture(0,n.image,n.alt)}</div><div class="card-copy"><span class="card-index">${String(i+1).padStart(2,'0')}</span><h3>${n.name}</h3><p>${n.summary}</p><span class="card-link">Ver servicio <span aria-hidden="true">↗</span></span></div></a>`).join('');
- return `${head({title:home.title,description:home.description,path:'/',depth:0,faqs:home.faqs,localBusiness:true})}
+ return `${head({title:home.title,description:home.description,path:'/',depth:0,faqs:home.faqs,localBusiness:true,ogImage:shareImageName({slug:"home"})})}
  <body class="bg-surface font-body-md text-on-surface antialiased">${header(0,'home')}<main id="contenido" class="pt-20">
  <section class="home-hero"><div class="page-width hero-grid"><div class="hero-copy"><span class="eyebrow">${home.eyebrow}</span><h1>${home.h1}</h1><p class="hero-lead">${home.lead}</p><div class="hero-actions"><a class="button button-primary" href="#contacto">${home.ctaPrimary} <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#servicios">${home.ctaSecondary}</a></div><p class="hero-trust">${home.trust}</p></div>${illustrativeImage(0,home,true)}</div></section>
  <div class="promise-strip"><div class="page-width"><span>Rótulos que se reconocen.</span><span>Mensajes que se entienden.</span><span>Trato directo con el taller.</span></div></div>
@@ -838,7 +838,7 @@ async function optimizeImages() {
     }
   }
 
-  await writeOg("servicio-fachadas.jpg", "og.jpg");
+  await writeOg(home.heroImg || "servicio-fachadas.jpg", "og.jpg");
   const ogSources = new Map();
   ogSources.set("home", home.heroImg);
   for (const page of Object.values(services)) ogSources.set(page.slug, page.heroImg);

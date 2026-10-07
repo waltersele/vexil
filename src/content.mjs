@@ -149,8 +149,8 @@ export const home = {
   "ctaPrimary": "Cuéntanos tu idea",
   "ctaSecondary": "Explora los servicios",
   "trust": "Taller propio en El Campello · Servicio en Alicante y provincia",
-  "heroImg": "servicio-fachadas.jpg",
-  "heroAlt": "Fachada de Le Mans Auto Service con rotulación integral",
+  "heroImg": "portada-home.jpg",
+  "heroAlt": "Taller Vexil con CNC, letras corpóreas y rotulación en El Campello",
   "transform": {
     "eyebrow": "Del taller a la obra",
     "h2": "De la fabricación al resultado",
