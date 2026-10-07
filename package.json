@@ -5,9 +5,12 @@
   "scripts": {
     "build": "node src/build.mjs && npx tailwindcss -i src/styles.css -o public/assets/app.css --minify",
     "start": "npx --yes serve public -p 4173",
-    "check": "node scripts/verify-build.mjs"
+    "check": "node scripts/verify-build.mjs",
+    "deploy": "npm run build && node scripts/deploy-ftp.mjs",
+    "deploy:ftp": "node scripts/deploy-ftp.mjs"
   },
   "devDependencies": {
+    "basic-ftp": "^5.0.5",
     "sharp": "^0.34.4",
     "tailwindcss": "^3.4.17"
   }
