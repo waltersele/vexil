@@ -31,6 +31,8 @@ const ADDRESS_LINE = [contact.streetAddress, [contact.postalCode, contact.addres
   .join(", ");
 const NAP = [contact.name, ADDRESS_LINE].filter(Boolean).join(" · ");
 const AREA = contact.areaServed.join(", ");
+const TRADE_OPTION = "Corte a medida para empresas";
+const TRADE_WA = "Hola, os escribo como empresa para solicitar la tarifa profesional de corte a medida.";
 
 function rel(depth, path) {
   if (!path) return depth === 0 ? "./" : "../".repeat(depth);
@@ -369,12 +371,18 @@ e.preventDefault();syncInput();var fd=new FormData(form),button=form.querySelect
 picked.forEach(function(f){fd.append('attachment',f,f.name);});
 ${key ? `button.disabled=true;button.textContent='Enviando…';status.textContent='Estamos enviando tu consulta.';
 try{fd.append('access_key',${JSON.stringify(key)});var response=await fetch('https://api.web3forms.com/submit',{method:'POST',body:fd});var result=await response.json();if(!response.ok||!result.success)throw new Error('No confirmado');track('envio_formulario');window.location.href=${JSON.stringify(thanks)};}
-catch(error){status.textContent='No hemos podido enviar la consulta. Tus datos siguen aquí. Inténtalo de nuevo o escríbenos por email o WhatsApp.';button.disabled=false;button.textContent='Enviar consulta';}` : `var labels={nombre:'Nombre',email:'Email',telefono:'Teléfono',localidad:'Localidad',servicio:'Servicio',mensaje:'Consulta'},lines=[];
+catch(error){status.textContent='No hemos podido enviar la consulta. Tus datos siguen aquí. Inténtalo de nuevo o escríbenos por email o WhatsApp.';button.disabled=false;button.textContent='Enviar consulta';}` : `var labels={nombre:'Nombre',email:'Email',telefono:'Teléfono',localidad:'Localidad',servicio:'Servicio',empresa:'Empresa',actividad:'Actividad',mensaje:'Consulta'},lines=[];
 fd.forEach(function(v,k){if(labels[k]&&String(v).trim())lines.push(labels[k]+': '+String(v).trim());});
-var msg=${JSON.stringify(page.waMessage||home.waMessage)}+'\\n\\n'+lines.join('\\n');
+var prefix=fd.get('servicio')===${JSON.stringify(TRADE_OPTION)}?${JSON.stringify(TRADE_WA)}:${JSON.stringify(page.waMessage||home.waMessage)};
+var msg=prefix+'\\n\\n'+lines.join('\\n');
 status.textContent='Se abrirá WhatsApp con tu consulta. Allí podrás adjuntar fotos y pulsar enviar.';
 track('abrir_consulta_whatsapp');window.location.href='https://wa.me/${contact.whatsappNumber}?text='+encodeURIComponent(msg);`}
-});});
+});
+var sel=form.querySelector('[name="servicio"]');
+var extra=form.querySelector('[data-empresa-fields]');
+function syncEmpresa(){var on=sel&&extra&&sel.value===${JSON.stringify(TRADE_OPTION)};if(!extra)return;extra.hidden=!on;extra.querySelectorAll('input').forEach(function(i){i.required=!!on;});}
+sel?.addEventListener('change',syncEmpresa);syncEmpresa();
+});
 ${site.gaId ? `var banner=document.getElementById('cookie-banner');try{if(!localStorage.getItem('vexil-cookies'))banner.hidden=false;}catch(e){banner.hidden=false;}
 function chooseCookies(value){try{localStorage.setItem('vexil-cookies',value);}catch(e){}banner.hidden=true;if(value==='1'&&window.enableAnalytics)enableAnalytics();}
 document.getElementById('cookie-ok')?.addEventListener('click',function(){chooseCookies('1');});
@@ -443,12 +451,47 @@ ${page.benefits
     (b) => `<div class="bg-surface-container-lowest p-space-lg">
 <div class="w-10 h-10 bg-surface-container-high flex items-center justify-center text-primary-container mb-4">${icon(b.icon)}</div>
 <h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-sm">${b.title}</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">${resolveLinks(b.text, depth)}</p>
+${b.tag ? `<span class="inline-block mt-space-sm font-label-technical text-label-technical uppercase text-primary-container">${b.tag}</span>` : ""}
+</div>`
+  )
+  .join("")}
+</div>
+</div></section>`;
+}
+
+function tradeBlock(depth, page) {
+  const block = page.trade;
+  if (!block) return "";
+  return `<section class="w-full bg-surface-container-low py-space-xl" id="${block.id}">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+<span class="font-label-technical text-label-technical uppercase tracking-widest text-primary-container block mb-1">Empresas del sector</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight mb-space-md">${block.h2}</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl mb-space-xl">${resolveLinks(block.lead, depth)}</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+${block.cards
+  .map(
+    (b) => `<div class="bg-surface-container-lowest p-space-lg">
+<div class="w-10 h-10 bg-surface-container-high flex items-center justify-center text-primary-container mb-4">${icon(b.icon)}</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-sm">${b.title}</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant">${b.text}</p>
 ${b.tag ? `<span class="inline-block mt-space-sm font-label-technical text-label-technical uppercase text-primary-container">${b.tag}</span>` : ""}
 </div>`
   )
   .join("")}
 </div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl mt-space-xl">${resolveLinks(block.conditions, depth)}</p>
+<div class="mt-space-lg">
+<a class="button button-primary" href="${waUrl(block.waMessage)}" data-track="wa">${block.cta} <span aria-hidden="true">↗</span></a>
+</div>
+</div>
+</section>`;
+}
+
+function inviteLine(depth, page) {
+  if (!page.inviteLine) return "";
+  return `<section class="advice-strip"><div class="page-width">
+<p><a class="text-link" href="${rel(depth, page.inviteLine.href)}">${page.inviteLine.text} <span aria-hidden="true">↗</span></a></p>
 </div></section>`;
 }
 
@@ -659,7 +702,9 @@ function contactSection(depth,page){
  ${direct?`<div class="form-row"><div><label for="email">Email <span aria-hidden="true">*</span></label><input id="email" name="email" type="email" required autocomplete="email" maxlength="200"/></div>
  <div><label for="telefono">Teléfono (opcional)</label><input id="telefono" name="telefono" type="tel" autocomplete="tel" maxlength="30"/></div></div>`
  :`<label for="email">Email (opcional)</label><input id="email" name="email" type="email" autocomplete="email" maxlength="200" placeholder="Por si quieres que te enviemos el presupuesto por correo"/>`}
- <label for="servicio">¿Qué necesitas?</label><select id="servicio" name="servicio"><option value="Necesito asesoramiento"${!services[page.slug]?' selected':''}>No lo tengo claro todavía</option>${options}</select>
+ <label for="servicio">¿Qué necesitas?</label><select id="servicio" name="servicio"><option value="Necesito asesoramiento"${!services[page.slug]?' selected':''}>No lo tengo claro todavía</option>${options}<option value="${TRADE_OPTION}">${TRADE_OPTION}</option></select>
+ <div hidden data-empresa-fields class="form-row"><div><label for="empresa">Empresa <span aria-hidden="true">*</span></label><input id="empresa" name="empresa" autocomplete="organization" maxlength="160"/></div>
+ <div><label for="actividad">Actividad <span aria-hidden="true">*</span></label><input id="actividad" name="actividad" maxlength="160" placeholder="Rotulista, carpintería…"/></div></div>
  <label for="mensaje">Cuéntanos tu idea <span aria-hidden="true">*</span></label><textarea id="mensaje" name="mensaje" required maxlength="2500" rows="4" placeholder="Qué quieres hacer, medidas aproximadas y cualquier detalle que nos ayude."></textarea>
  ${direct?`<div class="file-field"><span class="file-label" id="fotos-label">Fotos, planos o logotipo</span>
  <div class="file-drop" data-file-drop tabindex="0" role="button" aria-labelledby="fotos-label">
@@ -692,11 +737,13 @@ ${header(depth, page.slug)}
 ${hero(depth, page)}
 ${benefits(page, depth)}
 ${solutions(depth, page)}
+${tradeBlock(depth, page)}
 ${works(depth, page)}
 ${spaces(depth, page)}
 ${nextStep()}
 ${faqs(page, depth)}
 ${related(depth, page)}
+${inviteLine(depth, page)}
 ${contactSection(depth, page)}
 </main>
 ${closeHtml(depth, page)}`;

@@ -10,7 +10,7 @@ Aplicar el documento «Vexil · Cambio de textos del site» a la web estática (
 
 - **Vehículos:** rotulación de furgonetas de empresa (logo, teléfono y web). Sin wrapping completo ni cambio de color.
 - **Iluminación decorativa:** se mantiene como página propia.
-- **Profesionales:** arquitectos, interioristas y constructoras. Sin marca blanca ni tarifa para rotulistas.
+- **Profesionales:** arquitectos, interioristas y constructoras; y bloque aparte de corte a medida para empresas del sector (rotulistas, carpinterías, stands, franquicias), con tarifas bajo solicitud y marca blanca. Sin precios públicos ni mencionar láser/CNC/fresa en ese bloque.
 - **Presupuesto:** «sin compromiso». Nunca «gratis» ni «24 h».
 - **Veracidad:** no se escriben plazos, garantías, permisos, porcentajes ni materiales no confirmados (CNC aluminio, láser madera/cartón, lonas de andamio, vallas, buzones, montaje en altura, muestras físicas, mantenimiento de franquicias).
 
@@ -27,6 +27,7 @@ El NIF solo va en aviso legal y privacidad (LSSI). No hace falta para que la web
 ## Qué se implementó
 
 - Copy nuevo en home, 10 servicios, nosotros y profesionales.
+- En `/profesionales/`: sección «Corte a medida para empresas del sector» (`#corte-empresas`), opción de formulario y enlace desde `/servicios/corte/`.
 - Slugs nuevos: `/servicios/laminas-solares/` e `/servicios/interiorismo-comercial/`.
 - Stubs de redirección en las URLs viejas (`lamina-solar`, `interiores`).
 - Páginas nuevas: materiales, franquicias, obra-nueva, aviso legal, privacidad, cookies, gracias y 404.
