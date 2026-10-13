@@ -161,7 +161,9 @@
  <div class="form-row"><div><label for="nombre">Tu nombre <span aria-hidden="true">*</span></label><input id="nombre" name="nombre" required autocomplete="name" maxlength="100"/></div>
  <div><label for="localidad">Localidad</label><input id="localidad" name="localidad" autocomplete="address-level2" maxlength="120" placeholder="¿Dónde es el proyecto?"/></div></div>
  <label for="email">Email (opcional)</label><input id="email" name="email" type="email" autocomplete="email" maxlength="200" placeholder="Por si quieres que te enviemos el presupuesto por correo"/>
- <label for="servicio">¿Qué necesitas?</label><select id="servicio" name="servicio"><option value="Necesito asesoramiento" selected>No lo tengo claro todavía</option><option value="Fachadas comerciales">Fachadas comerciales</option><option value="Letras corpóreas y rótulos">Letras corpóreas y rótulos</option><option value="Impresión digital">Impresión digital</option><option value="Rotulación de furgonetas">Rotulación de furgonetas</option><option value="Rotulación de interiores">Rotulación de interiores</option><option value="Láminas solares">Láminas solares</option><option value="Corte láser y CNC">Corte láser y CNC</option><option value="Stands y eventos">Stands y eventos</option><option value="Iluminación decorativa">Iluminación decorativa</option><option value="Señalética y placas">Señalética y placas</option></select>
+ <label for="servicio">¿Qué necesitas?</label><select id="servicio" name="servicio"><option value="Necesito asesoramiento" selected>No lo tengo claro todavía</option><option value="Fachadas comerciales">Fachadas comerciales</option><option value="Letras corpóreas y rótulos">Letras corpóreas y rótulos</option><option value="Impresión digital">Impresión digital</option><option value="Rotulación de furgonetas">Rotulación de furgonetas</option><option value="Rotulación de interiores">Rotulación de interiores</option><option value="Láminas solares">Láminas solares</option><option value="Corte láser y CNC">Corte láser y CNC</option><option value="Stands y eventos">Stands y eventos</option><option value="Iluminación decorativa">Iluminación decorativa</option><option value="Señalética y placas">Señalética y placas</option><option value="Corte a medida para empresas">Corte a medida para empresas</option></select>
+ <div hidden data-empresa-fields class="form-row"><div><label for="empresa">Empresa <span aria-hidden="true">*</span></label><input id="empresa" name="empresa" autocomplete="organization" maxlength="160"/></div>
+ <div><label for="actividad">Actividad <span aria-hidden="true">*</span></label><input id="actividad" name="actividad" maxlength="160" placeholder="Rotulista, carpintería…"/></div></div>
  <label for="mensaje">Cuéntanos tu idea <span aria-hidden="true">*</span></label><textarea id="mensaje" name="mensaje" required maxlength="2500" rows="4" placeholder="Qué quieres hacer, medidas aproximadas y cualquier detalle que nos ayude."></textarea>
 
  <p class="form-required">* Campos obligatorios</p><button class="button button-primary" type="submit">Continuar en WhatsApp <span aria-hidden="true">↗</span></button>
@@ -278,12 +280,18 @@ list&&list.addEventListener('click',function(e){var btn=e.target.closest('[data-
 form.addEventListener('submit',async function(e){
 e.preventDefault();syncInput();var fd=new FormData(form),button=form.querySelector('button[type="submit"]'),status=form.querySelector('[role="status"]');
 picked.forEach(function(f){fd.append('attachment',f,f.name);});
-var labels={nombre:'Nombre',email:'Email',telefono:'Teléfono',localidad:'Localidad',servicio:'Servicio',mensaje:'Consulta'},lines=[];
+var labels={nombre:'Nombre',email:'Email',telefono:'Teléfono',localidad:'Localidad',servicio:'Servicio',empresa:'Empresa',actividad:'Actividad',mensaje:'Consulta'},lines=[];
 fd.forEach(function(v,k){if(labels[k]&&String(v).trim())lines.push(labels[k]+': '+String(v).trim());});
-var msg="Hola, os escribo para pedir presupuesto de rotulación."+'\n\n'+lines.join('\n');
+var prefix=fd.get('servicio')==="Corte a medida para empresas"?"Hola, os escribo como empresa para solicitar la tarifa profesional de corte a medida.":"Hola, os escribo para pedir presupuesto de rotulación.";
+var msg=prefix+'\n\n'+lines.join('\n');
 status.textContent='Se abrirá WhatsApp con tu consulta. Allí podrás adjuntar fotos y pulsar enviar.';
 track('abrir_consulta_whatsapp');window.location.href='https://wa.me/34616048109?text='+encodeURIComponent(msg);
-});});
+});
+var sel=form.querySelector('[name="servicio"]');
+var extra=form.querySelector('[data-empresa-fields]');
+function syncEmpresa(){var on=sel&&extra&&sel.value==="Corte a medida para empresas";if(!extra)return;extra.hidden=!on;extra.querySelectorAll('input').forEach(function(i){i.required=!!on;});}
+sel?.addEventListener('change',syncEmpresa);syncEmpresa();
+});
 
 })();
 </script>

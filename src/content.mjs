@@ -1909,6 +1909,10 @@ export const services = {
         "anchor": "placas de metacrilato"
       }
     ],
+    "inviteLine": {
+      "href": "profesionales/#corte-empresas",
+      "text": "¿Eres empresa del sector? Solicita la tarifa profesional"
+    },
     "waMessage": "Hola, os escribo por corte láser y CNC a medida."
 
 
@@ -2880,7 +2884,7 @@ export const profesionales = {
   "path": "profesionales/",
   "breadcrumb": "Profesionales",
   "title": "Rotulación para estudios y constructoras | Vexil Alicante",
-  "description": "Fabricación e instalación de rótulos, gráfica interior y señalética para arquitectos, interioristas y constructoras en Alicante. Trabajamos desde tus planos.",
+  "description": "Rotulación para estudios y constructoras, y corte a medida para empresas. Fabricación de piezas para rotulistas y carpinterías, también en marca blanca.",
   "eyebrow": "Arquitectura · Interiorismo · Construcción",
   "h1": "Tu proyecto, llevado del plano a la pieza.",
   "lead": "Colaboramos con arquitectos, interioristas y constructoras en la fabricación e instalación de rótulos, gráfica de interior y señalética. Revisamos contigo los materiales y las medidas para trasladar el diseño al espacio real.",
@@ -2974,6 +2978,46 @@ export const profesionales = {
       "cap": "Acabados"
     }
   ],
+  "trade": {
+    "id": "corte-empresas",
+    "h2": "Corte a medida para empresas del sector",
+    "lead": "Fabricamos piezas cortadas a medida para otros profesionales: rotulistas, carpinterías, empresas de stands y eventos, tiendas y franquicias. Lo hacemos con plazos fiables. También hacemos corte de metacrilato para empresas en Alicante, corte de PVC y composite a medida, y piezas en madera.",
+    "cards": [
+      {
+        "icon": "layers",
+        "title": "Metacrilato, composite, madera y PVC cortados a medida",
+        "text": "Piezas finales en esos cuatro materiales. Fabricación de piezas para rotulistas y carpinterías, a la medida de cada encargo.",
+        "tag": "Materiales"
+      },
+      {
+        "icon": "inventory_2",
+        "title": "Series y trabajos recurrentes",
+        "text": "La misma pieza, las veces que haga falta. Encaja si tienes encargos que se repiten.",
+        "tag": "Series"
+      },
+      {
+        "icon": "draft",
+        "title": "Tarifas profesionales bajo solicitud",
+        "text": "Las tarifas se facilitan a empresas del sector cuando las pides. No las publicamos.",
+        "tag": "Tarifa"
+      },
+      {
+        "icon": "category",
+        "title": "Material propio o aportado por el cliente",
+        "text": "Puedes traer tu material y lo recibimos en el taller. Si lo ponemos nosotros, se factura el corte y el material utilizado.",
+        "tag": "Material"
+      },
+      {
+        "icon": "handshake",
+        "title": "Producción en marca blanca",
+        "text": "Fabricamos para ti sin marcas ni referencias a Vexil en piezas ni embalaje. Respetamos a tus clientes: no los contactamos ni les ofrecemos nuestros servicios. Fabricación en marca blanca, para que las entregues como tuyas.",
+        "tag": "Marca blanca"
+      }
+    ],
+    "conditions": "Necesitamos un archivo vectorial (DXF, SVG, AI o PDF vectorial) con medidas reales y textos en curvas. El plazo de entrega se acuerda según el pedido: depende del trabajo, y cumplimos la fecha que cerramos contigo. Si aportas tú el material, solo cobramos el tiempo de corte y el material sobrante se te entrega con el trabajo. Más detalle de corte a medida para cliente final en <a data-rel=\"servicios/corte/\">corte a medida</a>.",
+    "cta": "Solicitar tarifa profesional",
+    "waMessage": "Hola, os escribo como empresa para solicitar la tarifa profesional de corte a medida."
+  },
   "faqH2": "Preguntas frecuentes para profesionales",
   "faqs": [
     {

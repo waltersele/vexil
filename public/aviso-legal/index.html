@@ -263,12 +263,18 @@ list&&list.addEventListener('click',function(e){var btn=e.target.closest('[data-
 form.addEventListener('submit',async function(e){
 e.preventDefault();syncInput();var fd=new FormData(form),button=form.querySelector('button[type="submit"]'),status=form.querySelector('[role="status"]');
 picked.forEach(function(f){fd.append('attachment',f,f.name);});
-var labels={nombre:'Nombre',email:'Email',telefono:'Teléfono',localidad:'Localidad',servicio:'Servicio',mensaje:'Consulta'},lines=[];
+var labels={nombre:'Nombre',email:'Email',telefono:'Teléfono',localidad:'Localidad',servicio:'Servicio',empresa:'Empresa',actividad:'Actividad',mensaje:'Consulta'},lines=[];
 fd.forEach(function(v,k){if(labels[k]&&String(v).trim())lines.push(labels[k]+': '+String(v).trim());});
-var msg="Hola, os escribo para pedir presupuesto de rotulación."+'\n\n'+lines.join('\n');
+var prefix=fd.get('servicio')==="Corte a medida para empresas"?"Hola, os escribo como empresa para solicitar la tarifa profesional de corte a medida.":"Hola, os escribo para pedir presupuesto de rotulación.";
+var msg=prefix+'\n\n'+lines.join('\n');
 status.textContent='Se abrirá WhatsApp con tu consulta. Allí podrás adjuntar fotos y pulsar enviar.';
 track('abrir_consulta_whatsapp');window.location.href='https://wa.me/34616048109?text='+encodeURIComponent(msg);
-});});
+});
+var sel=form.querySelector('[name="servicio"]');
+var extra=form.querySelector('[data-empresa-fields]');
+function syncEmpresa(){var on=sel&&extra&&sel.value==="Corte a medida para empresas";if(!extra)return;extra.hidden=!on;extra.querySelectorAll('input').forEach(function(i){i.required=!!on;});}
+sel?.addEventListener('change',syncEmpresa);syncEmpresa();
+});
 
 })();
 </script>
