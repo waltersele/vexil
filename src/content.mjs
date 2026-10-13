@@ -143,12 +143,12 @@ export const redirects = [
 export const home = {
   "title": "Rotulación e iluminación en Alicante | Vexil",
   "description": "Rótulos, vinilos, señalética e iluminación LED a medida. Diseño, fabricación e instalación para negocios en Alicante. Taller propio en El Campello.",
-  "eyebrow": "Diseño · Fabricación · Instalación",
-  "h1": "Rotulación e iluminación a medida para tu negocio",
-  "lead": "Diseñamos, fabricamos e instalamos rótulos, vinilos, señalética e iluminación LED. Desde una fachada hasta el interior de tu local, damos forma a la imagen de tu marca.",
+  "eyebrow": "Diseño · Fabricación · Instalación · Compañeros de proyecto",
+  "h1": "Rotulación a medida. Y un partner que va contigo.",
+  "lead": "Diseñamos, fabricamos e instalamos rótulos, vinilos, señalética e iluminación LED. También te asesoramos: escuchamos tu idea, te orientamos en materiales y tomamos decisiones contigo. Mismo objetivo: que tu negocio se vea como merece.",
   "ctaPrimary": "Cuéntanos tu idea",
   "ctaSecondary": "Explora los servicios",
-  "trust": "Taller propio en El Campello · Servicio en Alicante y provincia",
+  "trust": "Taller propio en El Campello · Alicante y provincia · Te acompañamos de principio a fin",
   "heroImg": "portada-home.jpg",
   "heroAlt": "Taller Vexil con CNC, letras corpóreas y rotulación en El Campello",
   "transform": {
@@ -165,9 +165,9 @@ export const home = {
   "servicesEyebrow": "Qué necesitas para tu negocio",
   "servicesH2": "Servicios de rotulación, impresión e iluminación",
   "servicesLead": "Desde el rótulo de una nueva apertura hasta los vinilos de tu furgoneta. Elige lo que necesitas y descubre las opciones, los materiales y cómo podemos ayudarte.",
-  "whyEyebrow": "Así trabajamos",
-  "whyH2": "Del diseño a la instalación: cómo trabajamos",
-  "whyLead": "No necesitas llegar con todo decidido. Cuéntanos qué quieres comunicar y dónde: revisamos el espacio, te orientamos con los materiales y preparamos una propuesta con el alcance del trabajo.",
+  "whyEyebrow": "Contigo en el proyecto",
+  "whyH2": "No solo fabricamos: te acompañamos",
+  "whyLead": "No hace falta llegar con todo decidido. Empatizamos con lo que quieres comunicar, te explicamos opciones con claridad y avanzamos juntos hasta el montaje o la entrega.",
   "whyImg": "servicio-corte.jpg",
   "whyImgAlt": "Monolito con letras corpóreas Cauchos Karey",
   "whyCta": "Conoce el taller",
@@ -175,13 +175,13 @@ export const home = {
   "benefits": [
     {
       "icon": "design_services",
-      "title": "Primero, te escuchamos",
-      "text": "Vemos qué necesitas, dónde irá colocado y qué imagen quieres transmitir."
+      "title": "Te escuchamos de verdad",
+      "text": "Qué necesitas, dónde irá y qué imagen quieres transmitir. Empezamos por entenderte."
     },
     {
       "icon": "verified",
-      "title": "Te explicamos las opciones",
-      "text": "Materiales, tamaño, acabados e iluminación. Te ayudamos a elegir con criterio."
+      "title": "Te asesoramos con criterio",
+      "text": "Materiales, tamaño, acabados e iluminación. Elegimos contigo, no por ti."
     },
     {
       "icon": "precision_manufacturing",
@@ -190,13 +190,13 @@ export const home = {
     },
     {
       "icon": "handyman",
-      "title": "Acordamos la entrega o el montaje",
-      "text": "Puedes encargarnos la fabricación y la instalación, o recibir las piezas listas para tu proyecto."
+      "title": "Cerramos juntos la entrega o el montaje",
+      "text": "Puedes encargarnos la fabricación y la instalación, o recibir las piezas listas para tu proyecto. Lo acordamos contigo."
     }
   ],
   "contactEyebrow": "Presupuesto sin compromiso",
   "contactH2": "Tu próximo proyecto empieza con una conversación.",
-  "contactLead": "¿Abres un local, renuevas tu imagen o necesitas una pieza concreta? Cuéntanos qué tienes en mente. Si puedes, acompáñalo de fotos y medidas aproximadas.",
+  "contactLead": "¿Abres local, renuevas imagen o necesitas una pieza? Cuéntanoslo. Somos taller y también compañeros de camino: fotos y medidas aproximadas ayudan a orientarte mejor.",
   "faqH2": "Preguntas frecuentes",
   "faqs": [
     {
@@ -3042,11 +3042,11 @@ export const nosotros = {
   "slug": "nosotros",
   "path": "nosotros/",
   "breadcrumb": "Nosotros",
-  "title": "Empresa de rotulación en El Campello | Vexil",
-  "description": "Empresa de rotulación en El Campello: diseño, fabricación e instalación de rótulos, fachadas e interiores en el área de Alicante.",
+  "title": "Taller de rotulación y partner de proyecto | Vexil",
+  "description": "Taller de rotulación en El Campello: diseño, fabricación e instalación. También partner y asesor para negocios en Alicante.",
   "eyebrow": "Nosotros",
-  "h1": "Empresa de rotulación en El Campello",
-  "lead": "Somos un taller de rotulación en El Campello. Aquí damos forma a rótulos, vinilos, placas y piezas a medida para negocios y profesionales de Alicante. Puedes contar con nosotros desde el diseño hasta la instalación, o para la parte del trabajo que necesites.",
+  "h1": "Taller propio. Y compañeros de tu rotulación.",
+  "lead": "Somos un taller de rotulación en El Campello: diseño, fabricación e instalación. También somos tu partner y asesor: nos preocupamos por tu proyecto, empatizamos con tu negocio y trabajamos hacia el mismo objetivo.",
   "pills": [
     {
       "icon": "precision_manufacturing",
@@ -3055,8 +3055,8 @@ export const nosotros = {
     },
     {
       "icon": "support_agent",
-      "title": "Te orientamos",
-      "sub": "Material, tamaño y luz"
+      "title": "Partner y asesor",
+      "sub": "Material, tamaño, luz y decisión compartida"
     },
     {
       "icon": "handyman",
@@ -3066,12 +3066,12 @@ export const nosotros = {
   ],
   "ctaPrimary": "Hablar con Vexil",
   "ctaSecondary": "Ver con qué trabajamos",
-  "trust": "Diseño, taller e instalación",
+  "trust": "Diseño, taller e instalación · Partner de proyecto",
   "heroImg": "servicio-corte.jpg",
   "heroAlt": "Monolito con letras corpóreas Cauchos Karey",
   "whyEyebrow": "Quiénes somos",
-  "whyH2": "Cercanía para decidir. Taller para hacerlo.",
-  "whyLead": "Nos gusta empezar por lo concreto: qué necesitas, dónde irá colocado y cómo quieres que se vea. Te explicamos las opciones y acordamos contigo el diseño y el alcance antes de pasar a producción.",
+  "whyH2": "Cercanía para decidir. Taller para hacerlo. Compañeros hasta el final.",
+  "whyLead": "Empezamos por lo concreto: qué necesitas, dónde irá y cómo quieres que se vea. Te explicamos opciones sin prisa y acordamos diseño y alcance antes de producir. No eres un encargo más: vamos a por el mismo resultado.",
   "benefits": [
     {
       "icon": "precision_manufacturing",
@@ -3081,14 +3081,14 @@ export const nosotros = {
     },
     {
       "icon": "support_agent",
-      "title": "Te orientamos",
-      "text": "Material, tamaño y luz según el espacio y el presupuesto.",
+      "title": "Partner y asesor",
+      "text": "Material, tamaño y luz según el espacio y el presupuesto. Decidimos contigo.",
       "tag": "Orientación"
     },
     {
       "icon": "handshake",
-      "title": "Hablas con el taller",
-      "text": "Quien te atiende es quien fabrica y monta, o quien te deja la pieza lista.",
+      "title": "Mismo equipo, mismo objetivo",
+      "text": "Quien te atiende es quien fabrica y monta, o quien te deja la pieza lista. Vamos a por el mismo resultado.",
       "tag": "Equipo"
     }
   ],
